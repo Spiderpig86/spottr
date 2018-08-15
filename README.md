@@ -1,2 +1,2 @@
 # Spottr
-* Something cool is coming soon
+* Something cool is coming soon.
