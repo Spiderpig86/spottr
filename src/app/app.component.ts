@@ -1,10 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { SpottrAuthService } from './services/spottr-service/spottr-auth.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'spottr';
+
+  constructor(private spottrAuthService: SpottrAuthService) { }
+
+  ngOnInit() {
+
+  }
+
+  authUser(): void {
+    this.spottrAuthService.authorizeSpotify();
+  }
 }

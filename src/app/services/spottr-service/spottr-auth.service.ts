@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import { SpottrAppConstants } from './spottr-service.config';
+import { SpottrCredentials } from './spottr-credentials';
 
 /**
  * App authentication with Spotify
@@ -19,14 +20,13 @@ export class SpottrAuthService {
    * @memberof SpottrAuthService
    */
   public authorizeSpotify(): Promise<string> {
-    const authUrl = SpottrAppConstants.API_URL + SpottrAppConstants.API_AUTH;
-    const headers = new Headers({
-      client_id: '',
-      response_type: 'json',
-      redirect_uri: 'test'
-    });
-    return this.http.post(authUrl, {
-      headers: headers
+    const authUrl = SpottrAppConstants.API_ACCOUNT_URL + SpottrAppConstants.API_AUTH;
+    return this.http.get(authUrl, {
+      params: {
+        client_id: SpottrCredentials.client_id,
+        response_type: 'token',
+        redirect_uri: 'test'
+      }
     })
     .toPromise()
     .then((response: Response) => {
