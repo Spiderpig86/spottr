@@ -13,7 +13,9 @@ export enum LOG_LEVEL {
  * @export
  * @class LoggingService
  */
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class LoggingService {
 
   private loggingLevel = LOG_LEVEL.All; // By default for development
@@ -30,7 +32,17 @@ export class LoggingService {
    */
   public log(message: string, level: LOG_LEVEL) {
     if (level < this.loggingLevel) {
-      console.log(message);
+      switch (level) {
+        case LOG_LEVEL.Severe:
+          console.error(message);
+          break;
+        case LOG_LEVEL.Warning:
+          console.warn(message);
+          break;
+        case LOG_LEVEL.All:
+          console.log(message);
+          break;
+      }
     }
   }
 
