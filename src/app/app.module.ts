@@ -5,14 +5,23 @@ import { AppComponent } from './app.component';
 import { SpottrService } from './services/spottr-service/spottr.service';
 import { SpottrAuthService } from './services/spottr-service/spottr-auth.service';
 import { HttpModule } from '../../node_modules/@angular/http';
+import { LoginComponent } from './pages/login/container/login/login.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HomeModule } from './pages/home/home.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent
   ],
   imports: [
+    // Angular Specific
     BrowserModule,
-    HttpModule
+    HttpModule,
+    AppRoutingModule,
+
+    // App Specific
+    HomeModule
   ],
   providers: [SpottrService, SpottrAuthService],
   bootstrap: [AppComponent]

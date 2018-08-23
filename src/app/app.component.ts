@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { SpottrAuthService } from './services/spottr-service/spottr-auth.service';
 
+/**
+ * This will serve as the base container of the application
+ */
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
