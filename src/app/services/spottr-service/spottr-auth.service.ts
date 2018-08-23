@@ -38,7 +38,7 @@ export class SpottrAuthService {
     window.location.href = this.buildUrlParam(authUrl + '?', {
       client_id: SpottrCredentials.client_id,
       response_type: 'token',
-      redirect_uri: 'localhost:4200',
+      redirect_uri: 'http://localhost:4200',
       scope: this.scope
     });
   }
