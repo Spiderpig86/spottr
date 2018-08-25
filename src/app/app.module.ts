@@ -4,15 +4,16 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { SpottrService } from './services/spottr-service/spottr.service';
 import { SpottrAuthService } from './services/spottr-service/spottr-auth.service';
-import { HttpModule } from '../../node_modules/@angular/http';
+import { HttpModule } from '@angular/http';
 import { LoginComponent } from './pages/login/container/login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeModule } from './pages/home/home.module';
+import { DashboardModule } from './layouts/dashboard/dashboard.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     // Angular Specific
@@ -21,7 +22,8 @@ import { HomeModule } from './pages/home/home.module';
     AppRoutingModule,
 
     // App Specific
-    HomeModule
+    HomeModule,
+    DashboardModule
   ],
   providers: [SpottrService, SpottrAuthService],
   bootstrap: [AppComponent]
