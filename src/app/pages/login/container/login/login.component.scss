@@ -1,3 +1,6 @@
+@import '../../../../../global/button.scss';
+@import '../../../../../global/colors.scss';
+
 .login-container {
   background-color: #222;
   color: #fff;
@@ -5,15 +8,72 @@
 
   .d-flex {
     height: 100%;
+    width: 100%;
   }
 
   .login-container__splash {
-    background-color: #fff;
+
+    #duotone {
+      background: url('https://jmperezperez.com/assets/images/posts/fecolormatrix-kanye-west.jpg') no-repeat center center fixed;
+      background-size: cover;
+      height: 100%;
+      position: relative;
+      width: 100%;
+
+      &::before {
+        background-color: rgb(240, 14, 46);
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        mix-blend-mode: darken;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      &::after {
+        background-color: rgb(25, 37, 80);
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        mix-blend-mode: lighten;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+
+    .splash-content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: center;
+      position: absolute;
+      width: 100%;
+    }
   }
 
   .login-container__panel {
       display: flex;
       flex-direction: column;
       justify-content: center;
+  }
+
+  .btn-spottr.btn-login {
+    border: 2px solid $mountain-meadow;
+    color: $mountain-meadow;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: $base-spacing;
+    max-width: 20rem;
+    padding: $base-spacing * 0.75;
+    width: 80%;
+
+      &:hover {
+        background-color: $mountain-meadow;
+        color: #fff;
+      }
   }
 }

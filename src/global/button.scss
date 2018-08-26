@@ -1,16 +1,25 @@
+@import './theme.scss';
+
 /* Button styling for Spottr */
 .btn-spottr {
-  border: 1px solid rgba(169,169,169,.3);
+  background-color: $btn-background;
+  border: 1px solid $btn-border;
   border-radius: 3rem;
-  color: #a9a9a9;
+  color: $btn-color;
   cursor: pointer;
   font-size: .6rem;
   letter-spacing: 3px;
   line-height: 1rem;
   margin: .1rem;
-  padding: .5rem 1.5rem;
+  outline: none;
+  padding: $base-spacing * 0.5 $base-spacing * 1.5;
   position: relative;
   text-align: center;
+  text-transform: uppercase;
   transition: all .2s ease-in;
   user-select: none;
+
+  &:hover {
+    background-color: $btn-background-hover;
+  }
 }

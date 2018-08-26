@@ -1,15 +1,20 @@
 <div class="login-container">
   <div class="d-flex row row-eq-height">
     <div class="login-container__splash col-7">
+      <div id="duotone">
 
+        <div class="splash-content text-center">
+          <h1 class="display-1 font-weight-bold">Spottr.</h1>
+          <h1 class="my-4">Your personal Spotify dashboard.</h1>
+        </div>
+      </div>
     </div>
     <div class="login-container__panel col-5 text-center">
       <div class="container">
-        <h1>Login</h1>
+        <h1>Get Started.</h1>
         <hr />
+        <button class="btn-spottr btn-login" (click)="authUser()">Login</button>
       </div>
     </div>
   </div>
 </div>
-
-<button (click)="authUser()">Login</button>
