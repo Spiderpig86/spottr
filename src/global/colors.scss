@@ -1,0 +1,10 @@
+/* File for storing colors */
+
+/* MIXIN UTILS */
+@mixin bg-opacity($color, $opacity: 0.3) {
+  background-color: $color; /* Fallback */
+  background-color: rgba($color, $opacity);
+}
+
+/* BUTTON */
+$silver-chalice: '#a9a9a9';
