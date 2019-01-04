@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import { SpottrAppConstants } from './spottr-service.config';
 import { SpottrCredentials } from './spottr-credentials';
-import { LoggingService, LOG_LEVEL } from '../loggin-service/logging.service';
+import { LoggingService, LOG_LEVEL } from '../logging-service/logging.service';
 
 /**
  * App authentication with Spotify
@@ -38,7 +38,7 @@ export class SpottrAuthService {
     window.location.href = this.buildUrlParam(authUrl + '?', {
       client_id: SpottrCredentials.client_id,
       response_type: 'token',
-      redirect_uri: 'http://localhost:4200',
+      redirect_uri: 'http://localhost:4200/accept',
       scope: this.scope
     });
   }
