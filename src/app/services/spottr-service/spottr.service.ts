@@ -34,6 +34,7 @@ export class SpottrService {
     return this.http.get<any>(`${SpottrAppConstants.API_URL}${SpottrAppConstants.API_PROFILE}`, { headers: headers })
       .pipe(
         map(result => {
+
           console.log(result);
           return result;
         }),

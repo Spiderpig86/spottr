@@ -51,6 +51,11 @@ export class SpottrAuthService {
     localStorage.setItem(SpottrAppConstants.LOCAL_TOKEN, token);
   }
 
+  public logout(): void {
+    localStorage.removeItem(SpottrAppConstants.LOCAL_TOKEN);
+    window.location.href = '/login';
+  }
+
   /* HELPER FUNCTIONS */
   /**
    *Helper function for building a url given a single level parameter object
