@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeModule } from './pages/home/home.module';
 import { DashboardModule } from './layouts/dashboard/dashboard.module';
 import { AcceptComponent } from './pages/accept/accept.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { AcceptComponent } from './pages/accept/accept.component';
     // Angular Specific
     BrowserModule,
     HttpModule,
+    HttpClientModule,
     AppRoutingModule,
 
     // App Specific

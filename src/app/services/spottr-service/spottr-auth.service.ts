@@ -12,7 +12,7 @@ import { LoggingService, LOG_LEVEL } from '../logging-service/logging.service';
 })
 export class SpottrAuthService {
 
-  scope = [
+  private scopes = [
     'user-read-email',
     'user-read-currently-playing',
     'user-modify-playback-state',
@@ -21,7 +21,7 @@ export class SpottrAuthService {
     'user-read-private',
     'user-top-read',
     'user-read-email'
-  ].join('%20');
+  ];
 
   constructor(private http: Http, private loggingService: LoggingService) {
 
@@ -39,11 +39,15 @@ export class SpottrAuthService {
       client_id: SpottrCredentials.client_id,
       response_type: 'token',
       redirect_uri: 'http://localhost:4200/accept',
-      scope: this.scope
+      scope: encodeURIComponent(this.scopes.join(' '))
     });
   }
 
-  public saveToken(token: string): void {
+  public getToken(): string {
+    return localStorage.getItem(SpottrAppConstants.LOCAL_TOKEN);
+  }
+
+  public setToken(token: string): void {
     localStorage.setItem(SpottrAppConstants.LOCAL_TOKEN, token);
   }
 
