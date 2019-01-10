@@ -20,7 +20,7 @@ export class AcceptComponent implements OnInit {
 
   constructor(private router: Router, private route: ActivatedRoute, private auth: SpottrAuthService) { 
     this.route.fragment.subscribe(fragment => {
-      const fragments = fragment.split('&');
+      const fragments = fragment.split('&'); // Get credentials
       this.token = fragments[0].split('=')[1];
     });
   }
