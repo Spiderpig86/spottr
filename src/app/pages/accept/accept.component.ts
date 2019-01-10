@@ -18,7 +18,8 @@ import { SpottrAppConstants } from '../../services/spottr-service/spottr-service
 export class AcceptComponent implements OnInit {
   token: string = '';
 
-  constructor(private router: Router, private route: ActivatedRoute, private auth: SpottrAuthService) { 
+  constructor(private router: Router, private route: ActivatedRoute, private auth: SpottrAuthService) {
+    // Extract Spotify user token
     this.route.fragment.subscribe(fragment => {
       const fragments = fragment.split('&'); // Get credentials
       this.token = fragments[0].split('=')[1];

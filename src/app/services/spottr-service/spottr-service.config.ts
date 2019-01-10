@@ -10,7 +10,9 @@ export const SpottrAppConstants: ISpottrAppConstants = {
   API_AUTH: '/authorize',
 
   AUTH_KEY: 'access_token',
-  AUTH_TYPE: 'token_type,'
+  AUTH_TYPE: 'token_type,',
+
+  LOCAL_TOKEN: 'spottr_auth_token',
 };
 
 export interface ISpottrAppConstants {
@@ -20,4 +22,6 @@ export interface ISpottrAppConstants {
 
   AUTH_KEY: string;
   AUTH_TYPE: string;
+
+  LOCAL_TOKEN: string;
 }
