@@ -1,0 +1,51 @@
+@import '../../../global/button.scss';
+@import '../../../global/label.scss';
+@import '../../../global/theme.scss';
+
+.side-nav {
+    background-color: #1f1a3a;
+    color: #fff;
+    height: 100%;
+    padding: 3rem 0;
+    width: 300px;
+
+    .app-title {
+        padding: 0 1rem;
+        margin-bottom: 3rem;
+        text-align: center;
+    }
+
+    .lbl-spottr {
+        padding: 0 2rem;
+    }
+    
+    ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+            cursor: pointer;
+            padding: 1rem 0rem 1rem 2rem;
+            transition: all .1s;
+
+            a {
+                color: #fff;
+                font-weight: 600;
+                text-decoration: none;
+            }
+
+            &.selected a {
+                color: $dashboard-accent;
+            }
+
+            &.selected {
+                border-right: 2px solid $dashboard-accent;
+            }
+
+            &:hover {
+                background-color: lighten(#1f1a3a, 10%);
+                transition: all .1s;
+            }
+        }
+    }
+}

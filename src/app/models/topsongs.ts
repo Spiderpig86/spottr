@@ -1,6 +1,6 @@
 import { Image } from "./common";
 
-export interface TopSongs {
+export interface TopTracks {
     items: Album[];
     total: number;
     limit: number;
