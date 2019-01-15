@@ -4,10 +4,10 @@ import { Followers, Image } from "./common";
  * Interface representing list of top songs for user
  *
  * @export
- * @interface TopSongs
+ * @interface TopArtists
  */
-export interface TopSongs {
-    items: Song[];
+export interface TopArtists {
+    items: Artist[];
     total: number;
     limit: number;
     offset: number;
@@ -16,7 +16,7 @@ export interface TopSongs {
     next?: string;
 }
 
-export interface Song {
+export interface Artist {
     external_urls: {
         [key: string]: string;
     };
