@@ -4,6 +4,7 @@ import { map, catchError } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 import { SpottrAppConstants } from './spottr-service.config';
+import { User } from '../../models/user';
 
 /**
  * An Angular 6 service that interfaces with the Spotify API to fetch data.
@@ -25,13 +26,13 @@ export class SpottrService {
    * @returns {Observable<any>} - JSON response with top songs
    * @memberof SpottrService
    */
-  getProfile(token: string): Observable<any> {
+  getProfile(token: string): Observable<User> {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`,
       'Content-Type': 'application/json'
     });
 
-    return this.http.get<any>(`${SpottrAppConstants.API_URL}${SpottrAppConstants.API_PROFILE}`, { headers: headers })
+    return this.http.get<User>(`${SpottrAppConstants.API_URL}${SpottrAppConstants.API_PROFILE}`, { headers: headers })
       .pipe(
         map(result => {
 
