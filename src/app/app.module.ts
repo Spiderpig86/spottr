@@ -12,6 +12,14 @@ import { DashboardModule } from './layouts/dashboard/dashboard.module';
 import { AcceptComponent } from './pages/accept/accept.component';
 import { HttpClientModule } from '@angular/common/http';
 
+/* Font Awesome */
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faFeatherAlt } from '@fortawesome/free-solid-svg-icons';
+
+// Loading library icons
+library.add(faFeatherAlt);
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +35,8 @@ import { HttpClientModule } from '@angular/common/http';
 
     // App Specific
     HomeModule,
-    DashboardModule
+    DashboardModule,
+    FontAwesomeModule
   ],
   providers: [SpottrService, SpottrAuthService],
   bootstrap: [AppComponent]

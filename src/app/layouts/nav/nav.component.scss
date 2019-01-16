@@ -3,7 +3,7 @@
 @import '../../../global/theme.scss';
 
 .side-nav {
-    background-color: #1f1a3a;
+    background-color: $post-gore;
     color: #fff;
     height: 100%;
     padding: 3rem 0;
@@ -39,11 +39,12 @@
             }
 
             &.selected {
+                background-color: lighten($post-gore, 5%);
                 border-right: 2px solid $dashboard-accent;
             }
 
             &:hover {
-                background-color: lighten(#1f1a3a, 10%);
+                background-color: lighten($post-gore, 10%);
                 transition: all .1s;
             }
         }
