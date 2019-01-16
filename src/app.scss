@@ -20,7 +20,7 @@
 /* Bootstrap Optionals */
 
 /* Fonts */
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700|Nunito+Sans:400:600:700');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700|Nunito+Sans:400:600:700Poppins');
 
 /* App Specific Theme */
 * {
@@ -38,4 +38,8 @@ h1, h2, h3, h4, h5, h6 {
 hr {
   border-color: rgba(255, 255, 255, 0.2);
   margin: 2rem;
+}
+
+[class^="display-"] {
+  font-weight: 700;
 }

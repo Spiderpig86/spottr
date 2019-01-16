@@ -7,7 +7,6 @@ import { SpottrAuthService } from './services/spottr-service/spottr-auth.service
 import { HttpModule } from '@angular/http';
 import { LoginComponent } from './pages/login/container/login/login.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HomeModule } from './pages/home/home.module';
 import { DashboardModule } from './layouts/dashboard/dashboard.module';
 import { AcceptComponent } from './pages/accept/accept.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -16,7 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faFeatherAlt } from '@fortawesome/free-solid-svg-icons';
-import { HomeComponent } from './pages/dashboard/home/home.component';
+import { HomeComponent } from './pages/dashboard/home/container/home.component';
 
 // Loading library icons
 library.add(faFeatherAlt);
@@ -36,7 +35,6 @@ library.add(faFeatherAlt);
     AppRoutingModule,
 
     // App Specific
-    HomeModule,
     DashboardModule,
     FontAwesomeModule
   ],
