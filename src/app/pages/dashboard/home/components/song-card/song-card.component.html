@@ -1,5 +1,5 @@
 <div class="song-card">
-  <img src="https://i.scdn.co/image/43f9e513b5694c4dfaaec67e38a5de890a54503f" />
-  <h5 class="title">Name</h5>
-  <p class="subtitle">243,545,566 Followers</p>
+  <img src="{{ (songData)?.album.images[0].url }}" />
+  <h5 class="title">{{ (songData)?.name }}</h5>
+  <p class="subtitle">{{ (songData)?.artists[0].name }}</p>
 </div>

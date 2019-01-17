@@ -1,7 +1,7 @@
 import { Image } from "./common";
 
 export interface TopTracks {
-    items: Album[];
+    items: Track[];
     total: number;
     limit: number;
     offset: number;
@@ -16,14 +16,12 @@ export interface Track {
     disc_number: number;
     duration_ms: number;
     explicit: boolean;
-    external_ids: {
-        [key: string]: string;
-    };
     external_urls: {
         [key: string]: string;
     };
     href: string;
     id: string;
+    images: Image[];
     is_local:  boolean;
     is_playable: boolean;
     name: string;

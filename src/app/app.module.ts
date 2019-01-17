@@ -16,6 +16,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faFeatherAlt } from '@fortawesome/free-solid-svg-icons';
 import { HomeComponent } from './pages/dashboard/home/container/home.component';
+import { SongCardComponent } from './pages/dashboard/home/components/song-card/song-card.component';
 
 // Loading library icons
 library.add(faFeatherAlt);
@@ -26,6 +27,7 @@ library.add(faFeatherAlt);
     LoginComponent,
     AcceptComponent,
     HomeComponent,
+    SongCardComponent,
   ],
   imports: [
     // Angular Specific
