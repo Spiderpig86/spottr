@@ -1,0 +1,22 @@
+@import '../../../../../../global/label.scss';
+.song-card {
+    max-width: 180px;
+    max-height: 250px;
+
+    img {
+        border-radius: .5rem;
+        height: 180px;
+        margin-bottom: .5rem;
+        object-fit: cover;
+        width: 100%;
+    }
+
+    .title {
+        letter-spacing: .03rem;
+    }
+
+    .subtitle {
+        font-size: 80%;
+        opacity: .5;
+    }
+}
