@@ -22,31 +22,35 @@
     ul {
         list-style: none;
         padding: 0;
+    }
 
-        li {
-            cursor: pointer;
-            padding: 1rem 0rem 1rem 2rem;
+    .spottr-li {
+        cursor: pointer;
+        padding: 1rem 0rem 1rem 2rem;
+        transition: all .1s;
+
+        a {
+            color: #fff;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        &.selected a {
+            color: $dashboard-accent;
+        }
+
+        &.selected {
+            background-color: lighten($post-gore, 5%);
+            border-right: 2px solid $dashboard-accent;
+        }
+
+        &:hover {
+            background-color: lighten($post-gore, 10%);
             transition: all .1s;
+        }
 
-            a {
-                color: #fff;
-                font-weight: 600;
-                text-decoration: none;
-            }
-
-            &.selected a {
-                color: $dashboard-accent;
-            }
-
-            &.selected {
-                background-color: lighten($post-gore, 5%);
-                border-right: 2px solid $dashboard-accent;
-            }
-
-            &:hover {
-                background-color: lighten($post-gore, 10%);
-                transition: all .1s;
-            }
+        &.logout-li {
+            background-color: lighten($post-gore, 20%);
         }
     }
 }

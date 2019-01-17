@@ -1,10 +1,15 @@
 <div class="side-nav">
-  <h3 class="app-title">Spottr</h3>
+  <div class="h-100">
+    <h3 class="app-title">Spottr</h3>
 
-  <p class="lbl-spottr">Categories</p>
+    <p class="lbl-spottr">Categories</p>
+    <ul>
+      <li class="selected spottr-li"><a href="#">Home</a></li>
+      <li class="spottr-li"><a href="#">Top Artists</a></li>
+      <li class="spottr-li"><a href="#">Top Songs</a></li>
+    </ul>
+  </div>
   <ul>
-    <li class="selected"><a href="#">Home</a></li>
-    <li><a href="#">Top Artists</a></li>
-    <li><a href="#">Top Songs</a></li>
+    <li class="spottr-li logout-li" (click)="logout()"><a href="#">Logout</a></li>
   </ul>
 </div>

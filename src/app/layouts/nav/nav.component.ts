@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SpottrAuthService } from '../../services/spottr-service/spottr-auth.service';
 
 @Component({
   selector: 'app-nav',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  constructor() { }
+  constructor(private auth: SpottrAuthService) { }
 
   ngOnInit() {
+  }
+
+  logout() {
+    this.auth.logout();
   }
 
 }
