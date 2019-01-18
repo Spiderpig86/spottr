@@ -6,14 +6,20 @@
     </div>
     <div class="container">
       <h3>This Week</h3>
-      
+      <div class="row">
+        <artist-card class="col" *ngFor="let artist of (shortTermTracks)?.items" [artistData]="artist"></artist-card>
+      </div>
     </div>
     <div class="container">
       <h3>Last 6 Months</h3>
-      
+      <div class="row">
+        <artist-card class="col" *ngFor="let artist of (mediumTermTracks)?.items" [artistData]="artist"></artist-card>
+      </div>
     </div>
     <div class="container">
       <h3>All Time</h3>
-      
+      <div class="row">
+        <artist-card class="col" *ngFor="let artist of (longTermTracks)?.items" [artistData]="artist"></artist-card>
+      </div>
     </div>
   </div>

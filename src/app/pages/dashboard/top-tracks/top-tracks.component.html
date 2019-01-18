@@ -1,3 +1,37 @@
-<p>
-  top-tracks works!
-</p>
+<div class="dashboard-top-tracks">
+  <div class="heading d-flex flex-column">
+    <div class="container">
+      <h1 class="display-2">Your Top Tracks</h1>
+    </div>
+  </div>
+  <div class="container">
+    <h3>This Week</h3>
+    <div class="row">
+      <song-card
+        class="col"
+        *ngFor="let track of shortTermTracks?.items"
+        [songData]="track"
+      ></song-card>
+    </div>
+  </div>
+  <div class="container">
+    <h3>Last 6 Months</h3>
+    <div class="row">
+      <song-card
+        class="col"
+        *ngFor="let track of mediumTermTracks?.items"
+        [songData]="track"
+      ></song-card>
+    </div>
+  </div>
+  <div class="container">
+    <h3>All Time</h3>
+    <div class="row">
+      <song-card
+        class="col"
+        *ngFor="let track of longTermTracks?.items"
+        [songData]="track"
+      ></song-card>
+    </div>
+  </div>
+</div>

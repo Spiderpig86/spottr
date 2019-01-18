@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable, forkJoin } from 'rxjs';
+import { SpottrService } from '../../../services/spottr-service/spottr.service';
+import { SpottrAuthService } from '../../../services/spottr-service/spottr-auth.service';
+import { SpottrAppConstants } from '../../../services/spottr-service/spottr-service.config';
+import { TopTracks } from '../../../models/topsongs';
 
 @Component({
   selector: 'app-top-artists',
@@ -7,9 +12,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopArtistsComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(private api: SpottrService, private auth: SpottrAuthService) { }
 
   ngOnInit() {
   }
+
+
 
 }
