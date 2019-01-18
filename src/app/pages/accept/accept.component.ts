@@ -34,7 +34,7 @@ export class AcceptComponent implements OnInit {
 
   /* TEST FUNCTIONS */
   testProfile() {
-    this.api.getTopTracks(this.auth.getToken()).subscribe((res) => {
+    this.api.getShortTermTracks(this.auth.getToken()).subscribe((res) => {
       // If the result is null, logout since token expired
       if (res === null) {
         this.auth.logout();

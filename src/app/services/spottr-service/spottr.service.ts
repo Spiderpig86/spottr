@@ -18,9 +18,9 @@ export class SpottrService {
 
   public profile: User = null;
 
-  public shorTermTracks: TopTracks;
-  public mediumTermTracks: TopTracks;
-  public longTermTracks: TopTracks;
+  public shorTermTracks: TopTracks = null;
+  public mediumTermTracks: TopTracks = null;
+  public longTermTracks: TopTracks = null;
 
   constructor(private http: HttpClient) {
   }
