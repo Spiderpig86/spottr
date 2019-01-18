@@ -63,7 +63,7 @@ export class SpottrService {
    * @param offset - offset of the results
    */
   public getShortTermTracks(token: string, limit?: string, offset?: string): Observable<TopTracks> {
-    if (this.shorTermTracks) {
+    if (this.shorTermTracks && this.shorTermTracks.items.length === Number(limit)) {
       return of(this.shorTermTracks);
     }
 
