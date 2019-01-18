@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Artist } from '../../../../../models/topartist';
+import { Artist } from '../../../../models/topartist';
 
 @Component({
   selector: 'artist-card',

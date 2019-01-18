@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { SpottrService } from '../../../../services/spottr-service/spottr.service';
-import { TopTracks } from '../../../../models/topsongs';
-import { TopArtists } from '../../../../models/topartist';
-import { SpottrAuthService } from '../../../../services/spottr-service/spottr-auth.service';
-import { User } from '../../../../models/user';
+import { SpottrService } from '../../../services/spottr-service/spottr.service';
+import { TopTracks } from '../../../models/topsongs';
+import { TopArtists } from '../../../models/topartist';
+import { SpottrAuthService } from '../../../services/spottr-service/spottr-auth.service';
+import { User } from '../../../models/user';
 
 @Component({
   selector: 'app-home',

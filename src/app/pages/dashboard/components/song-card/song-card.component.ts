@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Track } from '../../../../../models/topsongs';
+import { Track } from '../../../../models/topsongs';
 
 @Component({
   selector: 'song-card',

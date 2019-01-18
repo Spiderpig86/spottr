@@ -15,9 +15,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faFeatherAlt } from '@fortawesome/free-solid-svg-icons';
-import { HomeComponent } from './pages/dashboard/home/container/home.component';
-import { SongCardComponent } from './pages/dashboard/home/components/song-card/song-card.component';
-import { ArtistCardComponent } from './pages/dashboard/home/components/artist-card/artist-card.component';
+import { HomeComponent } from './pages/dashboard/home/home.component';
+import { TopArtistsComponent } from './pages/dashboard/top-artists/top-artists.component';
+import { TopTracksComponent } from './pages/dashboard/top-tracks/top-tracks.component';
 
 // Loading library icons
 library.add(faFeatherAlt);
@@ -28,8 +28,8 @@ library.add(faFeatherAlt);
     LoginComponent,
     AcceptComponent,
     HomeComponent,
-    SongCardComponent,
-    ArtistCardComponent,
+    TopArtistsComponent,
+    TopTracksComponent,
   ],
   imports: [
     // Angular Specific
