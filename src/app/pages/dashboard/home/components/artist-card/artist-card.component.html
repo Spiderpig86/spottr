@@ -1,3 +1,5 @@
-<p>
-  artist-card works!
-</p>
+<div class="artist-card">
+  <img src="{{ (artistData)?.images[0].url }}" />
+  <h5 class="title">{{ (artistData)?.name }}</h5>
+  <p class="subtitle">{{ (artistData)?.followers.total | number }} followers</p>
+</div>

@@ -1,0 +1,25 @@
+@import '../../../../../../global/label.scss';
+.artist-card {
+    max-height: 250px;
+    width: 180px;
+
+    img {
+        border-radius: .5rem;
+        height: 180px;
+        margin-bottom: .5rem;
+        object-fit: cover;
+        width: 100%;
+    }
+
+    .title {
+        letter-spacing: .03rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .subtitle {
+        font-size: 80%;
+        opacity: .5;
+    }
+}

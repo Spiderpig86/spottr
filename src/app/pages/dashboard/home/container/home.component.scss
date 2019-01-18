@@ -14,5 +14,9 @@
 
     .row {
         margin: 3rem 0;
+
+        .col {
+            flex-grow: 0;
+        }
     }
 }

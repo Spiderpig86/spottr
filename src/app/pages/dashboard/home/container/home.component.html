@@ -7,6 +7,7 @@
   <div class="container">
     <h3>Your Top Artists This Week</h3>
     <div class="row">
+      <artist-card class="col" *ngFor="let artist of (topWeeklyArtists)?.items" [artistData]="artist"></artist-card>
     </div>
     <div class="d-flex justify-content-end my-4">
       <button class="btn btn-dark">View More</button>
