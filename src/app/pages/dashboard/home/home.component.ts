@@ -3,6 +3,7 @@ import { SpottrService } from '../../../services/spottr-service/spottr.service';
 import { TopTracks } from '../../../models/topsongs';
 import { TopArtists } from '../../../models/topartist';
 import { SpottrAuthService } from '../../../services/spottr-service/spottr-auth.service';
+import { SpottrAppConstants } from '../../../services/spottr-service/spottr-service.config';
 import { User } from '../../../models/user';
 
 @Component({
@@ -19,13 +20,11 @@ export class HomeComponent implements OnInit {
   constructor(private api: SpottrService, private auth: SpottrAuthService) { }
 
   ngOnInit() {
-    this.api.getTopTracks(this.auth.getToken(), 'short_term', '5').subscribe(res => {
-      console.log(res);
+    this.api.getShortTermTracks(this.auth.getToken(), '5').subscribe(res => {
       this.topWeeklyTracks = res;
     });
 
-    this.api.getTopArtists(this.auth.getToken(), 'short_term', '5').subscribe(res => {
-      console.log(res);
+    this.api.getTopArtists(this.auth.getToken(), SpottrAppConstants.TOP_SHORT, '5').subscribe(res => {
       this.topWeeklyArtists = res;
     });
 
