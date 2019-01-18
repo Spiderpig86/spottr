@@ -17,6 +17,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faFeatherAlt } from '@fortawesome/free-solid-svg-icons';
 import { HomeComponent } from './pages/dashboard/home/container/home.component';
 import { SongCardComponent } from './pages/dashboard/home/components/song-card/song-card.component';
+import { ArtistCardComponent } from './pages/dashboard/home/components/artist-card/artist-card.component';
 
 // Loading library icons
 library.add(faFeatherAlt);
@@ -28,6 +29,7 @@ library.add(faFeatherAlt);
     AcceptComponent,
     HomeComponent,
     SongCardComponent,
+    ArtistCardComponent,
   ],
   imports: [
     // Angular Specific
