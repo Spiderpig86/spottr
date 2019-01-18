@@ -26,13 +26,15 @@
 
     .spottr-li {
         cursor: pointer;
-        padding: 1rem 0rem 1rem 2rem;
+        display: grid;
         transition: all .1s;
 
         a {
             color: #fff;
             font-weight: 600;
             text-decoration: none;
+            padding: 1rem 0rem 1rem 2rem;
+            width: 100%;
         }
 
         &.selected a {
