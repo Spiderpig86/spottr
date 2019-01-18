@@ -29,7 +29,7 @@ export class AcceptComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.testProfile();
+    this.router.navigate(['/dashboard']);
   }
 
   /* TEST FUNCTIONS */
@@ -39,7 +39,6 @@ export class AcceptComponent implements OnInit {
       if (res === null) {
         this.auth.logout();
       }
-      console.log(res);
     });
   }
 

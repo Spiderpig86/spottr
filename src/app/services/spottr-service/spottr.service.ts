@@ -16,12 +16,13 @@ import { TopArtists } from '../../models/topartist';
 })
 export class SpottrService {
 
-  constructor(private http: HttpClient) {
+  public profile: User = null;
 
+  constructor(private http: HttpClient) {
   }
 
   /**
-   * Retrieve user profile given the user auth token
+   * Retrieve user profile iven the user auth token
    * TODO: Generate model
    *
    * @param {string} token - authorization token
@@ -29,6 +30,11 @@ export class SpottrService {
    * @memberof SpottrService
    */
   getProfile(token: string): Observable<User> {
+
+    if (this.profile) {
+      return of(this.profile);
+    }
+
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`,
       'Content-Type': 'application/json'
@@ -37,8 +43,7 @@ export class SpottrService {
     return this.http.get<User>(`${SpottrAppConstants.API_URL}${SpottrAppConstants.API_PROFILE}`, { headers: headers })
       .pipe(
         map(result => {
-
-          console.log(result);
+          this.profile = result;
           return result;
         }),
         catchError(err => {
