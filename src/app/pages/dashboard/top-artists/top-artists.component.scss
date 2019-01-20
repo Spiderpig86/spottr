@@ -1,7 +1,15 @@
+@import '../../../../global/button.scss';
+@import '../../../../global/label.scss';
+@import '../../../../global/theme.scss';
 .dashboard-top-artists {
     .heading {
         align-items: center;
         justify-items: center;
+    }
+
+    .container {
+        margin-top: 3rem;
+        margin-bottom: 3rem;
     }
 
     .row {

@@ -1,25 +1,35 @@
 <div class="dashboard-top-artists">
-    <div class="heading d-flex">
-      <div class="container">
-          <h1 class="display-2">Your Top Artists</h1>
-        </div>
-    </div>
-    <div class="container">
-      <h3>This Week</h3>
-      <div class="row">
-        <artist-card class="col" *ngFor="let artist of (shortTermArtists)?.items" [artistData]="artist"></artist-card>
-      </div>
-    </div>
-    <div class="container">
-      <h3>Last 6 Months</h3>
-      <div class="row">
-        <artist-card class="col" *ngFor="let artist of (mediumTermArtists)?.items" [artistData]="artist"></artist-card>
-      </div>
-    </div>
-    <div class="container">
-      <h3>All Time</h3>
-      <div class="row">
-        <artist-card class="col" *ngFor="let artist of (longTermArtists)?.items" [artistData]="artist"></artist-card>
-      </div>
+  <div class="heading d-flex flex-column">
+    <div class="container"><h1 class="display-2">Your Top Artists</h1></div>
+  </div>
+  <div class="container">
+    <h3>This Week</h3>
+    <div class="row">
+      <artist-card
+        class="col"
+        *ngFor="let artist of shortTermArtists?.items"
+        [artistData]="artist"
+      ></artist-card>
     </div>
   </div>
+  <div class="container">
+    <h3>Last 6 Months</h3>
+    <div class="row">
+      <artist-card
+        class="col"
+        *ngFor="let artist of mediumTermArtists?.items"
+        [artistData]="artist"
+      ></artist-card>
+    </div>
+  </div>
+  <div class="container">
+    <h3>All Time</h3>
+    <div class="row">
+      <artist-card
+        class="col"
+        *ngFor="let artist of longTermArtists?.items"
+        [artistData]="artist"
+      ></artist-card>
+    </div>
+  </div>
+</div>

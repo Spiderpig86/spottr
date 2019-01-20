@@ -33,8 +33,9 @@ export class TopArtistsComponent implements OnInit {
       for (const data of Object.values(res)) {
         if (!data) {
           // Unable to retrieve data, token may have expired, logout
-          this.auth.logout();
-          return;
+          console.log('test');
+          // this.auth.logout();
+          // return;
         }
       }
 
