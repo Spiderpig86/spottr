@@ -14,13 +14,16 @@ import { HttpClientModule } from '@angular/common/http';
 /* Font Awesome */
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faFeatherAlt } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faHeadphonesAlt, faMusic, faStar, faGenderless, faFeatherAlt } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faChartBar } from '@fortawesome/free-regular-svg-icons';
+
+// Loading library icons
+library.add(faBars, faEdit, faHeadphonesAlt, faMusic, faStar, faGenderless, faChartBar, faFeatherAlt);
+
 import { HomeComponent } from './pages/dashboard/home/home.component';
 import { TopArtistsComponent } from './pages/dashboard/top-artists/top-artists.component';
 import { TopTracksComponent } from './pages/dashboard/top-tracks/top-tracks.component';
 
-// Loading library icons
-library.add(faFeatherAlt);
 
 @NgModule({
   declarations: [

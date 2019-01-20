@@ -29,6 +29,10 @@
         display: grid;
         transition: all .1s;
 
+        fa-icon {
+            margin-right: 2rem;
+        }
+
         a {
             color: #fff;
             font-weight: 600;

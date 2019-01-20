@@ -6,11 +6,13 @@ import { AppRoutingModule } from '../../app-routing.module';
 import { TestComponent } from '../../pages/test/container/test.component';
 import { SongCardComponent } from '../../pages/dashboard/components/song-card/song-card.component';
 import { ArtistCardComponent } from '../../pages/dashboard/components/artist-card/artist-card.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   imports: [
     CommonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule
   ],
   declarations: [
     DashboardComponent,

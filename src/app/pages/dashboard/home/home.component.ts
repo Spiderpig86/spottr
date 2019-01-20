@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
   loadData() {
     const observables$: Observable<any>[] = [];
     observables$.push(this.api.getShortTermTracks(this.auth.getToken(), '5'));
-    observables$.push(this.api.getTopArtists(this.auth.getToken(), SpottrAppConstants.TOP_SHORT, '5'));
+    observables$.push(this.api.getShortTermArtists(this.auth.getToken(), '5'));
     observables$.push(this.api.getProfile(this.auth.getToken()));
 
     forkJoin(observables$).subscribe(res => {

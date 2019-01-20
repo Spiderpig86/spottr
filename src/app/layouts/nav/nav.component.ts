@@ -12,11 +12,11 @@ export class NavComponent implements OnInit {
   public curUrl: string = '';
 
   public pages: any = [
-    { name: 'Home', url: 'home' },
-    { name: 'Top Artists', url: 'top-artists' },
-    { name: 'Top Tracks', url: 'top-tracks' },
-    { name: 'Top Genres', url: '#' },
-    { name: 'Playlist Stats', url: '#' }
+    { name: 'Home', url: 'home', fa: ['fa', 'bars'] },
+    { name: 'Top Artists', url: 'top-artists', fa: ['fa', 'headphones-alt'] },
+    { name: 'Top Tracks', url: 'top-tracks', fa: ['fa', 'music'] },
+    { name: 'Top Genres', url: '#', fa: ['fa', 'genderless'] },
+    { name: 'Playlist Stats', url: '#', fa: ['far', 'chart-bar'] }
   ];
 
   constructor(private router: Router, private auth: SpottrAuthService) { }
