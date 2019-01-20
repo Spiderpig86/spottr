@@ -4,13 +4,22 @@
 
     <p class="lbl-spottr">Categories</p>
     <ul>
-      <li *ngFor="let link of pages" [class.selected]="curUrl.endsWith(link.url)" (click)="updateCurUrl()" class="spottr-li">
-          <a routerLink="{{ link.url }}">
-              <fa-icon class="edit" [icon]="[link.fa[0], link.fa[1]]"></fa-icon>{{ link.name }}</a>
+      <li
+        *ngFor="let link of pages"
+        [class.selected]="curUrl.endsWith(link.url)"
+        (click)="updateCurUrl()"
+        class="spottr-li"
+      >
+        <a routerLink="{{ link.url }}">
+          <fa-icon class="edit" [icon]="[link.fa[0], link.fa[1]]"></fa-icon
+          >{{ link.name }}</a
+        >
       </li>
     </ul>
   </div>
   <ul>
-    <li class="spottr-li logout-li" (click)="logout()"><a href="#">Logout</a></li>
+    <li class="spottr-li logout-li" (click)="logout()">
+      <a href="#">Logout</a>
+    </li>
   </ul>
 </div>

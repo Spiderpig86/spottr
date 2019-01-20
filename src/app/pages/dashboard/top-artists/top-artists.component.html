@@ -1,18 +1,30 @@
 <div class="dashboard-top-artists">
   <div class="heading d-flex flex-column">
-    <div class="container"><h1 class="display-2">Your Top Artists</h1></div>
+    <div class="container pad-y"><h1 class="display-2">Your Top Artists</h1></div>
   </div>
-  <div class="container">
+  <div class="d-flex justify-content-end mx-5 container">
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-primary" [class.active]="viewMode === 'grid'" (click)="toggleViewMode('grid')"><fa-icon class="edit" [icon]="['fa', 'grip-lines']"></fa-icon></button>
+      <button type="button" class="btn btn-primary" [class.active]="viewMode === 'tile'" (click)="toggleViewMode('tile')"><fa-icon class="edit" [icon]="['fa', 'th']"></fa-icon></button>
+    </div>
+  </div>
+  <div class="container pad-y">
     <h3>This Week</h3>
-    <div class="row">
+    <div class="row" *ngIf="viewMode === 'grid'; else tiles">
       <artist-card
         class="col"
         *ngFor="let artist of shortTermArtists?.items"
         [artistData]="artist"
       ></artist-card>
     </div>
+    <ng-template #tiles>
+      <artist-tile
+        *ngFor="let artist of shortTermArtists?.items"
+        [artistData]="artist"
+      ></artist-tile>
+    </ng-template>
   </div>
-  <div class="container">
+  <div class="container pad-y">
     <h3>Last 6 Months</h3>
     <div class="row">
       <artist-card
@@ -22,7 +34,7 @@
       ></artist-card>
     </div>
   </div>
-  <div class="container">
+  <div class="container pad-y">
     <h3>All Time</h3>
     <div class="row">
       <artist-card

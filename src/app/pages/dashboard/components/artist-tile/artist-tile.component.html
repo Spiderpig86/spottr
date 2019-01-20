@@ -1,0 +1,7 @@
+<div class="artist-tile d-flex">
+  <img src="{{ (artistData)?.images[0].url }}" />
+  <div class="row">
+    <h5 class="title">{{ (artistData)?.name }}</h5>
+    <p class="subtitle">{{ (artistData)?.followers.total | number }} followers</p>
+  </div>
+</div>
