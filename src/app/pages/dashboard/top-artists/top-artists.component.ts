@@ -20,8 +20,29 @@ export class TopArtistsComponent implements OnInit {
   constructor(private api: SpottrService, private auth: SpottrAuthService) { }
 
   ngOnInit() {
+    this.loadData();
   }
 
+  loadData() {
+    const observables$: Observable<any>[] = [];
+    observables$.push(this.api.getShortTermArtists(this.auth.getToken(), '50'));
+    observables$.push(this.api.getMediumTermArtists(this.auth.getToken(), '50'));
+    observables$.push(this.api.getLongTermArtists(this.auth.getToken(), '50'));
 
+    forkJoin(observables$).subscribe(res => {
+      for (const data of Object.values(res)) {
+        if (!data) {
+          // Unable to retrieve data, token may have expired, logout
+          this.auth.logout();
+          return;
+        }
+      }
+
+      // Otherwise, populate data
+      this.shortTermArtists = res[0];
+      this.mediumTermArtists = res[1];
+      this.longTermArtists = res[2];
+    });
+  }
 
 }
