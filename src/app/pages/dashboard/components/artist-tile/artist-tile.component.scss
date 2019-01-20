@@ -8,5 +8,24 @@
 
     .tile-col {
         margin: 0 2rem;
+
+        &.col-rank {
+            width: 25px;
+        }
+        &.col-artist {
+            width: 125px;
+        }
+        &.col-popularity {
+            width: 125px;
+        }
+        &.col-genre {
+            width: 375px;
+
+            p {
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+        }
     }
 }
