@@ -10,6 +10,8 @@ export class ArtistTileComponent implements OnInit {
 
   @Input()
   public artistData: Artist;
+  @Input()
+  public rank: number;
 
   constructor() { }
 

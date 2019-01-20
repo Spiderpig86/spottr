@@ -19,8 +19,9 @@
     </div>
     <ng-template #tiles>
       <artist-tile
-        *ngFor="let artist of shortTermArtists?.items"
+        *ngFor="let artist of shortTermArtists?.items, index as i"
         [artistData]="artist"
+        [rank]="i"
       ></artist-tile>
     </ng-template>
   </div>
