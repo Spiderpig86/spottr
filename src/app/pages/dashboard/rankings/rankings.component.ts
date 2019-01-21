@@ -1,4 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { SpottrService } from '../../../services/spottr-service/spottr.service';
+import { SpottrAuthService } from '../../../services/spottr-service/spottr-auth.service';
+import { TopTracks } from '../../../models/topsongs';
+import { forkJoin, Observable } from 'rxjs';
+
+interface RankedTrack {
+  longRank?: number;
+  mediumRank?: number;
+  shortRank?: number;
+  name: string;
+  artist: string;
+  id: string;
+}
 
 @Component({
   selector: 'app-rankings',
@@ -7,15 +20,112 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RankingsComponent implements OnInit {
 
-  constructor() { }
+  public shortTermTracks: TopTracks;
+  public mediumTermTracks: TopTracks;
+  public longTermTracks: TopTracks;
+
+  public rankedTracks: Map<string, RankedTrack> = new Map<string, RankedTrack>();
+  public rankedTracksList = [];
+
+  public artists: Set<string> = new Set<string>();
+  public names: Set<string> = new Set<string>();
+  public artistsList = [];
+
+  constructor(private api: SpottrService,  private auth: SpottrAuthService) { }
 
   ngOnInit() {
+    this.loadData();
   }
 
-  nameList = [
-    { text: 'Joe', value: 'Joe' },
-    { text: 'Jim', value: 'Jim' }
-  ];
+  loadData() {
+    const observables$: Observable<any>[] = [];
+    observables$.push(this.api.getShortTermTracks(this.auth.getToken(), '50'));
+    observables$.push(this.api.getMediumTermTracks(this.auth.getToken(), '50'));
+    observables$.push(this.api.getLongTermTracks(this.auth.getToken(), '50'));
+
+    forkJoin(observables$).subscribe(res => {
+      for (const data of Object.values(res)) {
+        if (!data) {
+          // Unable to retrieve data, token may have expired, logout
+          this.auth.logout();
+          return;
+        }
+      }
+
+      // Otherwise, populate data
+      this.shortTermTracks = res[0];
+      this.mediumTermTracks = res[1];
+      this.longTermTracks = res[2];
+
+      let short: RankedTrack[] = this.toRankedTracks(this.shortTermTracks, 'short');
+      let medium: RankedTrack[] = this.toRankedTracks(this.mediumTermTracks, 'medium');
+      let long: RankedTrack[] = this.toRankedTracks(this.longTermTracks, 'long');
+
+      // Populate name and artist data
+      this.populateSets([short, medium, long]);
+
+      // Insert tracks into map, update ranks accordingly if exists
+      short.forEach(track => {
+        this.rankedTracks.set(track.id, track);
+      });
+      medium.forEach(track => {
+        if (this.rankedTracks.has(track.id)) {
+          let t: RankedTrack = this.rankedTracks.get(track.id);
+          t.mediumRank = track.mediumRank;
+          this.rankedTracks.set(t.id, t);
+        } else {
+          this.rankedTracks.set(track.id, track);
+        }
+      });
+      long.forEach(track => {
+        if (this.rankedTracks.has(track.id)) {
+          let t: RankedTrack = this.rankedTracks.get(track.id);
+          t.longRank = track.longRank;
+          this.rankedTracks.set(t.id, t);
+          console.log(t);
+        } else {
+          this.rankedTracks.set(track.id, track);
+        }
+      });
+
+      // Push to lists
+      this.artists.forEach(artist => this.artistsList.push({ text: artist, value: artist }));
+      this.rankedTracksList = [ ...this.rankedTracks.values() ];
+
+      console.log(this.rankedTracksList);
+
+    });
+  }
+
+  toRankedTracks(list: TopTracks, time: string): RankedTrack[] {
+    const res: RankedTrack[] = [];
+    list.items.forEach((track, i) => {
+      res.push({
+        ...time === 'short' && { shortRank: i + 1 },
+        ...time === 'medium' && { mediumRank: i + 1 },
+        ...time === 'long' && { longRank: i + 1 },
+        name: track.name,
+        artist: track.artists[0].name,
+        id: track.id
+      });
+    });
+    return res;
+  }
+
+  populateSets(trackLists: RankedTrack[][]): void {
+    // Populate the set of artists and track names for filter
+    for (let ranked of trackLists) {
+      console.log(ranked);
+      ranked.forEach(track => {
+        this.names.add(track.name);
+        this.artists.add(track.artist.split(',')[0]);
+      });
+    }
+  }
+
+  updateTrackRanks(short: RankedTrack, medium: RankedTrack, long: RankedTrack): void {
+
+  }
   addressList = [
     { text: 'London', value: 'London' },
     { text: 'Sidney', value: 'Sidney' }
@@ -26,7 +136,7 @@ export class RankingsComponent implements OnInit {
   searchAddress: string;
   data = [
     {
-      name   : 'John Brown',
+      name   : 'emoji',
       age    : 32,
       address: 'New York No. 1 Lake Park'
     },

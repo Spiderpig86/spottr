@@ -94,3 +94,8 @@ hr {
   color: rgba(0,0,0,.45);
   background: #65608e;
 }
+
+.ant-dropdown-menu {
+  max-height: 500px;
+  overflow-y: scroll;
+}
