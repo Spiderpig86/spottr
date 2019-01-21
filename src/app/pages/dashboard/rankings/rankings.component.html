@@ -1,18 +1,24 @@
-<div>
-  <nz-table #filterTable [nzData]="displayData">
-    <thead (nzSortChange)="sort($event)" nzSingleSort>
-      <tr>
-        <th nzShowSort nzSortKey="name" nzShowFilter [nzFilters]="nameList" (nzFilterChange)="filter($event,searchAddress)">Name</th>
-        <th nzShowSort nzSortKey="age">Age</th>
-        <th nzShowSort nzSortKey="address" nzShowFilter [nzFilterMultiple]="false" [nzFilters]="addressList" (nzFilterChange)="filter(listOfSearchName,$event)">Address</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let data of filterTable.data">
-        <td>{{data.name}}</td>
-        <td>{{data.age}}</td>
-        <td>{{data.address}}</td>
-      </tr>
-    </tbody>
-  </nz-table>
+<div class="dashboard-rankings">
+  <div class="heading d-flex flex-column">
+    <div class="container pad-y"><h1 class="display-2">Your Top 50 Throughout History</h1></div>
+  </div>
+
+  <div class="container">
+    <nz-table #filterTable [nzData]="displayData">
+      <thead (nzSortChange)="sort($event)" nzSingleSort>
+        <tr>
+          <th nzShowSort nzSortKey="name" nzShowFilter [nzFilters]="nameList" (nzFilterChange)="filter($event,searchAddress)">Name</th>
+          <th nzShowSort nzSortKey="age">Age</th>
+          <th nzShowSort nzSortKey="address" nzShowFilter [nzFilterMultiple]="false" [nzFilters]="addressList" (nzFilterChange)="filter(listOfSearchName,$event)">Address</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of filterTable.data">
+          <td>{{data.name}}</td>
+          <td>{{data.age}}</td>
+          <td>{{data.address}}</td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
 </div>

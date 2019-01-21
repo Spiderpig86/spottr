@@ -46,3 +46,51 @@ hr {
 [class^="display-"] {
   font-weight: 700;
 }
+
+/* ANT Theme Override */
+.ant-table {
+  color: #fff;
+}
+
+.ant-table-tbody > tr > td {
+  border-bottom: 1px solid #28224c;
+  transition: all .3s,border 0s;
+}
+
+.ant-table-thead > tr > th {
+  background: #28224c;
+  transition: background .3s ease;
+  text-align: left;
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+  border-bottom: 1px solid #28224c;
+}
+
+.ant-table-thead > tr.ant-table-row-hover:not(.ant-table-expanded-row) > td,
+.ant-table-tbody > tr.ant-table-row-hover:not(.ant-table-expanded-row) > td,
+.ant-table-thead > tr:hover:not(.ant-table-expanded-row) > td,
+.ant-table-tbody > tr:hover:not(.ant-table-expanded-row) > td {
+  background: #1f1a3a;
+}
+
+.ant-table-thead > tr > th.ant-table-column-sort {
+  background: #342d61;
+}
+
+.ant-table-thead > tr > th.ant-table-column-has-actions.ant-table-column-has-sorters:hover {
+  background: #433e65;
+}
+.ant-table-thead > tr > th.ant-table-column-has-actions.ant-table-column-has-sorters:hover .anticon-filter,
+.ant-table-thead > tr > th.ant-table-column-has-actions.ant-table-column-has-sorters:hover .ant-table-filter-icon {
+  background: #433e65;
+}
+
+.ant-table-thead > tr > th.ant-table-column-has-actions.ant-table-column-has-sorters:active .ant-table-column-sorter-up:not(.on),
+.ant-table-thead > tr > th.ant-table-column-has-actions.ant-table-column-has-sorters:active .ant-table-column-sorter-down:not(.on) {
+  color: #fff;
+}
+
+.ant-table-thead>tr>th.ant-table-column-has-actions.ant-table-column-has-filters .ant-table-filter-icon.ant-table-filter-open, .ant-table-thead>tr>th.ant-table-column-has-actions.ant-table-column-has-filters .anticon-filter.ant-table-filter-open, .ant-table-thead>tr>th.ant-table-column-has-actions.ant-table-column-has-filters:hover .ant-table-filter-icon:hover, .ant-table-thead>tr>th.ant-table-column-has-actions.ant-table-column-has-filters:hover .anticon-filter:hover {
+  color: rgba(0,0,0,.45);
+  background: #65608e;
+}
