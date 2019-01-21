@@ -14,6 +14,8 @@ export class TopTracksComponent implements OnInit {
   public shortTermTracks: TopTracks;
   public mediumTermTracks: TopTracks;
   public longTermTracks: TopTracks;
+  
+  public viewMode: string = 'grid'; // TODO: Add to consts
 
   constructor(private api: SpottrService, private auth: SpottrAuthService) { }
 
@@ -42,5 +44,8 @@ export class TopTracksComponent implements OnInit {
       this.longTermTracks = res[2];
     });
   }
-
+  
+  private toggleViewMode(view: string) {
+    this.viewMode = view;
+  }
 }

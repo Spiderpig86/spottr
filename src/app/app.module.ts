@@ -24,6 +24,7 @@ import { HomeComponent } from './pages/dashboard/home/home.component';
 import { TopArtistsComponent } from './pages/dashboard/top-artists/top-artists.component';
 import { TopTracksComponent } from './pages/dashboard/top-tracks/top-tracks.component';
 import { ArtistTileComponent } from './pages/dashboard/components/artist-tile/artist-tile.component';
+import { SongTileComponent } from './pages/dashboard/components/song-tile/song-tile.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { ArtistTileComponent } from './pages/dashboard/components/artist-tile/ar
     TopArtistsComponent,
     TopTracksComponent,
     ArtistTileComponent,
+    SongTileComponent,
   ],
   imports: [
     // Angular Specific

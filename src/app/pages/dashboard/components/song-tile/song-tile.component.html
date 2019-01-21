@@ -1,0 +1,18 @@
+<div class="song-tile d-inline-flex align-items-center">
+  <div class="tile-col"><img src="{{ songData?.album.images[0].url }}" /> </div>
+  <div class="tile-col col-rank text-center">
+    <h1>{{ rank }}</h1>
+  </div>
+  <div class="tile-col col-artist">
+    <h5 class="title">{{ songData?.name }}</h5>
+    <p class="subtitle">{{ artists }}</p>
+  </div>
+  <div class="tile-col col-popularity">
+    <h5 class="title">Popularity</h5>
+    <p class="subtitle">{{ songData?.popularity }}</p>
+  </div>
+  <div class="tile-col col-year">
+    <h5 class="title">Year</h5>
+    <p class="subtitle">{{ songData?.album.release_date.substring(0, 4) }}</p>
+  </div>
+</div>
