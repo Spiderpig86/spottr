@@ -3,13 +3,13 @@
     <div class="container pad-y"><h1 class="display-2">Your Top 50 Throughout History</h1></div>
   </div>
 
-  <div class="container">
+  <div class="container" *ngIf="hasLoaded">
     <nz-table #filterTable [nzData]="displayData" [nzFrontPagination]="false" [nzShowPagination]="false">
       <thead (nzSortChange)="sort($event)" nzSingleSort>
         <tr>
-          <th></th>
+          <th nzSorter></th>
           <th nzShowSort nzSorter nzSortKey="name">Name</th>
-          <th nzShowSort nzSortKey="artist" nzShowFilter [nzFilterMultiple]="true" [nzFilters]="artistsList">Artist</th>
+          <th nzShowSort nzSortKey="artist" nzShowFilter [nzFilterMultiple]="true" [nzFilters]="artistsList" (nzFilterChange)="filter($event,searchAddress)">Artist</th>
           <th nzShowSort nzSortKey="longRank">All-time</th>
           <th nzShowSort nzSortKey="mediumRank">Last 6 Months</th>
           <th nzShowSort nzSortKey="shortRank">Last Week</th>

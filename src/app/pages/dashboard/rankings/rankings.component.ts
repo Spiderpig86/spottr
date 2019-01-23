@@ -31,6 +31,7 @@ export class RankingsComponent implements OnInit {
   public artists: Set<string> = new Set<string>();
   public names: Set<string> = new Set<string>();
   public artistsList = [];
+  public hasLoaded = false;
 
   constructor(private api: SpottrService,  private auth: SpottrAuthService) { }
 
@@ -93,6 +94,7 @@ export class RankingsComponent implements OnInit {
       this.rankedTracksList = [ ...this.rankedTracks.values() ];
 
       this.displayData = this.rankedTracksList;
+      this.hasLoaded = true;
     });
   }
 
@@ -136,6 +138,7 @@ export class RankingsComponent implements OnInit {
   }
 
   filter(listOfSearchName: string[], searchAddress: string): void {
+    console.log(this.searchAddress);
     this.listOfSearchName = listOfSearchName;
     this.searchAddress = searchAddress;
     this.search();
@@ -143,7 +146,8 @@ export class RankingsComponent implements OnInit {
 
   search(): void {
     /** filter data **/
-    const filterFunc = item => (this.searchAddress ? item.address.indexOf(this.searchAddress) !== -1 : true) && (this.listOfSearchName.length ? this.listOfSearchName.some(name => item.name.indexOf(name) !== -1) : true);
+    console.log(this.searchAddress);
+    const filterFunc = item => (this.searchAddress ? item.artist.indexOf(this.searchAddress) !== -1 : true) && (this.listOfSearchName.length ? this.listOfSearchName.some(name => item.artist.indexOf(name) !== -1) : true);
     const data = this.rankedTracksList.filter(item => filterFunc(item));
     /** sort data **/
     if (this.sortName && this.sortValue) {
