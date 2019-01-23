@@ -6,6 +6,26 @@
         align-items: center;
         justify-items: center;
     }
+
+    .s-title {
+        padding: 1rem 0;
+        position: sticky;
+        position: -webkit-sticky;
+        top: 0;
+        z-index: 99;
+
+        &:before {
+            background: rgba(24, 20, 47, 0.9);
+            bottom: 0;
+            content: "";
+            display: block;
+            left: -10px;
+            position: absolute;
+            right: -10px;
+            top: -5px;
+            z-index: -1;
+        }
+    }
     
     .pad-y {
         margin-top: 3rem;

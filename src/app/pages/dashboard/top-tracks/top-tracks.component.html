@@ -11,7 +11,7 @@
     </div>
   </div>
   <div class="container pad-y">
-    <h3>This Week</h3>
+    <h3 class="s-title">This Week</h3>
     <div class="row" *ngIf="viewMode === 'grid'; else shorttiles">
       <song-card
         class="col"
@@ -28,7 +28,7 @@
     </ng-template>
   </div>
   <div class="container pad-y">
-    <h3>Last 6 Months</h3>
+    <h3 class="s-title">Last 6 Months</h3>
     <div class="row" *ngIf="viewMode === 'grid'; else mediumtiles">
       <song-card
         class="col"
@@ -45,7 +45,7 @@
     </ng-template>
   </div>
   <div class="container pad-y">
-    <h3>All Time</h3>
+    <h3 class="s-title">All Time</h3>
     <div class="row" *ngIf="viewMode === 'grid'; else longtiles">
       <song-card
         class="col"
