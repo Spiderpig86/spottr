@@ -11,6 +11,7 @@ interface RankedTrack {
   name: string;
   artist: string;
   id: string;
+  img: string;
 }
 
 @Component({
@@ -62,10 +63,10 @@ export class RankingsComponent implements OnInit {
       let long: RankedTrack[] = this.toRankedTracks(this.longTermTracks, 'long');
 
       // Populate name and artist data
-      this.populateSets([short, medium, long]);
+      this.populateSets([long, medium, short]);
 
       // Insert tracks into map, update ranks accordingly if exists
-      short.forEach(track => {
+      long.forEach(track => {
         this.rankedTracks.set(track.id, track);
       });
       medium.forEach(track => {
@@ -77,10 +78,10 @@ export class RankingsComponent implements OnInit {
           this.rankedTracks.set(track.id, track);
         }
       });
-      long.forEach(track => {
+      short.forEach(track => {
         if (this.rankedTracks.has(track.id)) {
           let t: RankedTrack = this.rankedTracks.get(track.id);
-          t.longRank = track.longRank;
+          t.shortRank = track.shortRank;
           this.rankedTracks.set(t.id, t);
         } else {
           this.rankedTracks.set(track.id, track);
@@ -104,7 +105,8 @@ export class RankingsComponent implements OnInit {
         ...time === 'long' && { longRank: i + 1 },
         name: track.name,
         artist: track.artists[0].name,
-        id: track.id
+        id: track.id,
+        img: track.album.images[0].url
       });
     });
     return res;

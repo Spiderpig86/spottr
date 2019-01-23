@@ -7,6 +7,7 @@
     <nz-table #filterTable [nzData]="displayData" [nzFrontPagination]="false" [nzShowPagination]="false">
       <thead (nzSortChange)="sort($event)" nzSingleSort>
         <tr>
+          <th></th>
           <th nzShowSort nzSorter nzSortKey="name">Name</th>
           <th nzShowSort nzSortKey="artist" nzShowFilter [nzFilterMultiple]="true" [nzFilters]="artistsList">Artist</th>
           <th nzShowSort nzSortKey="longRank">All-time</th>
@@ -16,6 +17,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let data of filterTable.data">
+          <td><img class="table-img" src="{{ data.img }}" /></td>
           <td>{{data.name}}</td>
           <td>{{data.artist}}</td>
           <td>{{data.longRank}}</td>
