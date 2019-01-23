@@ -5,9 +5,9 @@ import { TopTracks } from '../../../models/topsongs';
 import { forkJoin, Observable } from 'rxjs';
 
 interface RankedTrack {
-  longRank?: number;
-  mediumRank?: number;
-  shortRank?: number;
+  longRank: number;
+  mediumRank: number;
+  shortRank: number;
   name: string;
   artist: string;
   id: string;
@@ -25,7 +25,7 @@ export class RankingsComponent implements OnInit {
   public longTermTracks: TopTracks;
 
   public rankedTracks: Map<string, RankedTrack> = new Map<string, RankedTrack>();
-  public rankedTracksList = [];
+  public rankedTracksList: RankedTrack[] = [];
 
   public artists: Set<string> = new Set<string>();
   public names: Set<string> = new Set<string>();
@@ -82,7 +82,6 @@ export class RankingsComponent implements OnInit {
           let t: RankedTrack = this.rankedTracks.get(track.id);
           t.longRank = track.longRank;
           this.rankedTracks.set(t.id, t);
-          console.log(t);
         } else {
           this.rankedTracks.set(track.id, track);
         }
@@ -92,8 +91,7 @@ export class RankingsComponent implements OnInit {
       this.artists.forEach(artist => this.artistsList.push({ text: artist, value: artist }));
       this.rankedTracksList = [ ...this.rankedTracks.values() ];
 
-      console.log(this.rankedTracksList);
-
+      this.displayData = this.rankedTracksList;
     });
   }
 
@@ -115,48 +113,19 @@ export class RankingsComponent implements OnInit {
   populateSets(trackLists: RankedTrack[][]): void {
     // Populate the set of artists and track names for filter
     for (let ranked of trackLists) {
-      console.log(ranked);
       ranked.forEach(track => {
         this.names.add(track.name);
         this.artists.add(track.artist.split(',')[0]);
       });
     }
+    console.log(this.artists);
   }
 
-  updateTrackRanks(short: RankedTrack, medium: RankedTrack, long: RankedTrack): void {
-
-  }
-  addressList = [
-    { text: 'London', value: 'London' },
-    { text: 'Sidney', value: 'Sidney' }
-  ];
   sortName = null;
   sortValue = null;
   listOfSearchName = [];
   searchAddress: string;
-  data = [
-    {
-      name   : 'emoji',
-      age    : 32,
-      address: 'New York No. 1 Lake Park'
-    },
-    {
-      name   : 'Jim Green',
-      age    : 42,
-      address: 'London No. 1 Lake Park'
-    },
-    {
-      name   : 'Joe Black',
-      age    : 32,
-      address: 'Sidney No. 1 Lake Park'
-    },
-    {
-      name   : 'Jim Red',
-      age    : 32,
-      address: 'London No. 2 Lake Park'
-    }
-  ];
-  displayData = [ ...this.data ];
+  public displayData = [];
 
   sort(sort: { key: string, value: string }): void {
     this.sortName = sort.key;
@@ -173,10 +142,32 @@ export class RankingsComponent implements OnInit {
   search(): void {
     /** filter data **/
     const filterFunc = item => (this.searchAddress ? item.address.indexOf(this.searchAddress) !== -1 : true) && (this.listOfSearchName.length ? this.listOfSearchName.some(name => item.name.indexOf(name) !== -1) : true);
-    const data = this.data.filter(item => filterFunc(item));
+    const data = this.rankedTracksList.filter(item => filterFunc(item));
     /** sort data **/
     if (this.sortName && this.sortValue) {
-      this.displayData = data.sort((a, b) => (this.sortValue === 'ascend') ? (a[ this.sortName ] > b[ this.sortName ] ? 1 : -1) : (b[ this.sortName ] > a[ this.sortName ] ? 1 : -1));
+      if (!(['shortRank', 'mediumRank', 'longRank']).includes(this.sortName)) {
+        this.displayData = data.sort((a, b) => (this.sortValue === 'ascend') ? (a[ this.sortName ] > b[ this.sortName ] ? 1 : -1) : (b[ this.sortName ] > a[ this.sortName ] ? 1 : -1));
+      } else {
+        this.displayData = data.sort((a, b) => {
+          let m = null;
+          let n = null;
+          switch (this.sortName) { // Alter null closure value to sort the tracks correctly
+            case 'longRank':
+              m = a.longRank || (this.sortValue === 'ascend' ? Number.MAX_SAFE_INTEGER : Number.MIN_SAFE_INTEGER);
+              n = b.longRank || (this.sortValue === 'ascend' ? Number.MAX_SAFE_INTEGER : Number.MIN_SAFE_INTEGER);
+              break;
+            case 'mediumRank':
+              m = a.mediumRank || (this.sortValue === 'ascend' ? Number.MAX_SAFE_INTEGER : Number.MIN_SAFE_INTEGER);
+              n = b.mediumRank || (this.sortValue === 'ascend' ? Number.MAX_SAFE_INTEGER : Number.MIN_SAFE_INTEGER);
+              break;
+            default:
+              m = a.shortRank || (this.sortValue === 'ascend' ? Number.MAX_SAFE_INTEGER : Number.MIN_SAFE_INTEGER);
+              n = b.shortRank || (this.sortValue === 'ascend' ? Number.MAX_SAFE_INTEGER : Number.MIN_SAFE_INTEGER);
+          }
+
+          return this.sortValue === 'ascend' ? m - n : n - m;
+        });
+      }
     } else {
       this.displayData = data;
     }

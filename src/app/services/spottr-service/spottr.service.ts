@@ -144,7 +144,7 @@ export class SpottrService {
     return this.http.get<TopTracks>(`${SpottrAppConstants.API_URL}${SpottrAppConstants.API_PROFILE}${SpottrAppConstants.API_TOP_TRACKS}`, { params, headers: headers })
       .pipe(
         map(result => {
-
+          result.time_period = timeRange;
           console.log(result);
           return result;
         }),

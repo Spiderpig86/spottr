@@ -8,6 +8,7 @@ export interface TopTracks {
     href: string;
     previous?: string;
     next?: string;
+    time_period: string;
 }
 
 export interface Track {
