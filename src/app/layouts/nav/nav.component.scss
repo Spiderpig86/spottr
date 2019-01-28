@@ -6,7 +6,7 @@
     background-color: $post-gore;
     color: #fff;
     height: 100%;
-    padding: 3.5rem 0;
+    padding: 3.75rem 0;
     width: 300px;
 
     .app-title {
@@ -58,5 +58,11 @@
         &.logout-li {
             background-color: lighten($post-gore, 20%);
         }
+    }
+
+    .avatar {
+        border-radius: 50%;
+        height: 30px;
+        margin-right: 1rem;
     }
 }
