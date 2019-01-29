@@ -3,6 +3,7 @@ import { SpottrAuthService } from '../../services/spottr-service/spottr-auth.ser
 import { Router } from '@angular/router';
 import { SpottrService } from '../../services/spottr-service/spottr.service';
 import { User } from '../../models/user';
+import { SpottrAppConstants } from '../../services/spottr-service/spottr-service.config';
 
 @Component({
   selector: 'app-nav',
@@ -30,6 +31,11 @@ export class NavComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.curUrl = this.router.url.substring(this.router.url.indexOf('dashboard'));
+    this.api.getTopGenres(this.auth.getToken(), SpottrAppConstants.TOP_SHORT).subscribe(res => null);
+  }
+
+  private updateCurUrl() {
     this.curUrl = this.router.url.substring(this.router.url.indexOf('dashboard'));
   }
 

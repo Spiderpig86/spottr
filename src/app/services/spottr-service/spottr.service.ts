@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 import { SpottrAppConstants } from './spottr-service.config';
 import { User } from '../../models/user';
-import { TopTracks } from '../../models/topsongs';
+import { TopTracks, Track } from '../../models/topsongs';
 import { TopArtists } from '../../models/topartist';
 
 /**
@@ -245,5 +245,29 @@ export class SpottrService {
           return of(null);
         })
       );
+  }
+
+  public getTopGenres(token: string, timeRange: string): Observable<string[]> {
+    // Check if the artists we want to analyze have been analyzed
+    let map: Map<string, number> = new Map();
+    this.getTopArtists(token, timeRange).subscribe(artists => {
+      // Once we have the artists, use a map to store the genres
+      for (const artist of artists.items) {
+        // Go through all genres
+        for (const genre of artist.genres) {
+          if (!map.has(genre)) {
+            map.set(genre, 1);
+          } else {
+            map.set(genre, map.get(genre) + 1);
+          }
+        }
+      }
+
+      map = new Map([...map].sort((a, b) => b[1] - a[1]));
+
+      console.log(map);
+    });
+
+    return null;
   }
 }
