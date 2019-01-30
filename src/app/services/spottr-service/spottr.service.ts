@@ -247,6 +247,14 @@ export class SpottrService {
       );
   }
 
+  /**
+   * Generates the top genres of a given time range
+   * 
+   * @param {string} token - the token for the api
+   * @param {string} timeRange - the time range to look for top genres
+   * @returns {Observable<string[]>} - a list of top genres
+   * @memberof SpottrService
+   */
   public getTopGenres(token: string, timeRange: string): Observable<string[]> {
     // Check if the artists we want to analyze have been analyzed
     let map: Map<string, number> = new Map();
