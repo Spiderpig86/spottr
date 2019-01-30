@@ -20,7 +20,7 @@ export class NavComponent implements OnInit {
     { name: 'Top Artists', url: 'top-artists', fa: ['fa', 'headphones-alt'] },
     { name: 'Top Tracks', url: 'top-tracks', fa: ['fa', 'music'] },
     { name: 'Rankings', url: 'rankings', fa: ['fa', 'chart-line'] },
-    { name: 'Top Genres', url: '#', fa: ['fa', 'genderless'] },
+    { name: 'Top Genres', url: 'top-genres', fa: ['fa', 'genderless'] },
     { name: 'Playlist Stats', url: '#', fa: ['far', 'chart-bar'] }
   ];
 
