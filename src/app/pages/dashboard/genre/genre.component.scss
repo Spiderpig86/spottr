@@ -1,0 +1,23 @@
+.dashboard-top-genres {
+  .bubble-container {
+    position: relative;
+  }
+
+  .bubble {
+    border-radius: 50%;
+    width: 30%;
+    height: 30%;
+    background-color: grey;
+    position: absolute;
+    transition: all 0.2s ease-in-out;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.size-1 {
+        height: 75%;
+        width: 75%;
+    }
+  }
+}
