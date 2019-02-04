@@ -32,6 +32,7 @@ import { ArtistTileComponent } from './pages/dashboard/components/artist-tile/ar
 import { SongTileComponent } from './pages/dashboard/components/song-tile/song-tile.component';
 import { RankingsComponent } from './pages/dashboard/rankings/rankings.component';
 import { GenreComponent } from './pages/dashboard/genre/genre.component';
+import { GenreTileComponent } from './pages/dashboard/components/genre-tile/genre-tile.component';
 
 registerLocaleData(en);
 
@@ -50,6 +51,7 @@ library.add(faBars, faEdit, faHeadphonesAlt, faMusic, faStar, faGenderless, faCh
     SongTileComponent,
     RankingsComponent,
     GenreComponent,
+    GenreTileComponent,
   ],
   imports: [
     // Angular Specific

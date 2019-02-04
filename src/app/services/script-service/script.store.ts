@@ -10,4 +10,4 @@ export const ScriptStore: Scripts[] = [
     {
         name: 'bubble', src: '../../../assets/bubble.js'
     }
-]
+];

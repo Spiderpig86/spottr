@@ -10,13 +10,21 @@ import { SpottrAppConstants } from '../../../services/spottr-service/spottr-serv
 })
 export class GenreComponent implements OnInit {
 
-  private genres: string[];
+  private shortGenres: string[];
+  private mediumGenres: string[];
+  private longGenres: string[];
 
   constructor(private auth: SpottrAuthService, private api: SpottrService) { }
 
   ngOnInit() {
+    this.api.getTopGenres(this.auth.getToken(), SpottrAppConstants.TOP_SHORT).subscribe(genres => {
+      this.shortGenres = genres;
+    });
+    this.api.getTopGenres(this.auth.getToken(), SpottrAppConstants.TOP_MEDIUM).subscribe(genres => {
+      this.mediumGenres = genres;
+    });
     this.api.getTopGenres(this.auth.getToken(), SpottrAppConstants.TOP_LONG).subscribe(genres => {
-      this.genres = genres;
+      this.longGenres = genres;
     });
   }
 
