@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SpottrAuthService } from '../../../services/spottr-service/spottr-auth.service';
 import { SpottrService } from '../../../services/spottr-service/spottr.service';
 import { SpottrAppConstants } from '../../../services/spottr-service/spottr-service.config';
+import { Genre } from '../../../models/common';
 
 @Component({
   selector: 'app-genre',
@@ -10,9 +11,9 @@ import { SpottrAppConstants } from '../../../services/spottr-service/spottr-serv
 })
 export class GenreComponent implements OnInit {
 
-  private shortGenres: string[];
-  private mediumGenres: string[];
-  private longGenres: string[];
+  public shortGenres: Genre[];
+  public mediumGenres: Genre[];
+  public longGenres: Genre[];
 
   constructor(private auth: SpottrAuthService, private api: SpottrService) { }
 

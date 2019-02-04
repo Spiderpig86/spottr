@@ -3,5 +3,12 @@
     <div class="container pad-y"><h1 class="display-2">Top Genres</h1></div>
   </div>
   
-  
+  <h3 class="s-title">This Week</h3>
+  <div class="row">
+    <genre-tile
+      class="col"
+      *ngFor="let genre of shortGenres"
+      [genreData]="genre"
+    ></genre-tile>
+  </div>
 </div>

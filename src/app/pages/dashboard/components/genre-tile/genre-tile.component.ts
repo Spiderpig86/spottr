@@ -1,11 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Genre } from '../../../../models/common';
 
 @Component({
-  selector: 'app-genre-tile',
+  selector: 'genre-tile',
   templateUrl: './genre-tile.component.html',
   styleUrls: ['./genre-tile.component.scss']
 })
 export class GenreTileComponent implements OnInit {
+
+  @Input()
+  public genreData: Genre;
+  @Input()
+  public rank: number;
 
   constructor() { }
 

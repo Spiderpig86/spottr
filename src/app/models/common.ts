@@ -20,3 +20,15 @@ export interface Image {
     url: string;
     width?: number;
 }
+
+/**
+ * Interface for song genres
+ * TODO: Needs more info
+ * 
+ * @export
+ * @interface Genre
+ */
+export interface Genre {
+    name: string;
+    count: number;
+}
