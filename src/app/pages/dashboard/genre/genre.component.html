@@ -4,11 +4,12 @@
   </div>
   
   <h3 class="s-title">This Week</h3>
-  <div class="row">
+  <div class="container pad-y">
+
     <genre-tile
-      class="col"
-      *ngFor="let genre of shortGenres"
+      *ngFor="let genre of shortGenres, index as i"
       [genreData]="genre"
+      [rank]="i + 1"
     ></genre-tile>
   </div>
 </div>
