@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Artist } from '../../../../models/topartist';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'artist-tile',
@@ -13,9 +14,13 @@ export class ArtistTileComponent implements OnInit {
   @Input()
   public rank: number;
 
-  constructor() { }
+  constructor(private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
+  }
+
+  public getArtistUrl(): SafeUrl {
+    return this.sanitizer.bypassSecurityTrustUrl(`spotify:artist/${this.artistData.id}`);
   }
 
 }

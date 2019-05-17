@@ -1,25 +1,37 @@
 @import '../../../../../global/label.scss';
+
+a {
+  text-decoration: none;
+}
+
 .artist-card {
-    max-height: 250px;
-    width: 180px;
+  color: #fff;
+  max-height: 250px;
+  width: 180px;
 
-    img {
-        border-radius: .5rem;
-        height: 180px;
-        margin-bottom: .5rem;
-        object-fit: cover;
-        width: 100%;
-    }
+  &:active {
+    opacity: 0.85;
+    transition: 0.1s ease;
+    transform: scale(0.99);
+  }
 
-    .title {
-        letter-spacing: .03rem;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
+  img {
+    border-radius: 0.5rem;
+    height: 180px;
+    margin-bottom: 0.5rem;
+    object-fit: cover;
+    width: 100%;
+  }
 
-    .subtitle {
-        font-size: 80%;
-        opacity: .5;
-    }
+  .title {
+    letter-spacing: 0.03rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .subtitle {
+    font-size: 80%;
+    opacity: 0.5;
+  }
 }
