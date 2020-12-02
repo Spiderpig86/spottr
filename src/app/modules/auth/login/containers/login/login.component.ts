@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'app',
-    styleUrls: ['./app.component.scss'],
+    selector: 'login',
     template: `
         <div>
-            <p>App</p>
+            <p>Login</p>
         </div>
     `
 })
-export class NameComponent {
+export class LoginComponent {
     constructor() {}
 }
