@@ -1,8 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { catchError, map } from 'rxjs/operators';
 
 import { AuthConstants } from './auth.constants';
 import { AuthConfig } from './auth.config';
+import { Store } from 'src/store';
+
 
 @Injectable()
 export class AuthService {
@@ -17,7 +21,8 @@ export class AuthService {
     'user-top-read',
     'user-read-email',
   ];
-  constructor(private httpClient: HttpClient) {}
+
+  constructor(private httpClient: HttpClient, private store: Store) {}
 
   public login(): void {
     const loginUrl = AuthConstants.API_ACCOUNT_URL + AuthConstants.API_AUTH;
@@ -26,9 +31,32 @@ export class AuthService {
     window.location.href = this.buildUrlParam(loginUrl + '?', {
       client_id: AuthConfig.clientId,
       response_type: 'token',
-      redirect_uri: 'http://localhost:4200/accept', // TODO: Hard code for now
+      redirect_uri: 'http://localhost:4200/login', // TODO: Hard code for now
       scope: encodeURIComponent(this.scopes.join(' ')),
     });
+  }
+
+  get authToken() {
+    return this.store.value.token;
+  }
+
+  setToken(token: string) {
+    this.store.set(AuthConstants.AUTH_KEY, token);
+  }
+
+  
+  getProfile(token: string): Promise<any> {
+    // TODO: Check logged in or not
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    });
+
+    return this.httpClient
+      .get(`${AuthConstants.API_URL}${AuthConstants.API_PROFILE}`, {
+        headers,
+      })
+      .toPromise();
   }
 
   /* HELPER FUNCTIONS */
