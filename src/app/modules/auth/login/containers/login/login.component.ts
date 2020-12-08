@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { AuthService } from '../../../shared/services/auth.service';
 
 @Component({
@@ -21,6 +21,8 @@ export class LoginComponent {
     private auth: AuthService
   ) {
     // Check if store has token already
+    console.log(auth.authToken);
+
     if (auth.authToken) {
       console.trace(`Already logged in`, auth.authToken);
       return;
@@ -47,19 +49,25 @@ export class LoginComponent {
           access_token: params.get('access_token'),
           id_token: params.get('id_token'),
           error: params.get('error'),
-        }))
+        })),
+        tap((res) => {
+          console.log(res, 'cccc');
+
+          auth.setToken(res.access_token);
+        })
       )
       .subscribe(async (res) => {
-        console.log(res);
-        
+        console.log(res, 'aaaaa');
+
         if (!res.access_token) {
+          console.log('return');
+
           return;
         }
         // Load user profile if possible
         const data = await auth.getProfile(res.access_token);
         console.log(data);
         console.log('test');
-        
 
         auth.setToken(res.access_token);
       });

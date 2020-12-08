@@ -22,7 +22,11 @@ export class AuthService {
     'user-read-email',
   ];
 
-  constructor(private httpClient: HttpClient, private store: Store) {}
+  auth$: Observable<string>;
+
+  constructor(private httpClient: HttpClient, private store: Store) {
+    this.auth$ = this.store.select(AuthConstants.AUTH_KEY);
+  }
 
   public login(): void {
     const loginUrl = AuthConstants.API_ACCOUNT_URL + AuthConstants.API_AUTH;
@@ -37,11 +41,13 @@ export class AuthService {
   }
 
   get authToken() {
-    return this.store.value.token;
+    return this.store.value.access_token;
   }
 
   setToken(token: string) {
     this.store.set(AuthConstants.AUTH_KEY, token);
+    console.log(this.store.value.access_token);
+    
   }
 
   

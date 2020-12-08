@@ -3,12 +3,12 @@ import { distinctUntilChanged, pluck } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 
 export interface State {
-  token: string | undefined;
+  access_token: string | undefined;
   userData: string; // temp
 }
 
 const state: State = {
-  token: undefined,
+  access_token: undefined,
   userData: '', //temp
 };
 
