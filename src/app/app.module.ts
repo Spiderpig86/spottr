@@ -10,8 +10,9 @@ import { AuthModule } from './modules/auth/auth.module';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: 'auth' },
   {
-    path: '',
+    path: 'music',
     loadChildren: () =>
       import('./modules/music/music.module').then((m) => m.MusicModule),
   },
@@ -31,7 +32,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     AuthModule,
   ],
-  providers: [Store,],
+  providers: [Store],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

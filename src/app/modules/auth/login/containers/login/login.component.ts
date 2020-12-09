@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map, tap } from 'rxjs/operators';
 import { AuthService } from '../../../shared/services/auth.service';
@@ -12,7 +12,7 @@ import { AuthService } from '../../../shared/services/auth.service';
     </div>
   `,
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   test: string[] = [];
 
   constructor(
@@ -23,25 +23,6 @@ export class LoginComponent {
     // Check if store has token already
     console.log(auth.authToken);
 
-    if (auth.authToken) {
-      console.trace(`Already logged in`, auth.authToken);
-      return;
-    }
-
-    console.log(this.route.fragment);
-
-    // Get token
-    // this.route.fragment.subscribe(async (fragment) => {
-    //   const fragments = fragment.split('&');
-
-    //   const token = fragments[0].split('=')[1];
-
-    //   // Load user profile if possible
-    //   const data = await auth.getProfile(token);
-    //   console.log(data);
-
-    //   auth.setToken(token);
-    // });
     this.route.fragment
       .pipe(
         map((fragment) => new URLSearchParams(fragment)),
@@ -51,8 +32,6 @@ export class LoginComponent {
           error: params.get('error'),
         })),
         tap((res) => {
-          console.log(res, 'cccc');
-
           auth.setToken(res.access_token);
         })
       )
@@ -60,17 +39,21 @@ export class LoginComponent {
         console.log(res, 'aaaaa');
 
         if (!res.access_token) {
-          console.log('return');
-
           return;
         }
-        // Load user profile if possible
-        const data = await auth.getProfile(res.access_token);
-        console.log(data);
-        console.log('test');
+        // TODO: Load user profile if possible to check if logged in?
+        // const data = await auth.getProfile(res.access_token);
 
         auth.setToken(res.access_token);
       });
+  }
+
+  ngOnInit() {
+    if (this.auth.authToken) {
+      console.trace(`Already logged in`, this.auth.authToken);
+      this.router.navigate(['/music/dashboard']);
+      return;
+    }
   }
 
   loginUser(): void {
