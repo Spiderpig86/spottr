@@ -10,8 +10,7 @@ import { AuthService } from './modules/auth/shared/services/auth.service';
   styleUrls: ['./app.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <div>
-      <p>App</p>
+    <div class="min-h-screen md:flex">
       <sidebar *ngIf="isLoggedIn()"></sidebar>
       <div>
         <router-outlet></router-outlet>
@@ -33,8 +32,9 @@ export class AppComponent implements OnInit {
   }
 
   isLoggedIn() {
-    console.log(this.auth.authToken, 'bbbb');
+    // console.log(this.auth.authToken, 'bbbb');
 
-    return !!this.auth.authToken;
+    // return !!this.auth.authToken;
+    return true;
   }
 }

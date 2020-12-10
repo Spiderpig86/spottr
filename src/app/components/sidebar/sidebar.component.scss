@@ -1,0 +1,20 @@
+@import "../../../colors.scss";
+
+.sidebar {
+  @apply bg-black;
+  @apply text-white;
+  min-width: 225px;
+
+  .sidebar__link {
+    @apply cursor-pointer;
+    @apply my-2;
+    @apply px-4;
+    @apply py-2;
+    @apply rounded;
+    @apply text-gray-500;
+
+    &:hover {
+      background-color: $sidebar-link-hover;
+    }
+  }
+}
