@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AuthGuard } from '../auth/shared/guards/auth.guard';
+import { CacheService } from './shared/services/cache.service';
+import { CachedHttpService } from './shared/services/cached-http-client.service';
 import { MusicService } from './shared/services/music.service';
 
 export const MUSIC_ROUTES: Routes = [
@@ -22,6 +24,6 @@ export const MUSIC_ROUTES: Routes = [
 @NgModule({
   imports: [CommonModule, RouterModule.forChild(MUSIC_ROUTES)],
   declarations: [],
-  providers: [MusicService],
+  providers: [CacheService, CachedHttpService, MusicService],
 })
 export class MusicModule {}
