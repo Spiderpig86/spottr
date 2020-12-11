@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { EMPTY, Observable } from 'rxjs';
-import { catchError, shareReplay } from 'rxjs/operators';
+import { catchError, refCount, shareReplay, take } from 'rxjs/operators';
 
 import { MINUTES_FACTOR } from '../music.constants';
 import { CacheService } from './cache.service';
@@ -45,6 +45,8 @@ export class CachedHttpService {
         })
             .pipe(
                 shareReplay(1),
+                refCount(),
+                take(1),
                 catchError(err => {
                     console.error(err);
                     this.cacheService.deleteCachedItem(options.url);
