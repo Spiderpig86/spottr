@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import {
-  TopArtistResponse,
-  TopTracksResponse,
-} from '../models/top.model';
+
+import { TopArtistsResponse, TopTracksResponse } from '../models/top.model';
+import { ENDPOINTS } from '../store/endpoint.store';
 import { DEFAULT_CACHE_MINUTES } from '../music.constants';
 
 import { CachedHttpService } from './cached-http-client.service';
@@ -27,11 +26,11 @@ export class TopService {
     timeRange: TimeRange,
     limit?: number,
     offset?: number
-  ): Observable<TopArtistResponse> {
+  ): Observable<TopArtistsResponse> {
     return this.getTop(TopType.ARTISTS, timeRange, limit, offset);
   }
 
-  getTopSongs(
+  getTopTracks(
     timeRange: TimeRange,
     limit?: number,
     offset?: number

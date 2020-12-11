@@ -22,7 +22,7 @@ export interface TopArtist {
     uri: string;
 }
 
-export interface TopArtistResponse {
+export interface TopArtistsResponse {
     items: TopArtist[];
 }
 

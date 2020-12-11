@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { EMPTY, Observable } from 'rxjs';
 import { catchError, refCount, shareReplay, take } from 'rxjs/operators';
+import { AuthService } from 'src/app/modules/auth/shared/services/auth.service';
 
 import { MINUTES_FACTOR } from '../music.constants';
 import { CacheService } from './cache.service';
@@ -21,7 +22,7 @@ export class HttpOptions {
 
 @Injectable()
 export class CachedHttpService {
-    constructor(private http: HttpClient, private cacheService: CacheService) {}
+    constructor(private http: HttpClient, private cacheService: CacheService, private auth: AuthService) {}
 
     get<T>(options: HttpOptions): Observable<T> {
         return this.httpCall(Verbs.GET, options);
@@ -36,16 +37,22 @@ export class CachedHttpService {
         options.cacheMins = options.cacheMins || 0;
 
         const cachedResponse = this.cacheService.getCachedItem(options.url);
+        console.log(options.url);
+        
         if (cachedResponse) {
+            console.log('Returning cached response...');
             return cachedResponse;
         }
 
         const observable$: Observable<T> = this.http.request<T>(verb, options.url, {
+            headers: new HttpHeaders({
+                Authorization: `Bearer ${this.auth.authToken}`,
+                'Content-Type': 'application/json'
+            }),
             body: options.body
         })
             .pipe(
                 shareReplay(1),
-                refCount(),
                 take(1),
                 catchError(err => {
                     console.error(err);
@@ -54,7 +61,7 @@ export class CachedHttpService {
                 })
             );
         
-        this.cacheService.setCachedItem(options.url, observable$, options.cacheMins * MINUTES_FACTOR);
+        this.cacheService.setCachedItem(options.url, observable$, Date.now() + options.cacheMins * MINUTES_FACTOR);
         return observable$;
     }
 }

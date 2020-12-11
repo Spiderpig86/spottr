@@ -7,7 +7,9 @@ import { ExpiringObservableCache } from '../models/expiration-cache.model';
 export class CacheService {
     cache: { [id: string]: ExpiringObservableCache<any> }
 
-    constructor() {}
+    constructor() {
+        this.cache = {};
+    }
 
     getCachedItem(key: string): Observable<any> {
         const cachedItem = this.cache[key];
