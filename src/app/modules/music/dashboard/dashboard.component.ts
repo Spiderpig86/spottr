@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { TopArtist, TopArtistsResponse, TopTracksResponse } from '../shared/models/top.model';
+import { TopArtistsResponse, TopTracksResponse } from '../shared/models/top.model';
 import { TimeRange, TopService } from '../shared/services/top.service';
 
 @Component({

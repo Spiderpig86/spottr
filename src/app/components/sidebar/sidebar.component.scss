@@ -7,11 +7,14 @@
 
   .sidebar__link {
     @apply cursor-pointer;
+    @apply font-medium;
     @apply my-2;
     @apply px-4;
     @apply py-2;
     @apply rounded;
-    @apply text-gray-500;
+    // @apply text-sm;
+    @apply tracking-tighter;
+    color: $sidebar-link-fg;
 
     &:hover {
       background-color: $sidebar-link-hover;
