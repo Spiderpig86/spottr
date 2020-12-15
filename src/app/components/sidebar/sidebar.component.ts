@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./sidebar.component.scss'],
   template: `
     <div
-      class="sidebar px-6fg py-4 md:sticky top-0 md:flex md:flex-col md:justify-between md:min-h-screen"
+      class="sidebar px-6 py-4 md:sticky top-0 md:flex md:flex-col md:justify-between md:min-h-screen"
     >
       <div>
         <div class="py-4 font-bold text-2xl">Spottr</div>

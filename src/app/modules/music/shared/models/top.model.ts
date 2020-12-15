@@ -1,10 +1,4 @@
-export type StringObject = { [id: string]: string };
-
-export interface ArtistImage {
-    height: string;
-    url: string;
-    width: string;
-}
+import { Image, StringObject } from './shared.model';
 
 export interface TopArtist {
     external_urls: StringObject;
@@ -15,7 +9,7 @@ export interface TopArtist {
     genres: string[],
     href: string;
     id: string;
-    images: ArtistImage[],
+    images: Image[],
     name: string;
     popularity: number;
     type: string;
