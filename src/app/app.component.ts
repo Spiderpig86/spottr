@@ -16,9 +16,7 @@ import { ProfileService } from './modules/music/shared/services/profile.service'
     <div class="min-h-screen w-full md:flex">
       <sidebar *ngIf="isLoggedIn()"></sidebar>
       <div class="w-full bg-black">
-        <div class="max-viewport mx-auto px-8 flex align-middle justify-end">
-          <profile-button [user]="profile$ | async"></profile-button>
-        </div>
+        <nav-bar [profile]="profile$ | async"></nav-bar>
         <router-outlet></router-outlet>
       </div>
     </div>

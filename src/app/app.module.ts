@@ -10,6 +10,7 @@ import { AuthModule } from './modules/auth/auth.module';
 import { MusicModule } from './modules/music/music.module';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { ProfileButton } from './components/profile-button/profile-button.component';
+import { NavBarComponent } from './components/navbar/navbar.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'auth' },
@@ -26,14 +27,19 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, SidebarComponent, ProfileButton],
+  declarations: [
+    AppComponent,
+    SidebarComponent,
+    ProfileButton,
+    NavBarComponent,
+  ],
   imports: [
     BrowserModule,
     CommonModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
     AuthModule,
-    MusicModule
+    MusicModule,
   ],
   providers: [Store],
   bootstrap: [AppComponent],

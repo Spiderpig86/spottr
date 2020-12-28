@@ -18,7 +18,7 @@ import { Component } from '@angular/core';
             <li class="sidebar__link transition hover:font-bold">Top Songs</li>
             <li class="sidebar__link transition hover:font-bold">Top Genres</li>
           </ul>
-          <p class="uppercase font-bold mt-7">Playlists</p>
+          <p class="uppercase font-bold mt-7 tracking-widest">Playlists</p>
           <ul>
 
           </ul>
