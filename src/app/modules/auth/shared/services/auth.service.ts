@@ -24,7 +24,8 @@ export class AuthService {
   auth$: Observable<string>;
 
   constructor(private httpClient: HttpClient, private store: Store) {
-    this.auth$ = this.store.select(AuthConstants.AUTH_KEY);
+    // this.auth$ = this.store.select(AuthConstants.AUTH_KEY);
+    this.auth$ = of("BQAKgAS3a5ivgkYI1l7QkHGQ2SRNcnKmXuMwz8Yl7o8D2_DxOZEvLcNq3vucANGoinW-8KK-_m_sYDxGHCDYAUXMOEWB2NiDdIZU1Xn646Qw9D3Inls1WN7S3l-5JCFmVdS4HSSBXJohiJgeL7v6z7OXCOt8kJHGI17QbRgJqg");
   }
 
   public login(): void {
@@ -40,7 +41,8 @@ export class AuthService {
   }
 
   get authToken() {
-    return this.store.value.access_token;
+    // return this.store.value.access_token;
+    return "BQAKgAS3a5ivgkYI1l7QkHGQ2SRNcnKmXuMwz8Yl7o8D2_DxOZEvLcNq3vucANGoinW-8KK-_m_sYDxGHCDYAUXMOEWB2NiDdIZU1Xn646Qw9D3Inls1WN7S3l-5JCFmVdS4HSSBXJohiJgeL7v6z7OXCOt8kJHGI17QbRgJqg";
   }
 
   setToken(token: string) {

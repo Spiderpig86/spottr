@@ -10,9 +10,9 @@ import { AuthService } from './modules/auth/shared/services/auth.service';
   styleUrls: ['./app.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <div class="min-h-screen md:flex">
+    <div class="min-h-screen w-full md:flex">
       <sidebar *ngIf="isLoggedIn()"></sidebar>
-      <div>
+      <div class="w-full">
         <router-outlet></router-outlet>
       </div>
     </div>
