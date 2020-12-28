@@ -29,8 +29,13 @@ export interface Artist {
     uri: string;
 }
 
+export interface Album {
+    images: Image[];
+    [x: string]: any;
+}
+
 export interface TopTrack {
-    album: any;
+    album: Album;
     artists: Artist[];
     available_markets: string[];
     disc_number: number;

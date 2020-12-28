@@ -6,8 +6,13 @@ import { TopArtistsResponse } from '../../../shared/models/top.model';
   styleUrls: ['./dashboard-top-artists.component.scss'],
   template: `
     <div class="mb-8">
-      <p class="text-xl text-gray-500 font-semibold mb-4">Recent Top Artists</p>
-      <div *ngIf="topArtists" class="md:flex">
+      <div class="flex justify-between">
+        <p class="text-xl text-gray-500 font-semibold mb-4">
+          Recent Top Artists
+        </p>
+        <spottr-button text="See More"></spottr-button>
+      </div>
+      <div *ngIf="topArtists" class="sm:flex sm:flex-wrap">
         <dashboard-top-artist
           *ngFor="let artist of topArtists.items; index as i"
           [topArtist]="artist"

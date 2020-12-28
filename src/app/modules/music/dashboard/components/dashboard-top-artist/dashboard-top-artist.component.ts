@@ -5,8 +5,8 @@ import { TopArtist } from '../../../shared/models/top.model';
     selector: 'dashboard-top-artist',
     styleUrls: ['./dashboard-top-artist.component.scss'],
     template: `
-        <div class="p-4 text-center">
-            <img class="rounded-full w-48 h-48 mb-5" [src]="topArtist.images[0].url" />
+        <div class="px-2 py-4 text-center w-64 mx-auto">
+            <img class="rounded-full mx-auto w-32 h-32 mb-5 md:w-48 md:h-48" [src]="topArtist.images[0].url" />
             <p>{{ topArtist.name }}</p> <!-- TODO Link to Artist page -->
         </div>
     `

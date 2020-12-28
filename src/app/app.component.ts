@@ -12,7 +12,7 @@ import { AuthService } from './modules/auth/shared/services/auth.service';
   template: `
     <div class="min-h-screen w-full md:flex">
       <sidebar *ngIf="isLoggedIn()"></sidebar>
-      <div class="w-full">
+      <div class="w-full bg-black">
         <router-outlet></router-outlet>
       </div>
     </div>

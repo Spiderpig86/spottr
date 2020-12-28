@@ -4,3 +4,13 @@
 @import "tailwindcss/components";
 
 @import "tailwindcss/utilities";
+
+.page {
+    max-width: 1400px;
+
+    @apply mx-auto;
+    @apply p-4;
+    @apply text-white;
+    @apply min-h-screen;
+    @apply w-full;
+}
