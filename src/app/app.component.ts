@@ -2,8 +2,11 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Store } from 'src/store';
+
 import { AuthConstants } from './modules/auth/shared/services/auth.constants';
 import { AuthService } from './modules/auth/shared/services/auth.service';
+import { User } from './modules/music/shared/models/user.model';
+import { ProfileService } from './modules/music/shared/services/profile.service';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +16,9 @@ import { AuthService } from './modules/auth/shared/services/auth.service';
     <div class="min-h-screen w-full md:flex">
       <sidebar *ngIf="isLoggedIn()"></sidebar>
       <div class="w-full bg-black">
+        <div class="max-viewport mx-auto px-8 flex align-middle justify-end">
+          <profile-button [user]="profile$ | async"></profile-button>
+        </div>
         <router-outlet></router-outlet>
       </div>
     </div>
@@ -20,15 +26,18 @@ import { AuthService } from './modules/auth/shared/services/auth.service';
 })
 export class AppComponent implements OnInit {
   auth$: Observable<string>;
+  profile$: Observable<User>;
 
   constructor(
     private store: Store,
     private router: Router,
-    private auth: AuthService
+    private auth: AuthService,
+    private profileService: ProfileService
   ) {}
 
   ngOnInit() {
     this.auth$ = this.store.select(AuthConstants.AUTH_KEY);
+    this.profile$ = this.profileService.getProfile();
   }
 
   isLoggedIn() {
