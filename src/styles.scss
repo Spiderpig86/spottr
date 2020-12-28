@@ -5,12 +5,33 @@
 
 @import "tailwindcss/utilities";
 
-.page {
-    max-width: 1400px;
+@import "./fonts.scss";
+@font-face {
+  font-family: "Circular Std";
+  src: url($font-circular-bold) format("woff2"),
+    url($font-circular-black) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 
-    @apply mx-auto;
-    @apply p-4;
-    @apply text-white;
-    @apply min-h-screen;
-    @apply w-full;
+html {
+  font-family: "Circular Std", system-ui, -apple-system, Segoe UI, Roboto,
+    Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.page {
+  @extend .max-viewport;
+
+  @apply mx-auto;
+  @apply px-8;
+  @apply py-4;
+  @apply text-white;
+  @apply min-h-screen;
+  @apply w-full;
+}
+
+.max-viewport {
+  max-width: 1400px;
 }

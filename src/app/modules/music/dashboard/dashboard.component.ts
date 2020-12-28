@@ -14,7 +14,7 @@ import { TimeRange, TopService } from '../shared/services/top.service';
   styleUrls: ['./dashboard.component.scss'],
   template: `
     <div class="page">
-      <p class="text-6xl font-bold pb-8 md:mt-16">Home</p>
+      <p class="text-6xl font-bold pb-8 md:mt-8">Home</p>
       <!-- <button (click)="refresh()">Refresh</button> -->
       <!-- <p>{{ topArtists | async | json }}</p>
             <p>{{ topTracks | async | json }}</p> -->
