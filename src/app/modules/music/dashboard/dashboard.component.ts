@@ -7,13 +7,14 @@ import {
 } from '../shared/models/top.model';
 import { User } from '../shared/models/user.model';
 import { ProfileService } from '../shared/services/profile.service';
-import { TimeRange, TopService } from '../shared/services/top.service';
+import { TopTimeRange, TopService } from '../shared/services/top.service';
 
 @Component({
   selector: 'dashboard',
   styleUrls: ['./dashboard.component.scss'],
   template: `
     <div class="page">
+      <nav-bar [profile]="user$ | async"></nav-bar>
       <p class="text-6xl font-bold pb-8 md:mt-8">Home</p>
       <!-- <button (click)="refresh()">Refresh</button> -->
       <!-- <p>{{ topArtists | async | json }}</p>
@@ -43,7 +44,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.user$ = this.profileService.getProfile();
 
-    this.topArtists$ = this.topService.getTopArtists(TimeRange.SHORT_TERM, 5);
-    this.topTracks$ = this.topService.getTopTracks(TimeRange.SHORT_TERM, 5);
+    this.topArtists$ = this.topService.getTopArtists(TopTimeRange.SHORT_TERM, 5);
+    this.topTracks$ = this.topService.getTopTracks(TopTimeRange.SHORT_TERM, 5);
   }
 }

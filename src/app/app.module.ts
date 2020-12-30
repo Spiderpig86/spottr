@@ -7,10 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { Store } from 'src/store';
 import { AuthModule } from './modules/auth/auth.module';
-import { MusicModule } from './modules/music/music.module';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { ProfileButton } from './components/profile-button/profile-button.component';
-import { NavBarComponent } from './components/navbar/navbar.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'auth' },
@@ -30,8 +27,6 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     SidebarComponent,
-    ProfileButton,
-    NavBarComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +34,6 @@ const routes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(routes),
     AuthModule,
-    MusicModule,
   ],
   providers: [Store],
   bootstrap: [AppComponent],

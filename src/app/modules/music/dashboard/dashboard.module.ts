@@ -7,6 +7,8 @@ import { DashboardTopArtistsComponent } from './components/dashboard-top-artists
 import { DashboardTopTrackComponent } from './components/dashboard-top-track/dashboard-top-track.component';
 import { DashboardTopTracksComponent } from './components/dashboard-top-tracks/dashboard-top-tracks.component';
 import { ButtonComponent } from 'src/app/components/button/button.component';
+import { ProfileButton } from 'src/app/components/profile-button/profile-button.component';
+import { NavBarComponent } from 'src/app/components/navbar/navbar.component';
 
 export const DASHBOARD_ROUTES: Routes = [
   { path: '', component: DashboardComponent },
@@ -20,6 +22,8 @@ export const DASHBOARD_ROUTES: Routes = [
     DashboardTopTrackComponent,
     DashboardTopTracksComponent,
     ButtonComponent,
+    ProfileButton,
+    NavBarComponent,
   ],
   providers: [],
 })

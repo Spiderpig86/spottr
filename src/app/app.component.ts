@@ -16,7 +16,6 @@ import { ProfileService } from './modules/music/shared/services/profile.service'
     <div class="min-h-screen w-full md:flex">
       <sidebar *ngIf="isLoggedIn()"></sidebar>
       <div class="w-full bg-black">
-        <nav-bar [profile]="profile$ | async"></nav-bar>
         <router-outlet></router-outlet>
       </div>
     </div>
@@ -29,19 +28,16 @@ export class AppComponent implements OnInit {
   constructor(
     private store: Store,
     private router: Router,
-    private auth: AuthService,
-    private profileService: ProfileService
+    private auth: AuthService
   ) {}
 
   ngOnInit() {
     this.auth$ = this.store.select(AuthConstants.AUTH_KEY);
-    this.profile$ = this.profileService.getProfile();
   }
 
   isLoggedIn() {
-    // console.log(this.auth.authToken, 'bbbb');
+    console.log(this.auth.authToken, 'bbbb');
 
-    // return !!this.auth.authToken;
-    return true;
+    return !!this.auth.authToken;
   }
 }

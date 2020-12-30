@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     if (this.auth.authToken) {
       console.trace(`Already logged in`, this.auth.authToken);
-      this.router.navigate(['/music/dashboard']);
+      this.router.navigate(['/music']);
       return;
     }
   }

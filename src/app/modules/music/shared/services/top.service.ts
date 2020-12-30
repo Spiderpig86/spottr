@@ -12,7 +12,7 @@ export enum TopType {
   TRACKS = 'tracks',
 }
 
-export enum TimeRange {
+export enum TopTimeRange {
   SHORT_TERM = 'short_term',
   MEDIUM_TERM = 'medium_term',
   LONG_TERM = 'long_term',
@@ -23,7 +23,7 @@ export class TopService {
   constructor(private http: CachedHttpService) {}
 
   getTopArtists(
-    timeRange: TimeRange,
+    timeRange: TopTimeRange,
     limit?: number,
     offset?: number
   ): Observable<TopArtistsResponse> {
@@ -31,7 +31,7 @@ export class TopService {
   }
 
   getTopTracks(
-    timeRange: TimeRange,
+    timeRange: TopTimeRange,
     limit?: number,
     offset?: number
   ): Observable<TopTracksResponse> {
@@ -40,7 +40,7 @@ export class TopService {
 
   private getTop<T>(
     type: TopType,
-    timeRange: TimeRange,
+    timeRange: TopTimeRange,
     limit?: number, // Max 50
     offset?: number
   ): Observable<T> {
