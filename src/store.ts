@@ -4,12 +4,10 @@ import { Injectable } from '@angular/core';
 
 export interface State {
   access_token: string | undefined;
-  userData: string; // temp
 }
 
 const state: State = {
   access_token: undefined,
-  userData: '', //temp
 };
 
 @Injectable({ providedIn: 'root' })

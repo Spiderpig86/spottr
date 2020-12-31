@@ -24,10 +24,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    SidebarComponent,
-  ],
+  declarations: [AppComponent, SidebarComponent],
   imports: [
     BrowserModule,
     CommonModule,

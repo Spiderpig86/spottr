@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Store } from 'src/store';
 
 import {
   TopArtistsResponse,
@@ -16,9 +17,6 @@ import { TopTimeRange, TopService } from '../shared/services/top.service';
     <div class="page">
       <nav-bar [profile]="user$ | async"></nav-bar>
       <p class="text-6xl font-bold pb-8 md:mt-8">Home</p>
-      <!-- <button (click)="refresh()">Refresh</button> -->
-      <!-- <p>{{ topArtists | async | json }}</p>
-            <p>{{ topTracks | async | json }}</p> -->
       <div class="grid grid-cols-1 gap-12">
         <dashboard-top-artists
           [topArtists]="topArtists$ | async"
@@ -44,7 +42,10 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.user$ = this.profileService.getProfile();
 
-    this.topArtists$ = this.topService.getTopArtists(TopTimeRange.SHORT_TERM, 5);
+    this.topArtists$ = this.topService.getTopArtists(
+      TopTimeRange.SHORT_TERM,
+      5
+    );
     this.topTracks$ = this.topService.getTopTracks(TopTimeRange.SHORT_TERM, 5);
   }
 }

@@ -7,23 +7,19 @@ import { DashboardTopArtistsComponent } from './components/dashboard-top-artists
 import { DashboardTopTrackComponent } from './components/dashboard-top-track/dashboard-top-track.component';
 import { DashboardTopTracksComponent } from './components/dashboard-top-tracks/dashboard-top-tracks.component';
 import { ButtonComponent } from 'src/app/components/button/button.component';
-import { ProfileButton } from 'src/app/components/profile-button/profile-button.component';
-import { NavBarComponent } from 'src/app/components/navbar/navbar.component';
+import { MusicSharedModule } from '../shared/shared.module';
 
 export const DASHBOARD_ROUTES: Routes = [
   { path: '', component: DashboardComponent },
 ];
 @NgModule({
-  imports: [CommonModule, RouterModule.forChild(DASHBOARD_ROUTES)],
+  imports: [CommonModule, MusicSharedModule, RouterModule.forChild(DASHBOARD_ROUTES)],
   declarations: [
     DashboardComponent,
-    DashboardTopArtistComponent,
     DashboardTopArtistsComponent,
     DashboardTopTrackComponent,
     DashboardTopTracksComponent,
     ButtonComponent,
-    ProfileButton,
-    NavBarComponent,
   ],
   providers: [],
 })

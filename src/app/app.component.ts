@@ -23,7 +23,6 @@ import { ProfileService } from './modules/music/shared/services/profile.service'
 })
 export class AppComponent implements OnInit {
   auth$: Observable<string>;
-  profile$: Observable<User>;
 
   constructor(
     private store: Store,

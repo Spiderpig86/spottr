@@ -7,6 +7,7 @@ import { CacheService } from './shared/services/cache.service';
 import { CachedHttpService } from './shared/services/cached-http-client.service';
 import { ProfileService } from './shared/services/profile.service';
 import { TopService } from './shared/services/top.service';
+import { MusicSharedModule } from './shared/shared.module';
 
 export const MUSIC_ROUTES: Routes = [
   {
@@ -24,12 +25,18 @@ export const MUSIC_ROUTES: Routes = [
     path: 'top-artists',
     canActivate: [AuthGuard],
     loadChildren: () =>
-      import('./top-artists/top-artists.module').then((m) => m.TopArtistsModule),
+      import('./top-artists/top-artists.module').then(
+        (m) => m.TopArtistsModule
+      ),
   },
 ];
 
 @NgModule({
-  imports: [CommonModule, RouterModule.forChild(MUSIC_ROUTES)],
+  imports: [
+    CommonModule,
+    MusicSharedModule,
+    RouterModule.forChild(MUSIC_ROUTES),
+  ],
   declarations: [],
   providers: [CacheService, CachedHttpService, ProfileService, TopService],
 })
