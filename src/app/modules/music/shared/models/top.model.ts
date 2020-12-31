@@ -31,6 +31,7 @@ export interface Artist {
 
 export interface Album {
     images: Image[];
+    name: string;
     [x: string]: any;
 }
 

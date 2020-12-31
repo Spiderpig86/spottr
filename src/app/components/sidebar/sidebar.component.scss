@@ -9,12 +9,16 @@
     @apply cursor-pointer;
     @apply font-medium;
     @apply my-2;
-    @apply px-4;
-    @apply py-2;
     @apply rounded;
     // @apply text-sm;
     @apply tracking-tighter;
     color: $sidebar-link-fg;
+
+    a {
+      @apply block;
+      @apply px-4;
+      @apply py-2;
+    }
 
     &:hover {
       background-color: $sidebar-link-hover;

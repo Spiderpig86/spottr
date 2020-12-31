@@ -10,13 +10,9 @@ import { TopArtistsResponse } from '../../../shared/models/top.model';
         </div>
     `
 })
-export class TopArtistsViewComponent implements OnInit {
+export class TopArtistsViewComponent {
     
     @Input() topArtists: TopArtistsResponse;
     
     constructor() {}
-
-    ngOnInit() {
-        console.log(this.topArtists);
-    }
 }

@@ -22,8 +22,19 @@ import { Component } from '@angular/core';
                 >Top Artists</a
               >
             </li>
-            <li class="sidebar__link transition hover:font-bold">Top Songs</li>
-            <li class="sidebar__link transition hover:font-bold">Top Genres</li>
+            <li class="sidebar__link transition hover:font-bold">
+              <a
+                routerLink="/music/top-tracks"
+                routerLinkActive="sidebar__link--active"
+                >Top Tracks</a
+              >
+            </li>
+            <li class="sidebar__link transition hover:font-bold">
+              <a
+                routerLink="/music/top-tracks"
+                routerLinkActive="sidebar__link--active"
+                >Top Genres</a
+              ></li>
           </ul>
           <p class="uppercase font-bold mt-7 tracking-widest">Playlists</p>
           <ul></ul>

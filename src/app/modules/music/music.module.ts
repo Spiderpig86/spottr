@@ -29,6 +29,14 @@ export const MUSIC_ROUTES: Routes = [
         (m) => m.TopArtistsModule
       ),
   },
+  {
+    path: 'top-tracks',
+    canActivate: [AuthGuard],
+    loadChildren: () =>
+      import('./top-tracks/top-tracks.module').then(
+        (m) => m.TopTracksModule
+      ),
+  },
 ];
 
 @NgModule({
