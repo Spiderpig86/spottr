@@ -8,7 +8,7 @@ import { TopTimeRange } from '../../services/top.service';
     <div class="flex justify-end">
       <button
         *ngFor="let time of TOP_VIEW_TIME_RANGES"
-        class="bg-transparent border-none font-semibold mr-4 text-gray-700 transition-colors duration-200 hover:text-white"
+        class="bg-transparent border-none font-semibold mr-4 text-gray-600 transition-colors duration-200 hover:text-white"
         [class.time-range--active]="timeRange === time.type"
         (click)="setTimeRange(time.type)"
       >

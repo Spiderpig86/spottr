@@ -5,12 +5,19 @@
 
 @import "tailwindcss/utilities";
 
-@import "./fonts.scss";
+@import "./styles/fonts.scss";
 @font-face {
   font-family: "Circular Std";
-  src: url($font-circular-bold) format("woff2"),
-    url($font-circular-black) format("woff");
-  font-weight: normal;
+  src: local("Circular Std Black"), local("CircularStd-Black"),
+    url($font-circular-black) format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Circular Std";
+  src: local("Circular Std Medium"), local("CircularStd-Medium"),
+    url($font-circular-medium) format("woff2");
+  font-weight: 400;
   font-style: normal;
 }
 

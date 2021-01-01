@@ -1,0 +1,6 @@
+@mixin chunky-underline($gradient) {
+  background-image: $gradient;
+  background-repeat: no-repeat;
+  background-size: 100% 0.2em;
+  background-position: 0 88%;
+}

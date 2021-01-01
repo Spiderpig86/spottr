@@ -1,0 +1,4 @@
+@import "../../../../styles/mixins.scss";
+.title {
+  @include chunky-underline(linear-gradient(to right, #0048e5, #80e9ff));
+}
