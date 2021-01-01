@@ -1,4 +1,4 @@
-@import "../../../colors.scss";
+@import "../../../styles/colors.scss";
 
 .sidebar {
   @apply bg-black;
@@ -9,19 +9,25 @@
     @apply cursor-pointer;
     @apply font-medium;
     @apply my-2;
-    @apply rounded;
-    // @apply text-sm;
+    @apply font-normal;
     @apply tracking-tighter;
+
     color: $sidebar-link-fg;
 
     a {
       @apply block;
+      @apply rounded-md;
       @apply px-4;
       @apply py-2;
+
+      &:hover {
+        background-color: $sidebar-link-hover;
+      }
     }
 
-    &:hover {
-      background-color: $sidebar-link-hover;
+    &--active {
+      @apply bg-gray-900;
+      @apply text-white;
     }
   }
 }

@@ -31,7 +31,7 @@ import { Component } from '@angular/core';
             </li>
             <li class="sidebar__link transition hover:font-bold">
               <a
-                routerLink="/music/top-tracks"
+                routerLink="/music/top-genres"
                 routerLinkActive="sidebar__link--active"
                 >Top Genres</a
               ></li>

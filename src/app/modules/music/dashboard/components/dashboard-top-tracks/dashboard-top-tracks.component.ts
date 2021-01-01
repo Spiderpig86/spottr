@@ -10,7 +10,7 @@ import { TopTracksResponse } from '../../../shared/models/top.model';
         <p class="text-xl text-gray-500 font-semibold mb-4 tracking-tighter">
           Recent Top Tracks
         </p>
-        <spottr-button text="See More"></spottr-button>
+        <a [routerLink]="['/music/top-tracks']"><spottr-button text="See More"></spottr-button></a>
       </div>
       <div *ngIf="topTracks" class="sm:flex sm:flex-wrap">
         <dashboard-top-track
