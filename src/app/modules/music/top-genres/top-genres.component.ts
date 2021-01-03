@@ -4,29 +4,29 @@ import { TopArtistsResponse } from '../shared/models/top.model';
 import { User } from '../shared/models/user.model';
 import { ProfileService } from '../shared/services/profile.service';
 import { TopService, TopTimeRange } from '../shared/services/top.service';
-
 @Component({
-  selector: 'top-artists',
-  styleUrls: ['./top-artists.component.scss'],
+  selector: 'top-genres',
+  styleUrls: ['./top-genres.component.scss'],
   template: `
     <div class="page">
       <nav-bar *ngIf="user$" [profile]="user$ | async"></nav-bar>
+
       <p class="text-8xl mb-4 font-bold">
-        <span class="title">Top Artists</span>
+        <span class="title">Top Genres</span>
       </p>
       <time-range
         [defaultTimeRange]="DEFAULT_TIME_RANGE"
         (valueChange)="setDateRange($event)"
       ></time-range>
-      <top-artists-view
+      <top-genres-view
         *ngIf="(topArtists$ | async) as topArtists"
         [topArtists]="topArtists"
-      ></top-artists-view>
+      ></top-genres-view>
     </div>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TopArtistsComponent implements OnInit {
+export class TopGenresComponent implements OnInit {
   topArtists$: Observable<TopArtistsResponse>;
   user$: Observable<User>;
   timeRange: TopTimeRange;
@@ -40,10 +40,7 @@ export class TopArtistsComponent implements OnInit {
 
   ngOnInit() {
     this.timeRange = this.DEFAULT_TIME_RANGE;
-    this.topArtists$ = this.topService.getTopArtists(
-      this.timeRange,
-      50
-    );
+    this.topArtists$ = this.topService.getTopArtists(this.timeRange, 50);
     this.user$ = this.profileService.getProfile();
   }
 

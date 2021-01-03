@@ -19,8 +19,8 @@ import { TopService, TopTimeRange } from '../shared/services/top.service';
         (valueChange)="setDateRange($event)"
       ></time-range>
       <top-tracks-view
-        *ngIf="topTracks$"
-        [topTracks]="topTracks$ | async"
+        *ngIf="(topTracks$ | async) as topTracks"
+        [topTracks]="topTracks"
       ></top-tracks-view>
     </div>
   `,
@@ -38,7 +38,7 @@ export class TopTracksComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.timeRange = TopTimeRange.LONG_TERM;
+    this.timeRange = this.DEFAULT_TIME_RANGE;
     this.topTracks$ = this.topService.getTopTracks(TopTimeRange.LONG_TERM, 50);
     this.user$ = this.profileService.getProfile();
   }

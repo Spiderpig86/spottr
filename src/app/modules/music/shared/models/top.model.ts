@@ -6,10 +6,10 @@ export interface TopArtist {
         href: string | null;
         total: string;
     },
-    genres: string[],
+    genres: string[];
     href: string;
     id: string;
-    images: Image[],
+    images: Image[];
     name: string;
     popularity: number;
     type: string;

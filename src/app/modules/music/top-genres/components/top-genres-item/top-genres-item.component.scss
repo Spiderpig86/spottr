@@ -1,0 +1,7 @@
+.grid-span {
+    grid-template-columns: auto 1fr;
+}
+
+.grid-stretch {
+    grid-template-columns: 1fr 125px minmax(75px, max-content);
+}

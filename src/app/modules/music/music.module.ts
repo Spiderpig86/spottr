@@ -33,9 +33,14 @@ export const MUSIC_ROUTES: Routes = [
     path: 'top-tracks',
     canActivate: [AuthGuard],
     loadChildren: () =>
-      import('./top-tracks/top-tracks.module').then(
-        (m) => m.TopTracksModule
-      ),
+      import('./top-tracks/top-tracks.module').then((m) => m.TopTracksModule),
+  },
+
+  {
+    path: 'top-genres',
+    canActivate: [AuthGuard],
+    loadChildren: () =>
+      import('./top-genres/top-genres.module').then((m) => m.TopGenresModule),
   },
 ];
 
