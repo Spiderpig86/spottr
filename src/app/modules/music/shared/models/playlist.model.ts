@@ -1,4 +1,4 @@
-import { Image, StringObject } from './shared.model';
+import { Followers, Image, StringObject, Track } from './shared.model';
 
 export interface PlaylistsResponse {
     href: string;
@@ -10,7 +10,7 @@ export interface PlaylistsResponse {
     total: number;
 }
 
-export interface Tracks {
+export interface TrackCounts {
     href: string;
     total: number;
 }
@@ -36,7 +36,55 @@ export interface Playlist {
     primary_color: string | null;
     public: boolean;
     snapshot_id: string;
-    tracks: Tracks;
+    tracks: TrackCounts;
+    type: string;
+    uri: string;
+}
+
+/*
+    PLAYLIST DETAILS API
+*/
+
+export interface PlaylistDetailsResponse {
+    collaborative: boolean;
+    description: string;
+    external_urls: StringObject;
+    followers: Followers;
+    href: string;
+    id: string;
+    images: Image[];
+    name: string;
+    owner: Owner;
+    public: boolean;
+    snapshot_id: string;
+    tracks: {
+        href: string;
+        items: PlaylistTrack[];
+    }
+}
+
+export interface PagingObject {
+    href: string;
+    items: PlaylistTrack;
+    limit: number; // Typically 100
+    next: string | null; // Stores URL if available
+    offset: number;
+    previous: string | null; // Stores URL if available
+    total: number;
+}
+
+export interface PlaylistTrack {
+    added_at: string;
+    added_by: AddedBy;
+    is_local: boolean;
+    track: Track;
+    video_thumbnail: StringObject;
+}
+
+export interface AddedBy {
+    external_url: StringObject;
+    href: string;
+    id: string;
     type: string;
     uri: string;
 }

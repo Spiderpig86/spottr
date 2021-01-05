@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { TopTrack } from '../../../shared/models/top.model';
+import { Track } from '../../../shared/models/shared.model';
 
 @Component({
     selector: 'dashboard-top-track',
@@ -13,7 +13,7 @@ import { TopTrack } from '../../../shared/models/top.model';
 })
 export class DashboardTopTrackComponent {
 
-    @Input() topTrack: TopTrack;
+    @Input() topTrack: Track;
     
     constructor() {}
 }

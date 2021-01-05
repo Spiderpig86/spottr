@@ -1,9 +1,4 @@
-import { Image, StringObject } from './shared.model';
-
-export interface Followers {
-    href: string;
-    followers: number;
-}
+import { Followers, Image, StringObject } from './shared.model';
 
 export interface User {
     birthday: string;

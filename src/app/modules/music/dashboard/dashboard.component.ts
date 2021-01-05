@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Store } from 'src/store';
 
 import {
   TopArtistsResponse,
   TopTracksResponse,
 } from '../shared/models/top.model';
 import { User } from '../shared/models/user.model';
+import { PlaylistsService } from '../shared/services/playlists.service';
 import { ProfileService } from '../shared/services/profile.service';
 import { TopTimeRange, TopService } from '../shared/services/top.service';
 
@@ -36,7 +36,8 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private profileService: ProfileService,
-    private topService: TopService
+    private topService: TopService,
+    private playlistService: PlaylistsService
   ) {}
 
   ngOnInit() {

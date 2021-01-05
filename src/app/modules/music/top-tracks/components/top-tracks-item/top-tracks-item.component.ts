@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { TopTrack } from '../../../shared/models/top.model';
+import { Track } from '../../../shared/models/shared.model';
 
 @Component({
   selector: 'top-tracks-item',
@@ -29,7 +29,7 @@ import { TopTrack } from '../../../shared/models/top.model';
 })
 export class TopTracksItemComponent implements OnInit {
   artists: string;
-  @Input() topTrack: TopTrack;
+  @Input() topTrack: Track;
 
   constructor() {}
 
