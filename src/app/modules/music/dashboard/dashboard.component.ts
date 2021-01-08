@@ -36,8 +36,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private profileService: ProfileService,
-    private topService: TopService,
-    private playlistService: PlaylistsService
+    private topService: TopService
   ) {}
 
   ngOnInit() {
