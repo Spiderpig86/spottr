@@ -7,6 +7,7 @@ import { AuthGuard } from '../auth/shared/guards/auth.guard';
 import { MusicComponent } from './music.component';
 import { CacheService } from './shared/services/cache.service';
 import { CachedHttpService } from './shared/services/cached-http-client.service';
+import { PlaylistsService } from './shared/services/playlists.service';
 import { ProfileService } from './shared/services/profile.service';
 import { TopService } from './shared/services/top.service';
 
@@ -55,12 +56,15 @@ export const MUSIC_ROUTES: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule.forChild(MUSIC_ROUTES),
-  ],
+  imports: [CommonModule, RouterModule.forChild(MUSIC_ROUTES)],
   exports: [RouterModule],
   declarations: [MusicComponent, SidebarComponent],
-  providers: [CacheService, CachedHttpService, ProfileService, TopService],
+  providers: [
+    CacheService,
+    CachedHttpService,
+    ProfileService,
+    TopService,
+    PlaylistsService,
+  ],
 })
 export class MusicModule {}

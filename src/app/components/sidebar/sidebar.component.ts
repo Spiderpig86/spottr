@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { PlaylistsResponse } from 'src/app/modules/music/shared/models/playlist.model';
 
 @Component({
   selector: 'sidebar',
   styleUrls: ['./sidebar.component.scss'],
   template: `
     <div
-      class="sidebar px-6 py-4 md:sticky top-0 md:flex md:flex-col md:justify-between md:min-h-screen"
+      class="sidebar px-6 py-4 md:sticky top-0 md:flex md:flex-col md:h-screen"
     >
-      <div>
+      <div class="sidebar__container h-full grid">
         <div class="pb-8">
           <a routerLink="/music/dashboard" class="py-4 font-bold text-2xl"
             >Spottr.</a
@@ -34,17 +35,27 @@ import { Component } from '@angular/core';
                 routerLink="/music/top-genres"
                 routerLinkActive="sidebar__link--active"
                 >Top Genres</a
-              ></li>
+              >
+            </li>
           </ul>
-          <p class="uppercase font-bold mt-7 tracking-widest">Playlists</p>
-          <ul></ul>
         </div>
-      </div>
+        <p class="uppercase font-bold mt-4 tracking-widest">Playlists</p>
+        <ul *ngIf="this.playlists" class="overflow-auto h-full">
+          <li
+            *ngFor="let playlist of playlists.items"
+            class="sidebar__link mb-1 transition hover:font-bold"
+          >
+            <a routerLink="/music/top-artists">{{ playlist.name }}</a>
+          </li>
+        </ul>
 
-      <div>Github Link</div>
+        <div>Github Link</div>
+      </div>
     </div>
   `,
 })
 export class SidebarComponent {
+  @Input() playlists: PlaylistsResponse;
+
   constructor() {}
 }

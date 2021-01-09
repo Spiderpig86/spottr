@@ -43,3 +43,26 @@ html {
 .max-viewport {
   max-width: 1400px;
 }
+
+/* Scroll Bar */
+
+::-webkit-scrollbar {
+  background-color: #000;
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+
+  @apply bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #000;
+}

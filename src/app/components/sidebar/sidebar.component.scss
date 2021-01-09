@@ -1,24 +1,33 @@
 @import "../../../styles/colors.scss";
 
 .sidebar {
-  @apply bg-black;
-  @apply text-white;
-  min-width: 225px;
-
-  .sidebar__link {
+  @mixin sidebar-link {
     @apply cursor-pointer;
     @apply font-medium;
     @apply my-2;
     @apply font-normal;
     @apply tracking-tighter;
+  }
+
+  @apply bg-black;
+  @apply text-white;
+  min-width: 225px;
+
+  .sidebar__container {
+    grid-auto-rows: minmax(min-content, max-content) auto;
+  }
+
+  .sidebar__link {
+    @include sidebar-link;
+    @apply my-2;
 
     color: $sidebar-link-fg;
 
     a {
       @apply block;
-      @apply rounded-md;
       @apply px-4;
       @apply py-2;
+      @apply rounded-md;
 
       &:hover {
         background-color: $sidebar-link-hover;
@@ -28,6 +37,24 @@
     &--active {
       @apply bg-gray-900;
       @apply text-white;
+    }
+  }
+
+  .sidebar__playlist-item {
+    @include sidebar-link;
+    @apply mb-1;
+    
+    color: $sidebar-link-fg;
+
+    a {
+      @apply block;
+      @apply px-4;
+      @apply py-1;
+      @apply rounded-md;
+
+      &:hover {
+        background-color: $sidebar-link-hover;
+      }
     }
   }
 }

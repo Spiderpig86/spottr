@@ -10,8 +10,8 @@ import { PlaylistsResponse } from './modules/music/shared/models/playlist.model'
   selector: 'app-root',
   styleUrls: ['./app.component.scss'],
   template: `
-    <div>
-      <div class="w-full bg-black">
+    <div >
+      <div class="h-screen w-full bg-black">
         <router-outlet></router-outlet>
       </div>
     </div>
