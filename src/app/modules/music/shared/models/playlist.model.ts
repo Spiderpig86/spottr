@@ -60,6 +60,11 @@ export interface PlaylistDetailsResponse {
     tracks: {
         href: string;
         items: PlaylistTrack[];
+        limit: number;
+        next: string | null;
+        offset: number;
+        previous: string | null;
+        total: number;
     }
 }
 

@@ -4,7 +4,6 @@
   @mixin sidebar-link {
     @apply cursor-pointer;
     @apply font-medium;
-    @apply my-2;
     @apply font-normal;
     @apply tracking-tighter;
   }
@@ -14,7 +13,8 @@
   min-width: 225px;
 
   .sidebar__container {
-    grid-auto-rows: minmax(min-content, max-content) auto;
+    grid-auto-rows: minmax(min-content, max-content)
+      minmax(min-content, max-content) minmax(min-content, max-content) auto;
   }
 
   .sidebar__link {
@@ -42,8 +42,7 @@
 
   .sidebar__playlist-item {
     @include sidebar-link;
-    @apply mb-1;
-    
+
     color: $sidebar-link-fg;
 
     a {

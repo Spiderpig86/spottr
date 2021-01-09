@@ -39,13 +39,15 @@ import { PlaylistsResponse } from 'src/app/modules/music/shared/models/playlist.
             </li>
           </ul>
         </div>
-        <p class="uppercase font-bold mt-4 tracking-widest">Playlists</p>
+        <p class="uppercase font-bold my-4 tracking-widest">Playlists</p>
         <ul *ngIf="this.playlists" class="overflow-auto h-full">
           <li
             *ngFor="let playlist of playlists.items"
-            class="sidebar__link mb-1 transition hover:font-bold"
+            class="sidebar__playlist-item mb-1 transition hover:font-bold"
           >
-            <a routerLink="/music/top-artists">{{ playlist.name }}</a>
+            <a [routerLink]="['/music/playlist/', playlist.id]">{{
+              playlist.name
+            }}</a>
           </li>
         </ul>
 

@@ -47,6 +47,14 @@ export const MUSIC_ROUTES: Routes = [
           ),
       },
       {
+        path: 'playlist',
+        canActivate: [AuthGuard],
+        loadChildren: () =>
+          import('./playlist/playlist.module').then(
+            (m) => m.PlaylistModule
+          ),
+      },
+      {
         path: '',
         pathMatch: 'full',
         redirectTo: 'dashboard',
