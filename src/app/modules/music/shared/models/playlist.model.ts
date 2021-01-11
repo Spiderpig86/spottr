@@ -93,3 +93,17 @@ export interface AddedBy {
     type: string;
     uri: string;
 }
+
+/*
+    PLAYLIST TRACKS API
+*/
+
+export interface PlaylistTracksResponse {
+    href: string;
+    items: PlaylistTrack[];
+    limit: number;
+    next: string | null;
+    offset: number;
+    previous: string | null;
+    total: number;
+}

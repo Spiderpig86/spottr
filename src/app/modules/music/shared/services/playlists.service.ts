@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import {
   PlaylistDetailsResponse,
   PlaylistsResponse,
+  PlaylistTracksResponse,
 } from '../models/playlist.model';
 import { DEFAULT_CACHE_MINUTES } from '../music.constants';
 import { ENDPOINTS } from '../store/endpoint.store';
@@ -26,10 +27,30 @@ export class PlaylistsService {
     });
   }
 
-  getPlaylistDetails(playlistId: string): Observable<PlaylistDetailsResponse> {
-    const endpoint = ENDPOINTS.get('playlist_details') + playlistId;
+  getPlaylistDetails(
+    playlistId: string
+  ): Observable<PlaylistDetailsResponse> {
+    const endpoint = new URL(ENDPOINTS.get('playlist_details') + playlistId);
     return this.http.get({
-      url: endpoint,
+      url: endpoint.toString(),
+      cacheMins: DEFAULT_CACHE_MINUTES,
+    });
+  }
+
+  getPlaylistTracks(
+    playlistId: string,
+    limit?: number,
+    offset?: number
+  ): Observable<PlaylistTracksResponse> {
+    const endpoint = new URL(ENDPOINTS.get('playlist_details') + playlistId + `/tracks`);
+    if (limit) {
+      endpoint.searchParams.append('limit', limit.toString());
+    }
+    if (offset) {
+      endpoint.searchParams.append('offset', offset.toString());
+    }
+    return this.http.get({
+      url: endpoint.toString(),
       cacheMins: DEFAULT_CACHE_MINUTES,
     });
   }
