@@ -14,19 +14,28 @@ import { ProfileService } from '../shared/services/profile.service';
       <nav-bar *ngIf="user$" [profile]="user$ | async"></nav-bar>
       <div class="md:flex">
         <div *ngIf="playlistDetails$" class="playlist__stats">
-
-            <div class="image-container">
-                <img [src]="(playlistDetails$ | async).images[0].url" />
-            </div>
+          <div class="image-container">
+            <img [src]="(playlistDetails$ | async)?.images[0].url" />
+          </div>
           <p class="text-4xl font-bold">
-            <span class="title">{{ (playlistDetails$ | async).name }}</span>
-          </p>
-          <p class="text-xl text-gray-300">
-            {{ (playlistDetails$ | async).description }}
+            <span class="title">{{ (playlistDetails$ | async)?.name }}</span>
           </p>
           <p class="text-m mb-4 text-gray-300">
-            {{ (playlistDetails$ | async).tracks.total }} Tracks
+            {{ (playlistDetails$ | async)?.tracks.total }} Tracks
           </p>
+
+          <div class="my-4">
+            <p class="text-m text-gray-300 font-normal">
+              {{ (playlistDetails$ | async)?.description }}
+            </p>
+            <p class="text-m text-gray-300 font-bold">
+              By {{ (playlistDetails$ | async)?.owner.display_name }}
+            </p>
+          </div>
+
+          <div class="my-4">
+            <spottr-button text="Similar Tracks"></spottr-button>
+          </div>
         </div>
         <div class="flex-grow">
           <playlist-view

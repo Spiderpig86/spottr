@@ -14,7 +14,7 @@ import { ProfileService } from './services/profile.service';
     NavBarComponent,
     DashboardTopArtistComponent,
     TimeRangeComponent,
-    TopTracksItemComponent
+    TopTracksItemComponent,
   ],
   providers: [ProfileService],
   exports: [
@@ -22,7 +22,7 @@ import { ProfileService } from './services/profile.service';
     NavBarComponent,
     DashboardTopArtistComponent,
     TimeRangeComponent,
-    TopTracksItemComponent
+    TopTracksItemComponent,
   ],
 })
 export class MusicSharedModule {}

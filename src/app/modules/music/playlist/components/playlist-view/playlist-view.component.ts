@@ -6,10 +6,12 @@ import { PlaylistDetailsResponse } from '../../../shared/models/playlist.model';
   styleUrls: ['./playlist-view.component.scss'],
   template: `
     <div *ngIf="playlistDetails" class="my-4">
-      <top-tracks-item
-        *ngFor="let track of playlistDetails.tracks.items"
-        [topTrack]="track.track"
-      ></top-tracks-item>
+      <div *ngFor="let track of playlistDetails.tracks.items">
+        <top-tracks-item
+          *ngIf="!track.is_local"
+          [topTrack]="track.track"
+        ></top-tracks-item>
+      </div>
     </div>
   `,
 })

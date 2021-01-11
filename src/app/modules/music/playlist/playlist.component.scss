@@ -1,11 +1,17 @@
 .image-container {
-    margin: 1rem auto;
-    max-width: 300px;
-    width: 100%;
+  margin: 1rem auto;
+  max-width: 300px;
+  width: 100%;
 }
 
-.playlist__stats {
+@media screen and (min-width: 769px) {
+  .playlist__stats {
+    @apply mr-4;
     @apply my-4;
     @apply sticky;
     @apply top-0;
+
+    align-self: flex-start;
+    top: 3rem;
+  }
 }
