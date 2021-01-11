@@ -1,7 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Observable } from 'rxjs';
-import { PlaylistDetailsResponse } from '../shared/models/playlist.model';
+import {
+  PlaylistDetailsResponse,
+  PlaylistTrack,
+  PlaylistTracksResponse,
+} from '../shared/models/playlist.model';
 import { User } from '../shared/models/user.model';
 import { PlaylistsService } from '../shared/services/playlists.service';
 import { ProfileService } from '../shared/services/profile.service';
@@ -39,8 +43,8 @@ import { ProfileService } from '../shared/services/profile.service';
         </div>
         <div class="flex-grow">
           <playlist-view
-            *ngIf="playlistDetails$"
-            [playlistDetails]="this.playlistDetails$ | async"
+            *ngIf="playlistTracks"
+            [playlistTracks]="playlistTracks"
           >
           </playlist-view>
         </div>
@@ -51,6 +55,9 @@ import { ProfileService } from '../shared/services/profile.service';
 export class PlaylistComponent implements OnInit {
   playlistDetails$: Observable<PlaylistDetailsResponse>;
   user$: Observable<User>;
+  playlistTracks: PlaylistTrack[] = [];
+  nextUrl: string;
+  playlistId: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -58,16 +65,50 @@ export class PlaylistComponent implements OnInit {
     private profileService: ProfileService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.route.params.forEach((params: Params) => {
       if (params['id']) {
         const playlistId = params['id'];
+        this.playlistId = playlistId;
         this.playlistDetails$ = this.playlistsService.getPlaylistDetails(
           playlistId
         );
+        this.playlistDetails$.subscribe((response) => {
+          this.playlistTracks = this.playlistTracks.concat(
+            response.tracks.items
+          );
+          this.nextUrl = response.tracks.next;
+          console.log('yes');
+        });
       }
     });
 
     this.user$ = this.profileService.getProfile();
+  }
+
+  @HostListener('window:scroll', [])
+  onScroll(): void {
+    if (
+      window.innerHeight + window.scrollY >=
+      document.body.scrollHeight - 20
+    ) {
+      console.log('bottom');
+      if (this.nextUrl) {
+        const next: Observable<PlaylistTracksResponse> = this.playlistsService.getPlaylistTracks(
+          this.playlistId,
+          100,
+          this.playlistTracks.length
+        );
+        this.nextUrl = null;
+
+        next.subscribe(response => {
+            console.log(response.items)
+            this.playlistTracks = this.playlistTracks.concat(
+              response.items
+            );
+            this.nextUrl = response.next;
+        })
+      }
+    }
   }
 }

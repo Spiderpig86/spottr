@@ -1,12 +1,12 @@
 import { Component, Input } from '@angular/core';
-import { PlaylistDetailsResponse } from '../../../shared/models/playlist.model';
+import { PlaylistTrack } from '../../../shared/models/playlist.model';
 
 @Component({
   selector: 'playlist-view',
   styleUrls: ['./playlist-view.component.scss'],
   template: `
-    <div *ngIf="playlistDetails" class="my-4">
-      <div *ngFor="let track of playlistDetails.tracks.items">
+    <div *ngIf="playlistTracks" class="my-4">
+      <div *ngFor="let track of playlistTracks">
         <top-tracks-item
           *ngIf="!track.is_local"
           [topTrack]="track.track"
@@ -16,7 +16,7 @@ import { PlaylistDetailsResponse } from '../../../shared/models/playlist.model';
   `,
 })
 export class PlaylistViewComponent {
-  @Input() playlistDetails: PlaylistDetailsResponse;
+  @Input() playlistTracks: PlaylistTrack[];
 
   constructor() {}
 }
