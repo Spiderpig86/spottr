@@ -73,6 +73,7 @@ export class PlaylistComponent implements OnInit {
         this.playlistDetails$ = this.playlistsService.getPlaylistDetails(
           playlistId
         );
+        this.playlistTracks = [];
         this.playlistDetails$.subscribe((response) => {
           this.playlistTracks = this.playlistTracks.concat(
             response.tracks.items
@@ -92,7 +93,6 @@ export class PlaylistComponent implements OnInit {
       window.innerHeight + window.scrollY >=
       document.body.scrollHeight - 20
     ) {
-      console.log('bottom');
       if (this.nextUrl) {
         const next: Observable<PlaylistTracksResponse> = this.playlistsService.getPlaylistTracks(
           this.playlistId,
@@ -102,7 +102,6 @@ export class PlaylistComponent implements OnInit {
         this.nextUrl = null;
 
         next.subscribe(response => {
-            console.log(response.items)
             this.playlistTracks = this.playlistTracks.concat(
               response.items
             );

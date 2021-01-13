@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { AuthService } from 'src/app/modules/auth/shared/services/auth.service';
 import { User } from 'src/app/modules/music/shared/models/user.model';
 
 @Component({
@@ -8,11 +9,15 @@ import { User } from 'src/app/modules/music/shared/models/user.model';
       class="sticky top-0 bg-black bg-opacity-50 mx-auto flex align-middle justify-end"
       style="backdrop-filter: blur(5px)"
     >
-      <profile-button [user]="profile"></profile-button>
+      <profile-button [user]="profile" (logout)="onLogout()"></profile-button>
     </div>
   `,
 })
 export class NavBarComponent {
   @Input() profile: User;
-  constructor() {}
+  constructor(private auth: AuthService) {}
+
+  onLogout() {
+    this.auth.logout();
+  }
 }

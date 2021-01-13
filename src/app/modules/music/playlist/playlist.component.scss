@@ -1,5 +1,5 @@
 .image-container {
-  margin: 1rem auto;
+  margin: 1rem 0;
   max-width: 300px;
   width: 100%;
 }
@@ -12,6 +12,7 @@
     @apply top-0;
 
     align-self: flex-start;
+    max-width: 300px;
     top: 3rem;
   }
 }
