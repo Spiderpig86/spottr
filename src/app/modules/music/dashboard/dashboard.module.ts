@@ -7,7 +7,7 @@ import { DashboardTopArtistsComponent } from './components/dashboard-top-artists
 import { DashboardTopTrackComponent } from './components/dashboard-top-track/dashboard-top-track.component';
 import { DashboardTopTracksComponent } from './components/dashboard-top-tracks/dashboard-top-tracks.component';
 import { MusicSharedModule } from '../shared/shared.module';
-import { SharedComponentsModule } from '../../shared/shared.module';
+import { AppSharedModule } from '../../shared/shared.module';
 
 export const DASHBOARD_ROUTES: Routes = [
   { path: '', component: DashboardComponent },
@@ -17,7 +17,7 @@ export const DASHBOARD_ROUTES: Routes = [
     CommonModule,
     MusicSharedModule,
     RouterModule.forChild(DASHBOARD_ROUTES),
-    SharedComponentsModule,
+    AppSharedModule,
   ],
   declarations: [
     DashboardComponent,

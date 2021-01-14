@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SharedComponentsModule } from '../../shared/shared.module';
+import { AppSharedModule } from '../../shared/shared.module';
 import { MusicSharedModule } from '../shared/shared.module';
 import { PlaylistViewComponent } from './components/playlist-view/playlist-view.component';
 import { PlaylistComponent } from './playlist.component';
@@ -23,7 +23,7 @@ export const PLAYLIST_ROUTES: Routes = [
     CommonModule,
     RouterModule.forChild(PLAYLIST_ROUTES),
     MusicSharedModule,
-    SharedComponentsModule
+    AppSharedModule
   ],
   declarations: [PlaylistComponent, PlaylistViewComponent],
   providers: [],

@@ -1,0 +1,13 @@
+.wow {
+  background: url(https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?&w=1000&q=80)
+    center center;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 100% 200% !important;
+  font-weight: bold;
+}
+
+.splash__container {
+  max-width: 1200px;
+}
