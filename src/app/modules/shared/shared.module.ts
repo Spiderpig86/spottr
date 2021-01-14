@@ -1,10 +1,12 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ButtonComponent } from 'src/app/components/button/button.component';
+import { ScriptService } from './script.service';
 
 @NgModule({
-    imports: [],
+    imports: [CommonModule],
     declarations: [ButtonComponent],
-    providers: [],
+    providers: [ScriptService],
     exports: [ButtonComponent]
 })
-export class SharedComponentsModule {}
+export class AppSharedModule {}
