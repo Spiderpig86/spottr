@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { TopArtist } from '../../../shared/models/top.model';
+import { Artist } from '../../../shared/models/shared.model';
 
 @Component({
     selector: 'dashboard-top-artist',
@@ -13,7 +13,7 @@ import { TopArtist } from '../../../shared/models/top.model';
 })
 export class DashboardTopArtistComponent {
 
-    @Input() topArtist: TopArtist;
+    @Input() topArtist: Artist;
     
     constructor() {}
 }

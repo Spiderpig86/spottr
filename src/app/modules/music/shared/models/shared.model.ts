@@ -46,3 +46,19 @@ export interface Track {
   type: string;
   uri: string;
 }
+
+export interface Artist {
+  external_urls: StringObject;
+  followers: {
+      href: string | null;
+      total: string;
+  },
+  genres: string[];
+  href: string;
+  id: string;
+  images: Image[];
+  name: string;
+  popularity: number;
+  type: string;
+  uri: string;
+}

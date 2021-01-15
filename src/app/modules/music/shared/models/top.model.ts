@@ -1,23 +1,7 @@
-import { Image, StringObject, Track } from './shared.model';
-
-export interface TopArtist {
-    external_urls: StringObject;
-    followers: {
-        href: string | null;
-        total: string;
-    },
-    genres: string[];
-    href: string;
-    id: string;
-    images: Image[];
-    name: string;
-    popularity: number;
-    type: string;
-    uri: string;
-}
+import { Artist, Image, StringObject, Track } from './shared.model';
 
 export interface TopArtistsResponse {
-    items: TopArtist[];
+    items: Artist[];
 }
 
 export interface TopTracksResponse {

@@ -4,7 +4,7 @@
   width: 100%;
 }
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 768px) {
   .playlist__stats {
     @apply mr-4;
     @apply my-4;
@@ -12,7 +12,14 @@
     @apply top-0;
 
     align-self: flex-start;
-    max-width: 300px;
+    max-width: 150px;
     top: 3rem;
+  }
+
+}
+
+@media screen and (min-width: 1024px) {
+  .playlist__stats {
+    max-width: 300px;
   }
 }
