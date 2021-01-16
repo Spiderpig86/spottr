@@ -7,7 +7,10 @@ import { Artist } from '../../../shared/models/shared.model';
     template: `
         <div class="px-2 py-4 text-center w-64 mx-auto">
             <img class="rounded-full mx-auto w-32 h-32 mb-5 md:w-48 md:h-48" [src]="topArtist.images[0].url" />
-            <p>{{ topArtist.name }}</p> <!-- TODO Link to Artist page -->
+            <a [routerLink]="['/music/artist/', topArtist.id]">
+                {{ topArtist.name }}
+            </a>
+            <p></p> <!-- TODO Link to Artist page -->
         </div>
     `
 })

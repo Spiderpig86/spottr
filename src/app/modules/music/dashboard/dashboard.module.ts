@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
-import { DashboardTopArtistComponent } from './components/dashboard-top-artist/dashboard-top-artist.component';
 import { DashboardTopArtistsComponent } from './components/dashboard-top-artists/dashboard-top-artists.component';
 import { DashboardTopTrackComponent } from './components/dashboard-top-track/dashboard-top-track.component';
 import { DashboardTopTracksComponent } from './components/dashboard-top-tracks/dashboard-top-tracks.component';
@@ -17,6 +16,7 @@ export const DASHBOARD_ROUTES: Routes = [
     CommonModule,
     MusicSharedModule,
     RouterModule.forChild(DASHBOARD_ROUTES),
+    RouterModule,
     AppSharedModule,
   ],
   declarations: [

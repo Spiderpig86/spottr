@@ -79,7 +79,6 @@ export class PlaylistComponent implements OnInit {
             response.tracks.items
           );
           this.nextUrl = response.tracks.next;
-          console.log('yes');
         });
       }
     });

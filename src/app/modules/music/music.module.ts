@@ -55,6 +55,14 @@ export const MUSIC_ROUTES: Routes = [
           ),
       },
       {
+        path: 'artist',
+        canActivate: [AuthGuard],
+        loadChildren: () =>
+          import('./artist/artist.module').then(
+            (m) => m.ArtistModule
+          ),
+      },
+      {
         path: '',
         pathMatch: 'full',
         redirectTo: 'dashboard',
