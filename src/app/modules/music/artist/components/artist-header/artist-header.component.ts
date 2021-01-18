@@ -8,11 +8,11 @@ import { Artist } from '../../../shared/models/shared.model';
     <div>
       <div class="md:py-8 md:flex md:justify-around md:items-center">
         <div class="md:flex md:items-center">
-          <img class="artist-img" [src]="artist.images[0].url" />
-          <p class="ml-4 text-2xl md:text-6xl font-bold">{{ artist.name }}</p>
+          <img class="artist-img" [src]="artist?.images[0].url" />
+          <p class="ml-4 text-2xl md:text-6xl font-bold">{{ artist?.name }}</p>
         </div>
         <div>
-          <a [href]="artist.external_urls['spotify']">
+          <a [href]="artist?.external_urls['spotify']">
             <spottr-button text="Open In Spotify"></spottr-button>
           </a>
         </div>
@@ -25,7 +25,7 @@ import { Artist } from '../../../shared/models/shared.model';
             Genres
           </p>
           <ul>
-            <li *ngFor="let genre of artist.genres">{{ genre }}</li>
+            <li *ngFor="let genre of artist?.genres">{{ genre }}</li>
           </ul>
         </div>
         <div>
@@ -35,7 +35,7 @@ import { Artist } from '../../../shared/models/shared.model';
             Followers
           </p>
           <p class="text-lg text-gray-100">
-            {{ artist.followers.total | number }}
+            {{ artist?.followers.total | number }}
           </p>
         </div>
         <div>
@@ -44,7 +44,7 @@ import { Artist } from '../../../shared/models/shared.model';
           >
             Popularity
           </p>
-          <p class="text-lg text-gray-100">{{ artist.popularity }}%</p>
+          <p class="text-lg text-gray-100">{{ artist?.popularity }}%</p>
         </div>
       </div>
     </div>

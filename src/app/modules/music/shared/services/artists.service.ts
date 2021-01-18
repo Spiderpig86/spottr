@@ -16,4 +16,6 @@ export class ArtistService {
       cacheMins: DEFAULT_CACHE_MINUTES,
     });
   }
+
+  
 }
