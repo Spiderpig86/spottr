@@ -6,7 +6,6 @@ import {
   TopTracksResponse,
 } from '../shared/models/top.model';
 import { User } from '../shared/models/user.model';
-import { PlaylistsService } from '../shared/services/playlists.service';
 import { ProfileService } from '../shared/services/profile.service';
 import { TopTimeRange, TopService } from '../shared/services/top.service';
 

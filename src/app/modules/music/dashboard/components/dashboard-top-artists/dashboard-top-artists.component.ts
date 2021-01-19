@@ -12,7 +12,7 @@ import { TopArtistsResponse } from '../../../shared/models/top.model';
         </p>
         <a [routerLink]="['/music/top-artists']"><spottr-button text="See More"></spottr-button></a>
       </div>
-      <div *ngIf="topArtists" class="sm:flex sm:flex-wrap">
+      <div *ngIf="topArtists" class="grid gap-4">
         <dashboard-top-artist
           *ngFor="let artist of topArtists.items; index as i"
           [topArtist]="artist"
