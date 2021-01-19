@@ -6,7 +6,7 @@ import { User } from 'src/app/modules/music/shared/models/user.model';
   selector: 'nav-bar',
   template: `
     <div
-      class="sticky top-0 bg-black bg-opacity-50 mx-auto flex align-middle justify-end"
+      class="sticky top-0 z-50 bg-black bg-opacity-50 mx-auto flex align-middle justify-end"
       style="backdrop-filter: blur(5px)"
     >
       <profile-button [user]="profile" (logout)="onLogout()"></profile-button>

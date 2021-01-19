@@ -13,7 +13,7 @@ import { Component, Input } from '@angular/core';
           <p>{{ genre }}</p>
         </div>
         <div class="overflow-hidden overflow-ellipsis whitespace-nowrap pr-1">
-          <top-genre-progress-bar [percent]="this.percent"></top-genre-progress-bar>
+          <progress-bar [percent]="this.percent"></progress-bar>
         </div>
         <div
           class="overflow-hidden overflow-ellipsis whitespace-nowrap text-sm text-gray-600"

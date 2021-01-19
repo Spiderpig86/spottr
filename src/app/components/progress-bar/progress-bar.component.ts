@@ -1,22 +1,22 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
 
 @Component({
-  selector: 'top-genre-progress-bar',
-  styleUrls: ['./top-genre-progress-bar.component.scss'],
+  selector: 'progress-bar',
+  styleUrls: ['./progress-bar.component.scss'],
   template: `
     <div>
       <div class="progress-bar overflow-hidden h-4 text-xs flex rounded text-center text-gray-700">
         <div
           [style.width.%]="percent"
-          class="progress-bar-fill flex text-center whitespace-nowrap text-white justify-center"
+          class="progress-bar-fill flex text-center whitespace-nowrap text-gray-700 justify-center relative"
         >
+          <span class="absolute left-2">{{ roundedPercent }}%</span>
         </div>
-          <span>{{ roundedPercent }}%</span>
       </div>
     </div>
   `,
 })
-export class TopGenreProgressBarComponent {
+export class ProgressBarComponent {
   roundedPercent: number;
   @Input() percent: number;
 
