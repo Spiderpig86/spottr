@@ -1,5 +1,9 @@
-import { Artist } from './shared.model';
+import { Artist, Track } from './shared.model';
 
 export interface RelatedArtistResponse {
     artists: Artist[];
+}
+
+export interface TopTracksByArtistResponse {
+    tracks: Track[];
 }

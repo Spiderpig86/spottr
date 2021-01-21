@@ -5,4 +5,5 @@ export const ENDPOINTS = new Map([
   ['playlist_details', `https://api.spotify.com/v1/playlists/`],
   ['artist', `https://api.spotify.com/v1/artists/`],
   ['artist_related', `https://api.spotify.com/v1/artists/{id}/related-artists`],
+  ['artist_top_tracks', `https://api.spotify.com/v1/artists/{id}/top-tracks?market=US`],
 ]);

@@ -5,7 +5,9 @@ import { AppSharedModule } from '../../shared/shared.module';
 import { ArtistService } from '../shared/services/artists.service';
 import { MusicSharedModule } from '../shared/shared.module';
 import { AritstComponent } from './artist.component';
-import { ArtistHeaderComponent } from './components/artist-header/artist-header.component';
+import { AritstRelatedComponent } from './components/artist-related/artist-related.component';
+import { ArtistSummaryComponent } from './components/artist-summary/artist-summary.component';
+import { ArtistTopTracksComponent } from './components/artist-top-tracks/artist-top-tracks.component';
 
 export const ARTIST_ROUTES: Routes = [
   {
@@ -21,12 +23,17 @@ export const ARTIST_ROUTES: Routes = [
 
 @NgModule({
   imports: [
-      CommonModule,
-      RouterModule.forChild(ARTIST_ROUTES),
-      MusicSharedModule,
-      AppSharedModule
+    CommonModule,
+    RouterModule.forChild(ARTIST_ROUTES),
+    MusicSharedModule,
+    AppSharedModule,
   ],
-  declarations: [AritstComponent, ArtistHeaderComponent],
+  declarations: [
+    AritstComponent,
+    ArtistSummaryComponent,
+    AritstRelatedComponent,
+    ArtistTopTracksComponent,
+  ],
   providers: [ArtistService],
 })
 export class ArtistModule {}

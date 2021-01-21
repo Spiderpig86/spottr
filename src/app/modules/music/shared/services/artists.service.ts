@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { RelatedArtistResponse } from '../models/artists.model';
+import { RelatedArtistResponse, TopTracksByArtistResponse } from '../models/artists.model';
 import { Artist } from '../models/shared.model';
 import { DEFAULT_CACHE_MINUTES } from '../music.constants';
 import { ENDPOINTS } from '../store/endpoint.store';
@@ -24,5 +24,13 @@ export class ArtistService {
       url: endpoint,
       cacheMins: DEFAULT_CACHE_MINUTES,
     });
+  }
+
+  getTopTracksByArtist(artistId: string): Observable<TopTracksByArtistResponse> {
+    const endpoint = ENDPOINTS.get('artist_top_tracks').replace('{id}', artistId);
+    return this.http.get({
+      url: endpoint,
+      cacheMins: DEFAULT_CACHE_MINUTES
+    })
   }
 }

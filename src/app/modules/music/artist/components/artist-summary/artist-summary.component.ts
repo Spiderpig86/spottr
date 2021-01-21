@@ -2,11 +2,11 @@ import { Component, Input } from '@angular/core';
 import { Artist } from '../../../shared/models/shared.model';
 
 @Component({
-  selector: 'artist-header',
-  styleUrls: ['./artist-header.component.scss'],
+  selector: 'artist-summary',
+  styleUrls: ['./artist-summary.component.scss'],
   template: `
-    <div>
-      <div class="md:py-8 md:flex md:justify-around md:items-center">
+    <div class="mb-8">
+      <div class="md:py-8 md:flex md:justify-between md:items-center">
         <div class="md:flex md:items-center">
           <img class="artist-img" [src]="artist?.images[0].url" />
           <p class="ml-4 text-2xl md:text-6xl font-bold">{{ artist?.name }}</p>
@@ -43,14 +43,14 @@ import { Artist } from '../../../shared/models/shared.model';
             class="text-xl font-semibold text-gray-400 uppercase tracking-widest"
           >
             Popularity
-          </p>
+          </p> 
           <p class="text-lg text-gray-100">{{ artist?.popularity }}%</p>
         </div>
       </div>
     </div>
   `,
 })
-export class ArtistHeaderComponent {
+export class ArtistSummaryComponent {
   @Input()
   artist: Artist;
 
