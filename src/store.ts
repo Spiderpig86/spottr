@@ -7,7 +7,7 @@ export interface State {
 }
 
 const state: State = {
-  access_token: "BQB_U9kRPsCkhhXG_eIx0MJBB2srcpb8lpPAHfgMJjrhteKrw3kCp1_LrV83K0oYoX8eYhDA0cNEdqHkTv-By3L0MhG_zD3KlIlTaljHZ_SWSppAyQOj6TcJcqyQmJPTZVJDUXT5L6KMuAPpNWWFn9sPT7eorACjT__TRRg2JAiQn3oFHbazZQ8",
+  access_token: undefined,
 };
 
 @Injectable({ providedIn: 'root' })

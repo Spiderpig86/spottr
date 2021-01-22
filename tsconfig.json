@@ -12,9 +12,11 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "es2020",
-    "lib": [
-      "es2018",
-      "dom"
-    ]
+    "types": ["node"],
+    "lib": ["es2018", "dom"]
+  },
+  "angularCompilerOptions": {
+    /* Nothing else worked, finally found this at 3AM https://fireflysemantics.medium.com/adding-types-node-to-angular-84a629976c86 */
+    "types": ["node"]
   }
 }
