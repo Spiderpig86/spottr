@@ -66,6 +66,26 @@ export interface TrackFeatures {
   time_signature: number; // TODO: Build converter to actual time signature
 }
 
+export interface TrackAudioAnalysis {
+  meta: StringObject;
+  track: {
+    num_samples: number;
+    duration: number;
+    sample_md5: string;
+    offset_seconds: number;
+    window_seconds: number;
+    loudness: number;
+    temp: number;
+    time_signature: number;
+    key: number;
+    mode: number;
+    bars: any[];
+    beats: any[];
+    sections: any[];
+    segments: any[];
+  }
+}
+
 export interface Artist {
   external_urls: StringObject;
   followers: {
