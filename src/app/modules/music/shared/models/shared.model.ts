@@ -47,6 +47,25 @@ export interface Track {
   uri: string;
 }
 
+export interface TrackFeatures {
+  danceability: number;
+  energy: number;
+  key: number; // TODO: Build converter to actual musical key
+  mode: number;
+  speechiness: number;
+  acousticness: number;
+  instrumentalness: number;
+  liveness: number;
+  valence: number;
+  type: string;
+  id: string;
+  uri: string;
+  track_href: string;
+  analysis_url: string;
+  duration_ms: number;
+  time_signature: number; // TODO: Build converter to actual time signature
+}
+
 export interface Artist {
   external_urls: StringObject;
   followers: {
