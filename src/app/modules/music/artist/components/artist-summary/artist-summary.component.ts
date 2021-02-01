@@ -9,7 +9,7 @@ import { Artist } from '../../../shared/models/shared.model';
       <div class="text-center md:text-normal md:py-8 md:flex md:justify-between md:items-center">
         <div class="mb-4 md:flex md:items-center">
           <img class="artist-img" [src]="artist?.images[0].url" />
-          <p class="ml-4 my-2 text-2xl md:text-6xl font-bold">{{ artist?.name }}</p>
+          <p class="ml-6 my-2 text-2xl md:text-6xl font-bold">{{ artist?.name }}</p>
         </div>
         <div>
           <a [href]="artist?.external_urls['spotify']">

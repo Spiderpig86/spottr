@@ -63,6 +63,14 @@ export const MUSIC_ROUTES: Routes = [
           ),
       },
       {
+        path: 'track',
+        canActivate: [AuthGuard],
+        loadChildren: () =>
+          import('./track/track.module').then(
+            (m) => m.TrackModule
+          ),
+      },
+      {
         path: '',
         pathMatch: 'full',
         redirectTo: 'dashboard',

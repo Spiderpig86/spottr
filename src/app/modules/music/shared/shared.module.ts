@@ -7,6 +7,7 @@ import { AppSharedModule } from '../../shared/shared.module';
 import { DashboardTopArtistComponent } from '../dashboard/components/dashboard-top-artist/dashboard-top-artist.component';
 import { TopTracksItemComponent } from '../top-tracks/components/top-tracks-item/top-tracks-item.component';
 import { TimeRangeComponent } from './components/time-range/time-range.component';
+import { TimestampPipe } from './pipes/timestamp.pipe';
 import { ProfileService } from './services/profile.service';
 
 @NgModule({
@@ -17,6 +18,7 @@ import { ProfileService } from './services/profile.service';
     DashboardTopArtistComponent,
     TimeRangeComponent,
     TopTracksItemComponent,
+    TimestampPipe
   ],
   providers: [ProfileService],
   exports: [
@@ -25,6 +27,7 @@ import { ProfileService } from './services/profile.service';
     DashboardTopArtistComponent,
     TimeRangeComponent,
     TopTracksItemComponent,
+    TimestampPipe
   ],
 })
 export class MusicSharedModule {}

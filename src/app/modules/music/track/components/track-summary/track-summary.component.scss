@@ -1,0 +1,8 @@
+.track-img {
+    @apply mx-auto;
+    @apply rounded-full;
+
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+}

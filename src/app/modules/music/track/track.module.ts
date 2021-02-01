@@ -1,18 +1,39 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { AppSharedModule } from '../../shared/shared.module';
+import { TracksService } from '../shared/services/tracks.service';
+import { MusicSharedModule } from '../shared/shared.module';
+import { TrackCardComponent } from './components/track-card/track-card.component';
+import { TrackDetailsComponent } from './components/track-details/track-details.component';
+import { TrackSummaryComponent } from './components/track-summary/track-summary.component';
+import { TrackComponent } from './track.component';
 
-export const TOP_TRACK_ROUTES: Routes = [
-    {
-      path: '',
-      component: null,
-    },
-  ];
-  
+export const TRACK_ROUTES: Routes = [
+  {
+    path: ':id',
+    component: TrackComponent,
+  },
+  {
+    // TODO: 404 Component
+    path: '**',
+    component: null,
+  },
+];
 
 @NgModule({
-    imports: [CommonModule,],
-    declarations: [],
-    providers: []
+  imports: [
+    CommonModule,
+    RouterModule.forChild(TRACK_ROUTES),
+    MusicSharedModule,
+    AppSharedModule,
+  ],
+  declarations: [
+    TrackComponent,
+    TrackSummaryComponent,
+    TrackDetailsComponent,
+    TrackCardComponent,
+  ],
+  providers: [TracksService],
 })
 export class TrackModule {}

@@ -64,10 +64,15 @@ export interface TrackFeatures {
   analysis_url: string;
   duration_ms: number;
   time_signature: number; // TODO: Build converter to actual time signature
+  tempo: number;
 }
 
 export interface TrackAudioAnalysis {
   meta: StringObject;
+  bars: any[];
+  beats: any[];
+  sections: any[];
+  segments: any[];
   track: {
     num_samples: number;
     duration: number;
@@ -79,10 +84,6 @@ export interface TrackAudioAnalysis {
     time_signature: number;
     key: number;
     mode: number;
-    bars: any[];
-    beats: any[];
-    sections: any[];
-    segments: any[];
   }
 }
 

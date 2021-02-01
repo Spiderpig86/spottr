@@ -1,13 +1,13 @@
 button {
     letter-spacing: 2px;
 
-    &:hover {
-        @apply text-gray-600;
+    // &:hover {
+    //     @apply text-gray-600;
 
-        background-color: transparentize($color: #fff, $amount: .25);
-    }
+    //     background-color: transparentize($color: #fff, $amount: .25);
+    // }
 
-    &:focus {
+    &:hover, &:focus {
         @apply text-gray-900;
 
         background-color: #fff;
