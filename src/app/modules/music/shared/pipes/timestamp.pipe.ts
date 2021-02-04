@@ -1,5 +1,12 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
+/**
+ * Pipe for formatting MS into hours, minutes, and seconds.
+ *
+ * @export
+ * @class TimestampPipe
+ * @implements {PipeTransform}
+ */
 @Pipe({
   name: 'timestamp',
 })
