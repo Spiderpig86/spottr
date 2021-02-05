@@ -13,14 +13,20 @@ import { Track } from '../../../shared/models/shared.model';
           <div class="mb-4 md:flex md:items-center">
             <img class="track-img" [src]="track?.album?.images[0].url" />
             <div class="ml-4 my-2 text-left">
-              <p class="text-2xl md:text-6xl font-bold"> {{ track?.name }}</p>
-              <a
-                *ngFor="let artist of track?.artists"
-                [routerLink]="['/music/artist/', artist.id]"
-                class="text-lg text-gray-500 mr-1 hover:underline"
+              <p
+                class="text-2xl text-center font-bold md:text-left md:text-6xl"
               >
-                {{ artist.name }}
-              </a>
+                {{ track?.name }}
+              </p>
+              <div class="text-center md:text-left">
+                <a
+                  *ngFor="let artist of track?.artists"
+                  [routerLink]="['/music/artist/', artist.id]"
+                  class="text-lg text-gray-500 mr-1 hover:underline"
+                >
+                  {{ artist.name }}
+                </a>
+              </div>
             </div>
           </div>
           <div>

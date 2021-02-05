@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ChartsModule } from 'ng2-charts';
 import { AppSharedModule } from '../../shared/shared.module';
 import { TracksService } from '../shared/services/tracks.service';
 import { MusicSharedModule } from '../shared/shared.module';
@@ -27,6 +28,7 @@ export const TRACK_ROUTES: Routes = [
     RouterModule.forChild(TRACK_ROUTES),
     MusicSharedModule,
     AppSharedModule,
+    ChartsModule
   ],
   declarations: [
     TrackComponent,

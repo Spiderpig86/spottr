@@ -1,4 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
+import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
+import { Label } from 'ng2-charts';
+
 import {
   Track,
   TrackAudioAnalysis,
@@ -22,7 +25,10 @@ import {
           ></track-card>
         </div>
         <div class="mx-1 my-2">
-          <track-card title="Popularity" [text]="track.popularity + '%'"></track-card>
+          <track-card
+            title="Popularity"
+            [text]="track.popularity + '%'"
+          ></track-card>
         </div>
       </div>
 
@@ -32,7 +38,10 @@ import {
           <track-card title="Key" [text]="trackFeatures.key | key"></track-card>
         </div>
         <div class="mx-1 my-2">
-          <track-card title="Modality" [text]="trackFeatures.mode | modality"></track-card>
+          <track-card
+            title="Modality"
+            [text]="trackFeatures.mode | modality"
+          ></track-card>
         </div>
         <div class="mx-1 my-2">
           <track-card
@@ -41,7 +50,10 @@ import {
           ></track-card>
         </div>
         <div class="mx-1 my-2">
-          <track-card title="Tempo" [text]="trackFeatures.tempo"></track-card>
+          <track-card
+            title="Tempo"
+            [text]="trackFeatures.tempo | number: '1.0-0'"
+          ></track-card>
         </div>
         <div class="mx-1 my-2">
           <track-card
@@ -68,6 +80,20 @@ import {
           ></track-card>
         </div>
       </div>
+
+      <div *ngIf="this.trackAudioFeatures && this.trackAnalysis">
+        <p class="text-3xl font-bold">Audio Features</p>
+        <canvas
+          baseChart
+          [datasets]="this.trackAudioFeatures"
+          [labels]="this.trackAudioFeatureLabels"
+          [options]="barChartOptions"
+          [plugins]="barChartPlugins"
+          [legend]="barChartLegend"
+          [chartType]="barChartType"
+        >
+        </canvas>
+      </div>
     </div>
   `,
 })
@@ -76,5 +102,54 @@ export class TrackDetailsComponent {
   @Input() trackFeatures: TrackFeatures;
   @Input() trackAnalysis: TrackAudioAnalysis;
 
+  trackAudioFeatureLabels: Label[] = [
+    'Danceability',
+    'Energy',
+    'Speechiness',
+    'Acousticness',
+    'Instrumentalness',
+    'Liveness',
+    'Valence',
+  ];
+  trackAudioFeatures: ChartDataSets[];
+  barChartOptions: ChartOptions = {
+    responsive: true,
+  };
+  barChartType: ChartType = 'horizontalBar';
+  barChartLegend = false;
+  barChartPlugins = [];
+
   constructor() {}
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.trackFeatures) {
+      this.trackAudioFeatures = [
+        {
+          data: this.trackAudioFeatureLabels.map(
+            (label) =>
+              changes.trackFeatures.currentValue[label.toString().toLowerCase()]
+          ),
+          backgroundColor: [
+            'rgb(202 178 214 / 0.8)',
+            'rgb(138 147 187 / 0.8)',
+            'rgb(166 206 227 / 0.8)',
+            'rgb(178 223 138 / 0.8)',
+            'rgb(255 255 153 / 0.8)',
+            'rgb(253 191 111 / 0.8)',
+            'rgb(251 154 153 / 0.8)',
+          ],
+          hoverBackgroundColor: [
+            'rgb(202 178 214 / 1)',
+            'rgb(138 147 187 / 1)',
+            'rgb(166 206 227 / 1)',
+            'rgb(178 223 138 / 1)',
+            'rgb(255 255 153 / 1)',
+            'rgb(253 191 111 / 1)',
+            'rgb(251 154 153 / 1)',
+          ],
+        },
+      ];
+      console.log(this.trackAudioFeatures);
+    }
+  }
 }

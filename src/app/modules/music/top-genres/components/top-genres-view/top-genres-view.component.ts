@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 import { TopArtistsResponse } from '../../../shared/models/top.model';
 
 @Component({
