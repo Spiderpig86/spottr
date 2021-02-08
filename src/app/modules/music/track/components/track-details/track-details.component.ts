@@ -52,8 +52,13 @@ import {
         <div class="mx-1 my-2">
           <track-card
             title="Tempo"
-            [text]="trackFeatures.tempo | number: '1.0-0'"
-          ></track-card>
+            [text]="(trackFeatures.tempo | number: '1.0-0') + ' BPM'"
+          >
+            <div
+              class="pulse ml-8"
+              [style]="'animation-duration: ' + trackTempoPulseDuration + 'ms'"
+            ></div>
+          </track-card>
         </div>
         <div class="mx-1 my-2">
           <track-card
@@ -119,6 +124,8 @@ export class TrackDetailsComponent {
   barChartLegend = false;
   barChartPlugins = [];
 
+  trackTempoPulseDuration: number = 1000;
+
   constructor() {}
 
   ngOnChanges(changes: SimpleChanges) {
@@ -149,7 +156,9 @@ export class TrackDetailsComponent {
           ],
         },
       ];
-      console.log(this.trackAudioFeatures);
+
+      this.trackTempoPulseDuration =
+        (60 / changes.trackFeatures.currentValue.tempo) * 1000;
     }
   }
 }
