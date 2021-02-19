@@ -29,7 +29,7 @@ import { ProfileService } from '../shared/services/profile.service';
           </p>
 
           <div class="my-4">
-            <p class="text-m text-gray-300 font-normal">
+            <p class="text-m text-gray-300 font-normal break-words">
               {{ (playlistDetails$ | async)?.description }}
             </p>
             <p class="text-m text-gray-300 font-bold">

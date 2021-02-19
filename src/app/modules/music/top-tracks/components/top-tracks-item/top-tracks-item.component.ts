@@ -19,7 +19,7 @@ import { Track } from '../../../shared/models/shared.model';
               {{ artists }} - {{ topTrack.album.name }}
             </p>
           </div>
-          <div class="overflow-hidden overflow-ellipsis whitespace-nowrap pr-1">
+          <div class="hidden overflow-hidden overflow-ellipsis whitespace-nowrap pr-1 lg:block">
             <progress-bar [percent]="topTrack.popularity"></progress-bar>
           </div>
           <div

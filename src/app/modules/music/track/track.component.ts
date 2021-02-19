@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Observable } from 'rxjs';
 import {
@@ -25,7 +25,7 @@ import { TracksService } from '../shared/services/tracks.service';
     </div>
   `,
 })
-export class TrackComponent {
+export class TrackComponent implements OnInit {
   user$: Observable<User>;
   track$: Observable<Track>;
   trackAnalysis$: Observable<TrackAudioAnalysis>;

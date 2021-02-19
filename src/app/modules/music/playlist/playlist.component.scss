@@ -8,10 +8,12 @@
   .playlist__stats {
     @apply mr-4;
     @apply my-4;
+    @apply overflow-auto;
     @apply sticky;
     @apply top-0;
 
     align-self: flex-start;
+    max-height: calc(100vh - 6rem);
     max-width: 150px;
     top: 3rem;
   }
