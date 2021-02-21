@@ -57,3 +57,17 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    @apply transition-all;
+    @apply duration-200;
+
+    max-height: 3rem;
+    overflow: hidden;
+
+    &.sidebar--open {
+      max-height: 100vh;
+    }
+  }
+}

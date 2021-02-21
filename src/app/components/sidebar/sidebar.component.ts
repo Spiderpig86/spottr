@@ -6,13 +6,17 @@ import { PlaylistsResponse } from 'src/app/modules/music/shared/models/playlist.
   styleUrls: ['./sidebar.component.scss'],
   template: `
     <div
-      class="sidebar px-6 py-4 md:sticky top-0 md:flex md:flex-col md:h-screen"
+      class="sidebar px-6 py-4 top-0 flex flex-col h-screen md:sticky"
+      [class.sidebar--open]="sidebarOpen"
     >
       <div class="sidebar__container h-full grid">
-        <div class="pb-8">
-          <a routerLink="/music/dashboard" class="py-4 font-bold text-2xl"
+        <div class="pb-8 flex justify-between md:block">
+          <a routerLink="/music/dashboard" class="font-bold text-2xl"
             >Spottr.</a
           >
+          <button class="md:hidden" (click)="toggleSidebar()">
+            <i class="fas fa-bars"></i>
+          </button>
         </div>
         <div>
           <ul>
@@ -40,7 +44,10 @@ import { PlaylistsResponse } from 'src/app/modules/music/shared/models/playlist.
           </ul>
         </div>
         <p class="uppercase font-bold my-4 tracking-widest">Playlists</p>
-        <ul *ngIf="this.playlists" class="overflow-auto h-full">
+        <ul
+          *ngIf="this.playlists"
+          class="sidebar__playlists overflow-auto h-full"
+        >
           <li
             *ngFor="let playlist of playlists.items"
             class="sidebar__playlist-item mb-1 transition hover:font-bold"
@@ -56,6 +63,13 @@ import { PlaylistsResponse } from 'src/app/modules/music/shared/models/playlist.
 })
 export class SidebarComponent {
   @Input() playlists: PlaylistsResponse;
+  sidebarOpen: boolean = false;
 
   constructor() {}
+
+  toggleSidebar() {
+    console.log('test');
+
+    this.sidebarOpen = !this.sidebarOpen;
+  }
 }

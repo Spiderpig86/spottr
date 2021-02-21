@@ -10,7 +10,7 @@ import { GetFollowingResponse, User } from '../../../shared/models/user.model';
     >
       <div class="mb-4 md:flex md:items-center">
         <img class="track-img" [src]="user.images[0].url" />
-        <div class="ml-6 my-2 text-left">
+        <div class="my-2 text-left md:ml-6">
           <p class="text-2xl text-center font-bold md:text-left md:text-6xl">
             {{ user.display_name }}
           </p>
@@ -19,17 +19,17 @@ import { GetFollowingResponse, User } from '../../../shared/models/user.model';
     </div>
 
     <div class="flex flex-col px-8">
-      <p class="text-9xl font-bold">Your Stats</p>
+      <p class="text-4xl md:text-9xl font-bold">Your Stats</p>
       <div>
-        <p class="text-9xl font-bold">
+        <p class="text-4xl md:text-9xl font-bold">
           {{ user.followers.total }}
-          <span class="text-gray-700 text-7xl">Followers</span>
+          <span class="text-gray-700 text-2xl md:text-7xl">Followers</span>
         </p>
       </div>
       <div>
-        <p class="text-9xl font-bold">
+        <p class="text-4xl md:text-9xl font-bold">
           {{ getFollowingResponse.artists.items.length }}
-          <span class="text-gray-700 text-7xl">Following</span>
+          <span class="text-gray-700 text-2xl md:text-7xl">Following</span>
         </p>
       </div>
     </div>
