@@ -71,6 +71,14 @@ export const MUSIC_ROUTES: Routes = [
           ),
       },
       {
+        path: 'profile',
+        canActivate: [AuthGuard],
+        loadChildren: () =>
+          import('./profile/profile.module').then(
+            (m) => m.ProfileModule
+          ),
+      },
+      {
         path: '',
         pathMatch: 'full',
         redirectTo: 'dashboard',

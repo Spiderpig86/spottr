@@ -19,7 +19,8 @@ export class AuthService {
     'user-top-read',
     'user-read-email',
     'playlist-read-private',
-    'playlist-read-collaborative'
+    'playlist-read-collaborative',
+    'user-follow-read'
   ];
 
   auth$: Observable<string>;

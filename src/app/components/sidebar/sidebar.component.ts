@@ -50,8 +50,6 @@ import { PlaylistsResponse } from 'src/app/modules/music/shared/models/playlist.
             }}</a>
           </li>
         </ul>
-
-        <div>Github Link</div>
       </div>
     </div>
   `,

@@ -1,4 +1,4 @@
-import { Followers, Image, StringObject } from './shared.model';
+import { Artist, Followers, Image, StringObject } from './shared.model';
 
 export interface User {
     birthday: string;
@@ -6,11 +6,17 @@ export interface User {
     display_name: string;
     explicit_content: any;
     externals_urls: StringObject;
-    follwers: Followers;
+    followers: Followers;
     href: string;
     id: string;
     images: Image[];
     product: string;
     type: string;
     uri: string;
+}
+
+export interface GetFollowingResponse {
+    artists: {
+        items: Artist[];
+    }
 }

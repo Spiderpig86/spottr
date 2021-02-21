@@ -8,17 +8,7 @@ export interface Image {
 
 export interface Followers {
   href: string;
-  followers: number;
-}
-
-
-export interface Artist {
-  external_urls: StringObject;
-  href: string;
-  id: string;
-  name: string;
-  type: string;
-  uri: string;
+  total: number;
 }
 
 export interface Album {
