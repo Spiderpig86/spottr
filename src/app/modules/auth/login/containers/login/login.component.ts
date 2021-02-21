@@ -30,11 +30,17 @@ import { AuthService } from '../../../shared/services/auth.service';
             </div>
           </div>
           <div>
-            <p class="text-l leading-normal font-bold md:text-7xl lg:text-8xl">
+            <p
+              class="text-2xl leading-normal font-bold md:text-7xl lg:text-8xl"
+            >
               Your <span class="stroke-font">Spotify</span> stats year-round.
             </p>
           </div>
         </div>
+        <p class="text-xs mt-12 md:text-sm md:w-1/2">
+          Spottr is not affiliated, associated, authorized, endorsed by,
+          or in any way officially connected with © Spotify AB.
+        </p>
       </div>
     </div>
   `,
