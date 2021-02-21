@@ -16,17 +16,24 @@ import { AuthService } from '../../../shared/services/auth.service';
         height="32"
       ></canvas>
       <div class="splash__container w-full mx-8 z-10 sm:mx-24 xl:mx-auto">
-        <p class="wow mb-3 text-5xl md:text-9xl tracking-tight md:mb-8">Spottr.</p>
-        <p class="text-l leading-normal md:text-4xl md:w-1/2">
-          Your Spotify stats year-round.
-        </p>
-
-        <div class="flex my-8 md:my-12">
-          <spottr-button
-            text="Launch App"
-            extraClasses="splash__btn font-medium mr-4 md:px-12 md:py-4"
-            (click)="loginUser()"
-          ></spottr-button>
+        <div class="md:grid md:grid-cols-2 md:gap-24">
+          <div class=" md:self-center">
+            <p class="wow mb-3 text-5xl tracking-tight md:text-8xl md:mb-8">
+              Spottr.
+            </p>
+            <div class="flex my-8 md:my-12">
+              <spottr-button
+                text="Launch App"
+                extraClasses="splash__btn font-medium mr-4 md:px-12 md:py-4"
+                (click)="loginUser()"
+              ></spottr-button>
+            </div>
+          </div>
+          <div>
+            <p class="text-l leading-normal font-bold md:text-7xl lg:text-8xl">
+              Your <span class="stroke-font">Spotify</span> stats year-round.
+            </p>
+          </div>
         </div>
       </div>
     </div>
