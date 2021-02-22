@@ -1,31 +1,9 @@
-const Dotenv = require("dotenv-webpack");
+'use strict';
 
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.scss$/,
-        loader: "postcss-loader",
-        options: {
-          postcssOptions: {
-            ident: "postcss",
-            syntax: "postcss-scss",
-            plugins: [
-              require("postcss-import"),
-              require("tailwindcss"),
-              require("autoprefixer"),
-            ],
-          },
-        },
-      },
-    ],
-  },
-  node: {
-    fs: "empty",
-  },
-  plugins: [
-    new Dotenv({
-      path: `${__dirname}/.env`,
-    }),
-  ],
-};
+const environment = (process.env.NODE_ENV || 'development').trim();
+
+if (environment === 'development') {
+    module.exports = require('./webpack.dev.js');
+} else {
+    module.exports = require('./webpack.prod.js');
+}
