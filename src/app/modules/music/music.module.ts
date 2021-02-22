@@ -79,6 +79,14 @@ export const MUSIC_ROUTES: Routes = [
           ),
       },
       {
+        path: 'recommendations',
+        canActivate: [AuthGuard],
+        loadChildren: () =>
+          import('./recommendations/recommendations.module').then(
+            (m) => m.RecommendationsModule
+          )
+      },
+      {
         path: '',
         pathMatch: 'full',
         redirectTo: 'dashboard',

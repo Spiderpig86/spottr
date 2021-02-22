@@ -38,7 +38,9 @@ import { ProfileService } from '../shared/services/profile.service';
           </div>
 
           <div class="my-4">
-            <spottr-button text="Similar Tracks"></spottr-button>
+            <a [routerLink]="['/music/recommendations/', playlistId]">
+              <spottr-button text="Similar Tracks"></spottr-button>
+            </a>
           </div>
         </div>
         <div class="flex-grow">
@@ -68,10 +70,9 @@ export class PlaylistComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.forEach((params: Params) => {
       if (params['id']) {
-        const playlistId = params['id'];
-        this.playlistId = playlistId;
+        this.playlistId = params['id'];
         this.playlistDetails$ = this.playlistsService.getPlaylistDetails(
-          playlistId
+          this.playlistId
         );
         this.playlistTracks = [];
         this.playlistDetails$.subscribe((response) => {
@@ -100,12 +101,10 @@ export class PlaylistComponent implements OnInit {
         );
         this.nextUrl = null;
 
-        next.subscribe(response => {
-            this.playlistTracks = this.playlistTracks.concat(
-              response.items
-            );
-            this.nextUrl = response.next;
-        })
+        next.subscribe((response) => {
+          this.playlistTracks = this.playlistTracks.concat(response.items);
+          this.nextUrl = response.next;
+        });
       }
     }
   }
