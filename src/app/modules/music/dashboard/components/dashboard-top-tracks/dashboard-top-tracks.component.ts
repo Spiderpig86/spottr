@@ -12,7 +12,7 @@ import { TopTracksResponse } from '../../../shared/models/top.model';
         </p>
         <a [routerLink]="['/music/top-tracks']"><spottr-button text="See More"></spottr-button></a>
       </div>
-      <div *ngIf="topTracks" class="grid">
+      <div *ngIf="topTracks" class="grid gap-4">
         <dashboard-top-track
           *ngFor="let track of topTracks.items; index as i"
           [topTrack]="track"

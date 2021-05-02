@@ -6,11 +6,22 @@
     @apply font-medium;
     @apply font-normal;
     @apply tracking-tighter;
+    @apply w-full;
   }
 
-  @apply bg-black;
+  @apply fixed;
   @apply text-white;
+  background-color: #000000e6;
+  backdrop-filter: saturate(180%) blur(20px);
   min-width: 225px;
+  width: 100%;
+  z-index: 999;
+
+  @screen md {
+    @apply bg-black;
+    @apply sticky;
+    backdrop-filter: none;
+  }
 
   .sidebar__container {
     grid-auto-rows: minmax(min-content, max-content)
@@ -56,6 +67,17 @@
       }
     }
   }
+
+  .sidebar__btn-container {
+    @screen md {
+      @apply hidden;
+    }
+  }
+
+  .sidebar__btn {
+    border-color: $sidebar-link-fg;
+    color: $sidebar-link-fg;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -63,7 +85,7 @@
     @apply transition-all;
     @apply duration-200;
 
-    max-height: 3rem;
+    max-height: 3.5rem;
     overflow: hidden;
 
     &.sidebar--open {

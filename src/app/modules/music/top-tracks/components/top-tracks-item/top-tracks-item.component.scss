@@ -4,10 +4,13 @@
 
 .grid-stretch {
   grid-template-columns: 1fr auto;
-}
 
-@media screen and (min-width: 768px) {
-  .grid-stretch {
+  @screen md {
+
+    grid-template-columns: 1fr 30px;
+  }
+
+  @screen lg {
     grid-template-columns: 1fr 125px 30px;
   }
 }

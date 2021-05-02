@@ -14,15 +14,14 @@ import { TracksService } from '../shared/services/tracks.service';
   selector: 'track',
   styleUrls: ['./track.component.scss'],
   template: `
-    <div class="page">
-      <nav-bar *ngIf="user$" [profile]="user$ | async"></nav-bar>
+    <page>
       <track-summary [track]="track$ | async"></track-summary>
       <track-details
         [track]="track$ | async"
         [trackAnalysis]="trackAnalysis$ | async"
         [trackFeatures]="trackFeatures$ | async"
       ></track-details>
-    </div>
+    </page>
   `,
 })
 export class TrackComponent implements OnInit {

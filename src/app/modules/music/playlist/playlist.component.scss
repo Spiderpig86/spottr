@@ -4,24 +4,31 @@
   width: 100%;
 }
 
-@media screen and (min-width: 768px) {
-  .playlist__stats {
+.playlist__stats {
+  @apply text-center;
+
+  .image-container {
+    @apply mx-auto;
+  }
+
+  @screen md {
     @apply mr-4;
     @apply my-4;
     @apply overflow-auto;
     @apply sticky;
-    @apply top-0;
+    @apply text-left;
 
     align-self: flex-start;
     max-height: calc(100vh - 6rem);
     max-width: 150px;
-    top: 3rem;
+    top: 3.5rem;
+
+    .image-container {
+      @apply ml-0;
+    }
   }
 
-}
-
-@media screen and (min-width: 1024px) {
-  .playlist__stats {
+  @screen lg {
     max-width: 300px;
   }
 }

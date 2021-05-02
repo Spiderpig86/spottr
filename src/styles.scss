@@ -33,11 +33,15 @@ html {
   @extend .max-viewport;
 
   @apply mx-auto;
-  @apply px-8;
+  @apply px-4;
   @apply py-4;
   @apply text-white;
   @apply min-h-screen;
   @apply w-full;
+
+  @screen sm {
+    @apply px-8;
+  }
 }
 
 .max-viewport {

@@ -13,8 +13,7 @@ import { TopTimeRange, TopService } from '../shared/services/top.service';
   selector: 'dashboard',
   styleUrls: ['./dashboard.component.scss'],
   template: `
-    <div class="page">
-      <nav-bar [profile]="user$ | async"></nav-bar>
+    <page>
       <p class="text-6xl font-bold pb-8 md:mt-8">Home</p>
       <div class="grid grid-cols-1 gap-12">
         <dashboard-top-artists
@@ -24,7 +23,7 @@ import { TopTimeRange, TopService } from '../shared/services/top.service';
           [topTracks]="topTracks$ | async"
         ></dashboard-top-tracks>
       </div>
-    </div>
+    </page>
   `,
 })
 export class DashboardComponent implements OnInit {

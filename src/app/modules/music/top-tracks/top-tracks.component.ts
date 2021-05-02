@@ -9,9 +9,8 @@ import { TopService, TopTimeRange } from '../shared/services/top.service';
   selector: 'top-tracks',
   styleUrls: ['./top-tracks.component.scss'],
   template: `
-    <div class="page">
-      <nav-bar *ngIf="user$" [profile]="user$ | async"></nav-bar>
-      <p class="text-8xl mb-4 font-bold">
+    <page>
+      <p class="text-7xl mb-4 font-bold md:text-8xl">
         <span class="title">Top Tracks</span>
       </p>
       <time-range
@@ -19,10 +18,10 @@ import { TopService, TopTimeRange } from '../shared/services/top.service';
         (valueChange)="setDateRange($event)"
       ></time-range>
       <top-tracks-view
-        *ngIf="(topTracks$ | async) as topTracks"
+        *ngIf="topTracks$ | async as topTracks"
         [topTracks]="topTracks"
-      ></top-tracks-view>
-    </div>
+      ></top-tracks-view
+    ></page>
   `,
 })
 export class TopTracksComponent implements OnInit {

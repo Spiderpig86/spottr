@@ -14,8 +14,7 @@ import { ProfileService } from '../shared/services/profile.service';
   selector: 'playlist',
   styleUrls: ['./playlist.component.scss'],
   template: `
-    <div class="page">
-      <nav-bar *ngIf="user$" [profile]="user$ | async"></nav-bar>
+    <page>
       <div class="md:flex">
         <div *ngIf="playlistDetails$" class="playlist__stats">
           <div class="image-container">
@@ -51,7 +50,7 @@ import { ProfileService } from '../shared/services/profile.service';
           </playlist-view>
         </div>
       </div>
-    </div>
+    </page>
   `,
 })
 export class PlaylistComponent implements OnInit {

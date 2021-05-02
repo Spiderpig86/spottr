@@ -11,6 +11,7 @@ import { KeyPipe } from './pipes/key.pipe';
 import { TimestampPipe } from './pipes/timestamp.pipe';
 import { ModalityPipe } from './pipes/modality.pipe';
 import { ProfileService } from './services/profile.service';
+import { PageComponent } from './components/page/page.component';
 
 @NgModule({
   imports: [CommonModule, RouterModule, AppSharedModule],
@@ -18,6 +19,7 @@ import { ProfileService } from './services/profile.service';
     ProfileButton,
     NavBarComponent,
     DashboardTopArtistComponent,
+    PageComponent,
     TimeRangeComponent,
     TopTracksItemComponent,
 
@@ -31,6 +33,7 @@ import { ProfileService } from './services/profile.service';
     ProfileButton,
     NavBarComponent,
     DashboardTopArtistComponent,
+    PageComponent,
     TimeRangeComponent,
     TopTracksItemComponent,
 

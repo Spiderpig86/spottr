@@ -8,10 +8,8 @@ import { TopService, TopTimeRange } from '../shared/services/top.service';
   selector: 'top-genres',
   styleUrls: ['./top-genres.component.scss'],
   template: `
-    <div class="page">
-      <nav-bar *ngIf="user$" [profile]="user$ | async"></nav-bar>
-
-      <p class="text-8xl mb-4 font-bold">
+    <page>
+      <p class="text-7xl mb-4 font-bold md:text-8xl">
         <span class="title">Top Genres</span>
       </p>
       <time-range
@@ -19,10 +17,10 @@ import { TopService, TopTimeRange } from '../shared/services/top.service';
         (valueChange)="setDateRange($event)"
       ></time-range>
       <top-genres-view
-        *ngIf="(topArtists$ | async) as topArtists"
+        *ngIf="topArtists$ | async as topArtists"
         [topArtists]="topArtists"
       ></top-genres-view>
-    </div>
+    </page>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

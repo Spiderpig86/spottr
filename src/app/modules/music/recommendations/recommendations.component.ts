@@ -19,13 +19,12 @@ import { RecommendationsService } from '../shared/services/recommendations.servi
   selector: 'recommendations',
   styleUrls: ['./recommendations.component.scss'],
   template: `
-    <div class="page">
-      <nav-bar *ngIf="user$" [profile]="user$ | async"></nav-bar>
+    <page>
       <recommendations-view
         [playlist]="playlistDetails$ | async"
         [recommendedTracks]="playlistRecommendations$ | async"
       ></recommendations-view>
-    </div>
+    </page>
   `,
 })
 export class RecommendationsComponent implements OnInit {

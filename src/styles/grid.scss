@@ -1,0 +1,12 @@
+/* Common Grid Styles */
+.grid {
+  grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+
+  @screen sm {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  @screen xl {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}

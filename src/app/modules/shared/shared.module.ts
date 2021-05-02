@@ -6,9 +6,17 @@ import { ProgressBarComponent } from 'src/app/components/progress-bar/progress-b
 import { ScriptService } from './script.service';
 
 @NgModule({
-    imports: [CommonModule],
-    declarations: [ButtonComponent, InfoOverlayComponent, ProgressBarComponent],
-    providers: [ScriptService],
-    exports: [ButtonComponent, InfoOverlayComponent, ProgressBarComponent]
+  imports: [CommonModule],
+  declarations: [
+    ButtonComponent,
+    InfoOverlayComponent,
+    ProgressBarComponent,
+  ],
+  providers: [ScriptService],
+  exports: [
+    ButtonComponent,
+    InfoOverlayComponent,
+    ProgressBarComponent,
+  ],
 })
 export class AppSharedModule {}
