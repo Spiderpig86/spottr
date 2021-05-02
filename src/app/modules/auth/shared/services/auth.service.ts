@@ -36,7 +36,7 @@ export class AuthService {
     window.location.href = this.buildUrlParam(loginUrl + '?', {
       client_id: AuthConfig.clientId,
       response_type: 'token',
-      redirect_uri: encodeURIComponent(`https://${window.location.hostname}/login`),
+      redirect_uri: encodeURIComponent(`${window.location.protocol}//${window.location.host}/login`),
       scope: encodeURIComponent(this.scopes.join(' ')),
     });
   }
