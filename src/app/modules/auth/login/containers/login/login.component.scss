@@ -10,12 +10,14 @@
 
 .splash__container {
   max-width: 1200px;
-
-  .stroke-font {
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: #fff;
-    letter-spacing: 3px;
-    text-stroke: 1px #fff; /* Future-proofing */
+  
+  @media screen and (min-width: 768px) {
+    .stroke-font {
+      -webkit-text-fill-color: transparent;
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: #fff;
+      letter-spacing: 3px;
+      text-stroke: 1px #fff; /* Future-proofing */
+    }
   }
 }
