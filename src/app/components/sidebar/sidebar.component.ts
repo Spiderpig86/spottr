@@ -79,7 +79,9 @@ import { PlaylistsResponse } from 'src/app/modules/music/shared/models/playlist.
                   stroke-linejoin="round"
                   class="feather feather-chevron-left w-5 h-5"
                 >
-                  <polyline points="15 18 9 12 15 6"></polyline>
+                  <path
+                    d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+                  ></path>
                 </svg>
                 Profile
               </div>
@@ -104,7 +106,9 @@ import { PlaylistsResponse } from 'src/app/modules/music/shared/models/playlist.
                   stroke-linejoin="round"
                   class="feather feather-chevron-right w-5 h-5 ml-1"
                 >
-                  <polyline points="9 18 15 12 9 6"></polyline>
+                  <path
+                    d="M17 16l4-4m0 0l-4-4 m4 4h-14m5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h3a3 3 0 013 3v1"
+                  ></path>
                 </svg>
               </div>
             </a>
@@ -130,7 +134,6 @@ export class SidebarComponent {
 
   onLogout() {
     this.auth.logout();
-    console.log("test");
-    
+    console.log('test');
   }
 }
