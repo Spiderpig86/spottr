@@ -65,7 +65,6 @@ import { filter } from 'rxjs/operators';
             <a
               class="sidebar__btn text-base rounded-r-none focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer border"
               (click)="openProfile()"
-              href="#"
             >
               <div class="flex leading-5">
                 <svg
@@ -142,6 +141,5 @@ export class SidebarComponent {
 
   onLogout() {
     this.auth.logout();
-    console.log('test');
   }
 }
