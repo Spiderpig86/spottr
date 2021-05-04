@@ -1,14 +1,15 @@
 import { Component, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { AuthService } from 'src/app/modules/auth/shared/services/auth.service';
 import { PlaylistsResponse } from 'src/app/modules/music/shared/models/playlist.model';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'sidebar',
   styleUrls: ['./sidebar.component.scss'],
   template: `
     <div
-      class="sidebar px-6 py-4 top-0 flex flex-col h-screen"
+      class="sidebar px-6 py-3 top-0 flex flex-col h-screen md:py-4"
       [class.sidebar--open]="sidebarOpen"
     >
       <div class="sidebar__container h-full grid">
@@ -122,7 +123,14 @@ export class SidebarComponent {
   @Input() playlists: PlaylistsResponse;
   sidebarOpen: boolean = false;
 
-  constructor(private auth: AuthService, private router: Router) {}
+  constructor(private auth: AuthService, private router: Router) {
+    router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
+        // On navigate event, close the sidebar
+        this.sidebarOpen = false;
+      });
+  }
 
   toggleSidebar() {
     this.sidebarOpen = !this.sidebarOpen;

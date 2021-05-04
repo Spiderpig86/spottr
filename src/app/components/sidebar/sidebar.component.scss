@@ -11,7 +11,7 @@
 
   @apply fixed;
   @apply text-white;
-  background-color: #000000e6;
+  background-color: #00000075;
   backdrop-filter: saturate(180%) blur(20px);
   min-width: 225px;
   width: 100%;
@@ -89,6 +89,7 @@
     overflow: hidden;
 
     &.sidebar--open {
+      background-color: #000000e6;
       max-height: 100vh;
     }
   }
