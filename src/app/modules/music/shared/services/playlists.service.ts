@@ -68,7 +68,7 @@ export class PlaylistsService {
     );
     const payload: CreatePlaylistRequestBody = {
       name,
-      public: false,
+      public: true,
       collaborative: false,
       description,
     };

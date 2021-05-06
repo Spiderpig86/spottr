@@ -23,6 +23,7 @@ import { RecommendationsService } from '../shared/services/recommendations.servi
       <recommendations-view
         [playlist]="playlistDetails$ | async"
         [recommendedTracks]="playlistRecommendations$ | async"
+        (savePlaylistEvent)="savePlaylist()"
       ></recommendations-view>
     </page>
   `,
@@ -32,12 +33,14 @@ export class RecommendationsComponent implements OnInit {
   playlistRecommendations$: Observable<RecommendationsResponse>;
   user$: Observable<User>;
   playlistId: string;
+  playlistName: string;
 
   constructor(
     private route: ActivatedRoute,
     private profileService: ProfileService,
     private playlistsService: PlaylistsService,
-    private recommendationsService: RecommendationsService
+    private recommendationsService: RecommendationsService,
+    private playlistService: PlaylistsService
   ) {}
 
   ngOnInit(): void {
@@ -54,6 +57,7 @@ export class RecommendationsComponent implements OnInit {
             sampleTracks,
             sampleArtists
           );
+          this.playlistName = playlistDetails.name;
         });
       }
     });
@@ -92,6 +96,25 @@ export class RecommendationsComponent implements OnInit {
       )
       .slice(0, SAMPLE_TRACK_COUNT);
     return artistIds.slice(0, SAMPLE_ARTIST_COUNT);
+  }
+
+  async savePlaylist(): Promise<void> {
+    // Create playlist
+    const user = await this.user$.toPromise();
+    const createPlaylistResponse = await this.playlistService
+      .putCreatePlaylist(
+        user.id,
+        `${this.playlistName} Recommendations`,
+        `Similar playlist to '${this.playlistName}' created by Spottr.`
+      )
+      .toPromise();
+
+    // Add all songs
+    const recommendationResponse = await this.playlistRecommendations$.toPromise();
+    const uris = recommendationResponse.tracks.map((track) => track.uri);
+    await this.playlistService
+      .putSongsToPlaylist(createPlaylistResponse.id, 0, uris)
+      .toPromise();
   }
 
   sample<T>(list: T[]): T {
