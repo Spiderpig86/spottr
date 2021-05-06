@@ -107,3 +107,22 @@ export interface PlaylistTracksResponse {
     previous: string | null;
     total: number;
 }
+
+/*
+    CREATE PLAYLIST API
+*/
+export interface CreatePlaylistRequestBody {
+    name: string,
+    public?: boolean,
+    collaborative?: boolean,
+    description?: string
+}
+
+export interface AddSongsToPlaylistRequestBody {
+    uris?: string[];
+    position?: number;
+}
+
+export interface AddSongsToPlaylistResponse {
+    snapshot_id: string;
+}
