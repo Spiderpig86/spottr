@@ -23,6 +23,7 @@ import { RecommendationsService } from '../shared/services/recommendations.servi
       <recommendations-view
         [playlist]="playlistDetails$ | async"
         [recommendedTracks]="playlistRecommendations$ | async"
+        [showCreationSuccessLabel]="showCreationSuccessLabel"
         (savePlaylistEvent)="savePlaylist()"
       ></recommendations-view>
     </page>
@@ -34,6 +35,7 @@ export class RecommendationsComponent implements OnInit {
   user$: Observable<User>;
   playlistId: string;
   playlistName: string;
+  showCreationSuccessLabel: boolean;
 
   constructor(
     private route: ActivatedRoute,
@@ -115,6 +117,11 @@ export class RecommendationsComponent implements OnInit {
     await this.playlistService
       .putSongsToPlaylist(createPlaylistResponse.id, 0, uris)
       .toPromise();
+    
+    this.showCreationSuccessLabel = true;
+    setTimeout(() => {
+      this.showCreationSuccessLabel = false;
+    }, 3000);
   }
 
   sample<T>(list: T[]): T {
