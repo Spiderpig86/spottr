@@ -12,7 +12,7 @@ import { RecommendationsResponse } from '../../../shared/models/recommendations.
       <div class="mb-4">
         <div class="flex items-center">
           <spottr-button (click)="save()" text="Save Playlist"></spottr-button>
-          <label *ngIf="showCreationSuccessLabel" class="ml-2">✅ Playlist saved.</label>
+          <label *ngIf="showStatusLabel" class="ml-2">{{ labelContents }}</label>
         </div>
       </div>
       <div *ngFor="let track of recommendedTracks.tracks">
@@ -27,7 +27,9 @@ export class RecommendationsViewComponent {
   @Input()
   recommendedTracks: RecommendationsResponse;
   @Input()
-  showCreationSuccessLabel: boolean;
+  showStatusLabel: boolean;
+  @Input()
+  labelContents: string;
   @Output()
   savePlaylistEvent: EventEmitter<any> = new EventEmitter<any>();
 

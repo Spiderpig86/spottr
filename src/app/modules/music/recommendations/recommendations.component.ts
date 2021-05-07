@@ -15,6 +15,8 @@ import { PlaylistsService } from '../shared/services/playlists.service';
 import { ProfileService } from '../shared/services/profile.service';
 import { RecommendationsService } from '../shared/services/recommendations.service';
 
+const LABEL_SUCCESS = `✅ Playlist created successfully.`;
+const LABEL_FAILURE = `❌ Error creating playlist.`;
 @Component({
   selector: 'recommendations',
   styleUrls: ['./recommendations.component.scss'],
@@ -23,7 +25,8 @@ import { RecommendationsService } from '../shared/services/recommendations.servi
       <recommendations-view
         [playlist]="playlistDetails$ | async"
         [recommendedTracks]="playlistRecommendations$ | async"
-        [showCreationSuccessLabel]="showCreationSuccessLabel"
+        [showStatusLabel]="showStatusLabel"
+        [labelContents]="labelContents"
         (savePlaylistEvent)="savePlaylist()"
       ></recommendations-view>
     </page>
@@ -35,7 +38,8 @@ export class RecommendationsComponent implements OnInit {
   user$: Observable<User>;
   playlistId: string;
   playlistName: string;
-  showCreationSuccessLabel: boolean;
+  showStatusLabel: boolean;
+  labelContents: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -103,24 +107,31 @@ export class RecommendationsComponent implements OnInit {
   async savePlaylist(): Promise<void> {
     // Create playlist
     const user = await this.user$.toPromise();
-    const createPlaylistResponse = await this.playlistService
-      .putCreatePlaylist(
-        user.id,
-        `${this.playlistName} Recommendations`,
-        `Similar playlist to '${this.playlistName}' created by Spottr.`
-      )
-      .toPromise();
+    try {
+      const createPlaylistResponse = await this.playlistService
+        .putCreatePlaylist(
+          user.id,
+          `${this.playlistName} Recommendations`,
+          `Similar playlist to '${this.playlistName}' created by Spottr.`
+        )
+        .toPromise();
 
-    // Add all songs
-    const recommendationResponse = await this.playlistRecommendations$.toPromise();
-    const uris = recommendationResponse.tracks.map((track) => track.uri);
-    await this.playlistService
-      .putSongsToPlaylist(createPlaylistResponse.id, 0, uris)
-      .toPromise();
+      // Add all songs
+      const recommendationResponse = await this.playlistRecommendations$.toPromise();
+      const uris = recommendationResponse.tracks.map((track) => track.uri);
+      await this.playlistService
+        .putSongsToPlaylist(createPlaylistResponse.id, 0, uris)
+        .toPromise();
+        
+      this.labelContents = LABEL_SUCCESS;
+    } catch (e) {
+      console.error(`Recommendations`, `Error creating playlist.`, e);
+      this.labelContents = LABEL_FAILURE;
+    }
     
-    this.showCreationSuccessLabel = true;
+    this.showStatusLabel = true;
     setTimeout(() => {
-      this.showCreationSuccessLabel = false;
+      this.showStatusLabel = false;
     }, 3000);
   }
 
