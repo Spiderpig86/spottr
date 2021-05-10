@@ -10,7 +10,15 @@ import { User } from 'src/app/modules/music/shared/models/user.model';
         class="flex items-center bg-transparent m-2 px-4 py-2 rounded-xl text-sm transition-all duration-200 text-white hover:text-gray-300 hover:underline hover:bg-gray-900"
         (click)="openProfile()"
       >
-        <img [src]="user?.images[0].url" class="rounded-full w-8 h-8 mr-3" />
+        <img
+          [src]="
+            user?.images[0]?.url ||
+            'https://ui-avatars.com/api/?name=' +
+              encodeUrl(user?.display_name) +
+              '&rounded=true'
+          "
+          class="rounded-full w-8 h-8 mr-3"
+        />
         {{ user?.display_name }}
         <svg
           class="fill-current h-4 w-4 ml-2"
@@ -60,6 +68,10 @@ export class ProfileButton {
 
   openProfile() {
     this.profile.emit();
+  }
+  
+  encodeUrl(url: string) {
+    return encodeURIComponent(url);
   }
 
   logoutUser() {
