@@ -1,6 +1,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { User } from 'src/app/modules/music/shared/models/user.model';
 
+const UI_AVATARS_HOST = 'https://ui-avatars.com/api/?name=';
+const UI_AVATARS_PARAMETERS = '&rounded=true';
+
 @Component({
   selector: 'profile-button',
   styleUrls: ['./profile-button.component.scss'],
@@ -55,8 +58,6 @@ import { User } from 'src/app/modules/music/shared/models/user.model';
     </div>
   `,
 })
-const UI_AVATARS_HOST = 'https://ui-avatars.com/api/?name=';
-const UI_AVATARS_PARAMETERS = '&rounded=true';
 export class ProfileButton {
   @Input() user: User;
   @Output() profile = new EventEmitter<any>();
