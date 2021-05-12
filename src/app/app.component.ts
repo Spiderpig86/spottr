@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Store } from 'src/store';
@@ -21,14 +22,23 @@ export class AppComponent implements OnInit {
   auth$: Observable<string>;
   playlists$: Observable<PlaylistsResponse>;
 
+  APP_NAME: string = `Spottr`;
+
   constructor(
     private store: Store,
-    private router: Router,
     private auth: AuthService,
+    private title: Title,
+    private meta: Meta
   ) {}
 
   ngOnInit() {
     this.auth$ = this.store.select(AuthConstants.AUTH_KEY);
+    this.title.setTitle(this.APP_NAME);
+    this.meta.addTags([
+      {name: 'keywords', content: 'spottr, spotify, music, spotify music, music charts, songs, tracks, artists, deezer, tidal, apple music, prime music'},
+      {name: 'description', content: 'Spottr is the one place to view your Spotify stats year round.'},
+      {name: 'robots', content: 'index, follow'}
+    ]);
   }
 
   isLoggedIn() {
