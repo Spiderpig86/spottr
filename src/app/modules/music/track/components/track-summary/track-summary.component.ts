@@ -30,9 +30,9 @@ import { Track } from '../../../shared/models/shared.model';
             </div>
           </div>
           <div>
-            <a [href]="track?.external_urls['spotify']">
+            <external-link [href]="track?.external_urls['spotify']">
               <spottr-button text="Open In Spotify"></spottr-button>
-            </a>
+            </external-link>
           </div>
         </div>
       </div>
