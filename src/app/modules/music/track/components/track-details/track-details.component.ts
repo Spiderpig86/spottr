@@ -1,6 +1,7 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label } from 'ng2-charts';
+import { RecommendationsResponse } from '../../../shared/models/recommendations.model';
 
 import {
   Track,
@@ -86,7 +87,7 @@ import {
         </div>
       </div>
 
-      <div *ngIf="this.trackAudioFeatures && this.trackAnalysis">
+      <div *ngIf="this.trackAudioFeatures && this.trackAnalysis" class="mb-8">
         <p class="text-3xl font-bold">Audio Features</p>
         <canvas
           baseChart
@@ -99,6 +100,13 @@ import {
         >
         </canvas>
       </div>
+
+      <div *ngIf="this.similarTracks">
+        <p class="text-3xl font-bold my-2">Related Songs</p>
+        <div *ngFor="let track of similarTracks.tracks">
+          <top-tracks-item [topTrack]="track"></top-tracks-item>
+        </div>
+      </div>
     </div>
   `,
 })
@@ -106,6 +114,7 @@ export class TrackDetailsComponent {
   @Input() track: Track;
   @Input() trackFeatures: TrackFeatures;
   @Input() trackAnalysis: TrackAudioAnalysis;
+  @Input() similarTracks: RecommendationsResponse;
 
   trackAudioFeatureLabels: Label[] = [
     'Danceability',

@@ -12,6 +12,7 @@ import { TimestampPipe } from './pipes/timestamp.pipe';
 import { ModalityPipe } from './pipes/modality.pipe';
 import { ProfileService } from './services/profile.service';
 import { PageComponent } from './components/page/page.component';
+import { RecommendationsService } from './services/recommendations.service';
 
 @NgModule({
   imports: [CommonModule, RouterModule, AppSharedModule],
@@ -28,7 +29,7 @@ import { PageComponent } from './components/page/page.component';
     KeyPipe,
     ModalityPipe,
   ],
-  providers: [ProfileService],
+  providers: [ProfileService, RecommendationsService],
   exports: [
     ProfileButton,
     NavBarComponent,

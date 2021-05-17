@@ -28,6 +28,6 @@ export const RECOMMENDATIONS_ROUTES: Routes = [
     RouterModule.forChild(RECOMMENDATIONS_ROUTES),
   ],
   declarations: [RecommendationsComponent, RecommendationsViewComponent],
-  providers: [RecommendationsService, PlaylistsService],
+  providers: [PlaylistsService],
 })
 export class RecommendationsModule {}
