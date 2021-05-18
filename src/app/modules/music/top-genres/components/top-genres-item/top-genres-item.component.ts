@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Artist } from '../../../shared/models/shared.model';
 
 @Component({
   selector: 'top-genres-item',
@@ -12,13 +13,29 @@ import { Component, Input } from '@angular/core';
         <div class="overflow-hidden overflow-ellipsis whitespace-nowrap pr-1">
           <p>{{ genre }}</p>
         </div>
-        <div class="hidden overflow-hidden overflow-ellipsis whitespace-nowrap pr-1 sm:block">
-          <progress-bar [percent]="this.percent"></progress-bar>
+        <div
+          class="hidden overflow-hidden overflow-ellipsis whitespace-nowrap pr-1 sm:block"
+        >
+          <progress-bar [percent]="this.getPercent()"></progress-bar>
         </div>
         <div
           class="overflow-hidden overflow-ellipsis whitespace-nowrap text-sm text-gray-600"
         >
-          <p>{{ count }} tracks</p>
+          <p>{{ artists.length }} artists</p>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap col-span-3">
+        <div *ngFor="let artist of artists">
+          <a
+            class="relative block"
+            [routerLink]="['/music/artist/', artist.id]"
+          >
+            <img
+              class="rounded-full mx-auto w-8 h-8 mb-1 mr-1"
+              [src]="artist.images[0].url"
+            />
+          </a>
         </div>
       </div>
     </div>
@@ -27,8 +44,12 @@ import { Component, Input } from '@angular/core';
 export class TopGenresItemComponent {
   @Input() rank: number;
   @Input() genre: string;
-  @Input() count: number;
-  @Input() percent: number;
+  @Input() artists: Artist[];
+  @Input() total: number;
 
   constructor() {}
+
+  getPercent(): number {
+    return (this.artists.length / this.total) * 100;
+  }
 }

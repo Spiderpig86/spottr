@@ -138,7 +138,7 @@ export class TrackDetailsComponent {
   constructor() {}
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes.trackFeatures) {
+    if (changes.trackFeatures?.currentValue) {
       this.trackAudioFeatures = [
         {
           data: this.trackAudioFeatureLabels.map(
