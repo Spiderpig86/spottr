@@ -15,8 +15,8 @@ import { AuthService } from '../../../shared/services/auth.service';
         width="32"
         height="32"
       ></canvas>
-      <div class="splash__container w-full mx-8 z-10 sm:mx-24 xl:mx-auto">
-        <div class="md:grid md:grid-cols-2 md:gap-24">
+      <div class="splash__container w-full mx-8 z-10 sm:mx-12 md:mx-24 xl:mx-auto">
+        <div class="md:grid md:grid-cols-2 md:gap-12">
           <div class=" md:self-center">
             <p class="wow mb-3 text-7xl tracking-tight md:text-8xl md:mb-8">
               Spottr.
@@ -24,7 +24,7 @@ import { AuthService } from '../../../shared/services/auth.service';
             <div class="flex my-8 md:my-12">
               <spottr-button
                 text="Launch App"
-                extraClasses="splash__btn text-xs md:text-sm mr-4 md:px-12 md:py-4"
+                extraClasses="splash__btn text-xs px-10 py-3 md:text-sm mr-4 md:px-12 md:py-4"
                 (click)="loginUser()"
               ></spottr-button>
             </div>

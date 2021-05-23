@@ -49,6 +49,8 @@ html {
 }
 
 .splash__btn {
+  @apply tracking-normal;
+
   font-weight: medium;
 }
 

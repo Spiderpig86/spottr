@@ -25,7 +25,7 @@ import { Artist } from '../../../shared/models/shared.model';
         </div>
       </div>
 
-      <div class="flex flex-wrap col-span-3">
+      <div class="flex flex-wrap col-span-2">
         <div *ngFor="let artist of artists">
           <a
             class="relative block"
