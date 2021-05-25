@@ -21,7 +21,7 @@ import { Artist } from '../../../shared/models/shared.model';
         <div
           class="overflow-hidden overflow-ellipsis whitespace-nowrap text-sm text-gray-600"
         >
-          <p>{{ artists.length }} artists</p>
+          <p>{{ artists.length }} {{ this.getArtistLabel() }}</p>
         </div>
       </div>
 
@@ -51,5 +51,9 @@ export class TopGenresItemComponent {
 
   getPercent(): number {
     return (this.artists.length / this.total) * 100;
+  }
+
+  getArtistLabel(): string {
+    return this.artists.length > 1 ? `artists` : `artist`;
   }
 }

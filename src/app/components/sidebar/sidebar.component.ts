@@ -14,8 +14,10 @@ import { filter } from 'rxjs/operators';
     >
       <div class="sidebar__container h-full grid">
         <div class="pb-8 flex justify-between md:block">
-          <a routerLink="/music/dashboard" class="font-bold text-2xl"
-            >Spottr.</a
+          <a routerLink="/music/dashboard" class="font-bold text-2xl">
+            <div class="flex align-middle">
+              <img src="/assets/images/logo.png" />Spottr.
+            </div></a
           >
           <button class="md:hidden" (click)="toggleSidebar()">
             <i class="fas fa-bars"></i>
