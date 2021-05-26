@@ -16,7 +16,7 @@ import { filter } from 'rxjs/operators';
         <div class="pb-8 flex justify-between md:block">
           <a routerLink="/music/dashboard" class="font-bold text-2xl">
             <div class="flex align-middle">
-              <img src="/assets/images/logo.png" />Spottr.
+              <img src="/assets/images/logo.svg" />Spottr.
             </div></a
           >
           <button class="md:hidden" (click)="toggleSidebar()">
