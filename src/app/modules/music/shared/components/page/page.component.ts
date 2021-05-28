@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { User } from '../../models/user.model';
@@ -8,15 +8,26 @@ import { ProfileService } from '../../services/profile.service';
   selector: 'page',
   styleUrls: ['./page.component.scss'],
   template: `
-    <div class="page">
-      <div class="nav-bar-wrapper">
-        <nav-bar *ngIf="user$" [profile]="user$ | async"></nav-bar>
+    <div class="page" [class.grid]="!isDone">
+      <div *ngIf="!isDone; else elseBlock" class="spinner__container">
+        <div class="spinner">
+          <div class="spinner__progress"></div>
+        </div>
       </div>
-      <ng-content></ng-content>
+
+      <ng-template #elseBlock>
+        <div class="nav-bar-wrapper">
+          <nav-bar *ngIf="user$" [profile]="user$ | async"></nav-bar>
+        </div>
+        <ng-content></ng-content>
+      </ng-template>
     </div>
   `,
 })
 export class PageComponent implements OnInit {
+  @Input()
+  isDone?: boolean = true;
+
   user$: Observable<User>;
 
   constructor(private profileService: ProfileService) {}

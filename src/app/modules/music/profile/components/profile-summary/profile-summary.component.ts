@@ -5,7 +5,7 @@ import { GetFollowingResponse, User } from '../../../shared/models/user.model';
 @Component({
   selector: 'profile-summary',
   styleUrls: ['./profile-summary.component.scss'],
-  template: `<div class="mb-8" *ngIf="user && getFollowingResponse && playlistsResponse">
+  template: `<div class="mb-8">
     <div
       class="text-center md:text-normal md:py-8 md:flex md:justify-between md:items-center"
     >
@@ -19,8 +19,7 @@ import { GetFollowingResponse, User } from '../../../shared/models/user.model';
       </div>
     </div>
 
-    <div class="flex flex-col px-8">
-      <!-- <p class="text-4xl md:text-9xl font-bold">Your Stats</p> -->
+    <div class="flex flex-col px-8 text-center md:text-left">
       <div>
         <p class="text-4xl md:text-9xl font-bold">
           {{ user.followers.total }}
@@ -40,14 +39,6 @@ import { GetFollowingResponse, User } from '../../../shared/models/user.model';
         </p>
       </div>
     </div>
-    <!-- <div>
-        <p class="uppercase tracking-wide font-light">Followers</p>
-        <p>{{ user. }}</p>
-      </div>
-      <div>
-        <p class="uppercase tracking-wide font-light">Followers</p>
-        <p>{{ user.follwers }}</p>
-      </div> -->
   </div> `,
 })
 export class ProfileSummaryComponent {

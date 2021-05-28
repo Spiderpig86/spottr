@@ -9,7 +9,7 @@ import { ProfileService } from '../shared/services/profile.service';
   selector: 'profile',
   styleUrls: ['./profile.component.scss'],
   template: `
-    <page>
+    <page [isDone]="(user$ | async) && (following$ | async) && (playlists$ | async)">
       <profile-summary
         [user]="user$ | async"
         [getFollowingResponse]="following$ | async"

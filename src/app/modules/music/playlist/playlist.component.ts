@@ -14,14 +14,16 @@ import { ProfileService } from '../shared/services/profile.service';
   selector: 'playlist',
   styleUrls: ['./playlist.component.scss'],
   template: `
-    <page>
+    <page [isDone]="(playlistDetails$ | async) && playlistTracks">
       <div class="md:flex">
-        <div *ngIf="playlistDetails$" class="playlist__stats">
+        <div class="playlist__stats">
           <div class="image-container">
             <img [src]="(playlistDetails$ | async)?.images[0].url" />
           </div>
           <p class="text-2xl font-bold">
-            <span class="title wrap">{{ (playlistDetails$ | async)?.name }}</span>
+            <span class="title wrap">{{
+              (playlistDetails$ | async)?.name
+            }}</span>
           </p>
           <p class="text-m mb-4 text-gray-300">
             {{ (playlistDetails$ | async)?.tracks.total }} Tracks
@@ -43,11 +45,7 @@ import { ProfileService } from '../shared/services/profile.service';
           </div>
         </div>
         <div class="flex-grow">
-          <playlist-view
-            *ngIf="playlistTracks"
-            [playlistTracks]="playlistTracks"
-          >
-          </playlist-view>
+          <playlist-view [playlistTracks]="playlistTracks"> </playlist-view>
         </div>
       </div>
     </page>

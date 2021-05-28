@@ -14,13 +14,6 @@ import { ProfileService } from '../shared/services/profile.service';
   selector: 'artist',
   styleUrls: ['./artist.component.scss'],
   template: `
-    <!-- <div class="page">
-      <nav-bar *ngIf="user$" [profile]="user$ | async"></nav-bar>
-      <artist-summary [artist]="artist$ | async"></artist-summary>
-      <artist-top-tracks [topTracks]="topTracks$ | async"></artist-top-tracks>
-      <artist-related [relatedArtists]="relatedArtists$ | async"></artist-related>
-    </div> -->
-
     <page>
       <artist-summary [artist]="artist$ | async"></artist-summary>
       <artist-top-tracks [topTracks]="topTracks$ | async"></artist-top-tracks>
