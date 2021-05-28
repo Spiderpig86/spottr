@@ -31,16 +31,23 @@ const routes: Routes = [
     BrowserModule,
     CommonModule,
     HttpClientModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, {
+      scrollPositionRestoration: "enabled",
+    }),
     AuthModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+    }),
   ],
-  providers: [Store, {
-    provide: HTTP_INTERCEPTORS,
-    useFactory: (router: Router) => new AuthInterceptor(router),
-    multi: true,
-    deps: [Router]
-  }],
+  providers: [
+    Store,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useFactory: (router: Router) => new AuthInterceptor(router),
+      multi: true,
+      deps: [Router],
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -20,8 +20,8 @@ import { ProfileService } from '../shared/services/profile.service';
           <div class="image-container">
             <img [src]="(playlistDetails$ | async)?.images[0].url" />
           </div>
-          <p class="text-4xl font-bold">
-            <span class="title">{{ (playlistDetails$ | async)?.name }}</span>
+          <p class="text-2xl font-bold">
+            <span class="title wrap">{{ (playlistDetails$ | async)?.name }}</span>
           </p>
           <p class="text-m mb-4 text-gray-300">
             {{ (playlistDetails$ | async)?.tracks.total }} Tracks

@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
+import { PlaylistsResponse } from '../../../shared/models/playlist.model';
 import { GetFollowingResponse, User } from '../../../shared/models/user.model';
 
 @Component({
   selector: 'profile-summary',
   styleUrls: ['./profile-summary.component.scss'],
-  template: `<div class="mb-8" *ngIf="user && getFollowingResponse">
+  template: `<div class="mb-8" *ngIf="user && getFollowingResponse && playlistsResponse">
     <div
       class="text-center md:text-normal md:py-8 md:flex md:justify-between md:items-center"
     >
@@ -19,7 +20,7 @@ import { GetFollowingResponse, User } from '../../../shared/models/user.model';
     </div>
 
     <div class="flex flex-col px-8">
-      <p class="text-4xl md:text-9xl font-bold">Your Stats</p>
+      <!-- <p class="text-4xl md:text-9xl font-bold">Your Stats</p> -->
       <div>
         <p class="text-4xl md:text-9xl font-bold">
           {{ user.followers.total }}
@@ -30,6 +31,12 @@ import { GetFollowingResponse, User } from '../../../shared/models/user.model';
         <p class="text-4xl md:text-9xl font-bold">
           {{ getFollowingResponse.artists.items.length }}
           <span class="text-gray-700 text-2xl md:text-7xl">Following</span>
+        </p>
+      </div>
+      <div>
+        <p class="text-4xl md:text-9xl font-bold">
+          {{ playlistsResponse.items.length }}
+          <span class="text-gray-700 text-2xl md:text-7xl">Playlists</span>
         </p>
       </div>
     </div>
@@ -48,5 +55,7 @@ export class ProfileSummaryComponent {
   user: User;
   @Input()
   getFollowingResponse: GetFollowingResponse;
+  @Input()
+  playlistsResponse: PlaylistsResponse;
   constructor() {}
 }
