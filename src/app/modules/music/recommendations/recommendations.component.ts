@@ -21,7 +21,7 @@ const LABEL_FAILURE = `❌ Error creating playlist.`;
   selector: 'recommendations',
   styleUrls: ['./recommendations.component.scss'],
   template: `
-    <page>
+    <page [isDone]="(user$ | async) && (playlistDetails$ | async) && (playlistRecommendations$ | async)">
       <recommendations-view
         [playlist]="playlistDetails$ | async"
         [recommendedTracks]="playlistRecommendations$ | async"

@@ -16,7 +16,7 @@ import { TracksService } from '../shared/services/tracks.service';
   selector: 'track',
   styleUrls: ['./track.component.scss'],
   template: `
-    <page>
+    <page [isDone]="(user$ | async) && (track$ | async) && (trackAnalysis$ | async) && (trackFeatures$ | async) && (similarTracks$ | async)">
       <track-summary [track]="track$ | async"></track-summary>
       <track-details
         [track]="track$ | async"

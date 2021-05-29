@@ -14,7 +14,7 @@ import { ProfileService } from '../shared/services/profile.service';
   selector: 'artist',
   styleUrls: ['./artist.component.scss'],
   template: `
-    <page>
+    <page [isDone]="(user$ | async) && (artist$ | async) && (relatedArtists$ | async) && (topTracks$ | async)">
       <artist-summary [artist]="artist$ | async"></artist-summary>
       <artist-top-tracks [topTracks]="topTracks$ | async"></artist-top-tracks>
       <artist-related
