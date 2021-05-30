@@ -13,6 +13,7 @@ import { ModalityPipe } from './pipes/modality.pipe';
 import { ProfileService } from './services/profile.service';
 import { PageComponent } from './components/page/page.component';
 import { RecommendationsService } from './services/recommendations.service';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   imports: [CommonModule, RouterModule, AppSharedModule],
@@ -23,6 +24,7 @@ import { RecommendationsService } from './services/recommendations.service';
     PageComponent,
     TimeRangeComponent,
     TopTracksItemComponent,
+    SpinnerComponent,
 
     // Pipes
     TimestampPipe,
@@ -37,6 +39,7 @@ import { RecommendationsService } from './services/recommendations.service';
     PageComponent,
     TimeRangeComponent,
     TopTracksItemComponent,
+    SpinnerComponent,
 
     // Pipes
     TimestampPipe,

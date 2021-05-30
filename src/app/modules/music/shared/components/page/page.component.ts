@@ -9,10 +9,8 @@ import { ProfileService } from '../../services/profile.service';
   styleUrls: ['./page.component.scss'],
   template: `
     <div class="page" [class.grid]="!isDone">
-      <div *ngIf="!isDone; else elseBlock" class="spinner__container">
-        <div class="spinner">
-          <div class="spinner__progress"></div>
-        </div>
+      <div *ngIf="!isDone; else elseBlock">
+        <spinner></spinner>
       </div>
 
       <ng-template #elseBlock>
