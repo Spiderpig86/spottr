@@ -4,6 +4,7 @@ import { ButtonComponent } from 'src/app/components/button/button.component';
 import { InfoOverlayComponent } from 'src/app/components/info-overlay/info-overlay.component';
 import { ExternalLinkComponent } from 'src/app/components/link/link.component';
 import { ProgressBarComponent } from 'src/app/components/progress-bar/progress-bar.component';
+import { LocalStorageService } from './local-storage.service';
 import { ScriptService } from './script.service';
 
 @NgModule({
@@ -14,7 +15,7 @@ import { ScriptService } from './script.service';
     ProgressBarComponent,
     ExternalLinkComponent,
   ],
-  providers: [ScriptService],
+  providers: [ScriptService, LocalStorageService],
   exports: [
     ButtonComponent,
     InfoOverlayComponent,
