@@ -1,27 +1,66 @@
-# Spottr
+<p align="center"><img src="https://raw.githubusercontent.com/Spiderpig86/spottr/master/src/assets/images/preview.png" ></p>
+<h3 align="center">Your Spotify stats year-round.</h3>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.0.
+## ✨ Features
 
-## Development server
+**Top Stats**
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- View details for your top:
+  - Artists
+  - Tracks
+  - Genres
+- Get data broken down for:
+  - Last 4 Weeks
+  - Last 6 Months
+  - All Time
 
-## Code scaffolding
+**Playlist**
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Browse the playlists you follow or created.
+- Get similar tracks for a given playlist.
+- Export similar playlist to your Spotify account.
 
-## Build
+**Track**
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+- View track details including musical and audio features.
+- Discover related tracks.
 
-## Running unit tests
+**Artist**
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- View artist genres, follower count and popularity.
+- View artist's top tracks.
+- Discover similar artists.
 
-## Running end-to-end tests
+:building_construction: Built With
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+- :zap: Angular - a platform for building mobile and desktop web applications.
+- :art: Tailwind - Rapidly build modern websites without ever leaving your HTML.
+- :musical_note: Spotify API - for fetching Spotify data.
+- :bar_chart: Chart.js - Simple, clean and engaging HTML5 based JavaScript charts.
 
-## Further help
+## :framed_picture: How it works
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+![Demo](https://raw.githubusercontent.com/Spiderpig86/spottr/master/images/demo.gif)
+
+*Demo*
+
+![Login](https://raw.githubusercontent.com/Spiderpig86/spottr/master/images/login.jpg)
+
+*Login page*
+
+![Home](https://raw.githubusercontent.com/Spiderpig86/spottr/master/images/home.jpg)
+
+*Home*
+
+![Top Genres](https://raw.githubusercontent.com/Spiderpig86/spottr/master/images/genre.jpg)
+
+*Top Genres*
+
+![Similar Playlist](https://raw.githubusercontent.com/Spiderpig86/spottr/master/images/playlist.jpg)
+
+*Similar Playlist*
+
+![Track Details](https://raw.githubusercontent.com/Spiderpig86/spottr/master/images/track.jpg)
+
+*Track Details*
+
