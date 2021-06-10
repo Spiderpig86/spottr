@@ -35,7 +35,7 @@
 
 - :zap: [Angular](https://angular.io/) - a platform for building mobile and desktop web applications.
 - :art: [Tailwind](https://tailwindcss.com/) - Rapidly build modern websites without ever leaving your HTML.
-- :musical_note: [Spotify](https://developer.spotify.com/documentation/web-api/) API - for fetching Spotify data.
+- :musical_note: [Spotify API](https://developer.spotify.com/documentation/web-api/) - for fetching Spotify data.
 - :bar_chart: [Chart.js](https://www.chartjs.org/) - Simple, clean and engaging HTML5 based JavaScript charts.
 
 ## :framed_picture: How it works
