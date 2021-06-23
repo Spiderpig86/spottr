@@ -8,7 +8,7 @@ import { Artist } from '../../../shared/models/shared.model';
     <div class="mb-8">
       <div class="text-center md:text-normal md:py-8 md:flex md:justify-between md:items-center">
         <div class="mb-4 md:flex md:items-center">
-          <img class="artist-img" [src]="artist?.images[0].url" />
+          <img class="artist-img" [src]="artist?.images[0]?.url | avatar : artist?.name" />
           <p class="ml-6 my-2 text-2xl md:text-6xl font-bold">{{ artist?.name }}</p>
         </div>
         <div>

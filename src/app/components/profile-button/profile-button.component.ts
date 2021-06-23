@@ -1,9 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { User } from 'src/app/modules/music/shared/models/user.model';
 
-const UI_AVATARS_HOST = 'https://ui-avatars.com/api/?name=';
-const UI_AVATARS_PARAMETERS = '&rounded=true';
-
 @Component({
   selector: 'profile-button',
   styleUrls: ['./profile-button.component.scss'],
@@ -14,7 +11,7 @@ const UI_AVATARS_PARAMETERS = '&rounded=true';
         (click)="openProfile()"
       >
         <img
-          [src]="user?.images[0]?.url || getAvatarFallback(user?.display_name)"
+          [src]="user?.images[0]?.url | avatar : user?.display_name"
           class="rounded-full w-8 h-8 mr-3"
         />
         {{ user?.display_name }}
@@ -68,12 +65,6 @@ export class ProfileButton {
 
   openProfile() {
     this.profile.emit();
-  }
-
-  getAvatarFallback(name: string) {
-    return `${UI_AVATARS_HOST}${encodeURIComponent(
-      name
-    )}${UI_AVATARS_PARAMETERS}`;
   }
 
   logoutUser() {

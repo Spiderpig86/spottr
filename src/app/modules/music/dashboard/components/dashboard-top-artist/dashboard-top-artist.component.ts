@@ -8,8 +8,9 @@ import { Artist } from '../../../shared/models/shared.model';
     <div class="flex items-center justify-center flex-col my-4">
       <a class="relative block" [routerLink]="['/music/artist/', topArtist.id]">
         <img
+          *ngIf="topArtist"
           class="rounded-full mx-auto w-32 h-32 mb-4 md:w-48 md:h-48"
-          [src]="topArtist.images[0].url"
+          [src]="topArtist.images[0]?.url | avatar: topArtist.name"
         />
         <info-overlay></info-overlay>
       </a>
