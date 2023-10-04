@@ -26,7 +26,7 @@
     "dotenv-webpack": "^6.0.0",
     "ng2-charts": "^2.4.2",
     "ngx-build-plus": "^10.1.1",
-    "postcss": "^8.1.10",
+    "postcss": "^8.4.31",
     "postcss-import": "^13.0.0",
     "postcss-scss": "^3.0.4",
     "rxjs": "~6.6.0",
