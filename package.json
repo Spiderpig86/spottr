@@ -25,7 +25,7 @@
     "dotenv": "^8.2.0",
     "dotenv-webpack": "^6.0.0",
     "ng2-charts": "^2.4.2",
-    "ngx-build-plus": "^10.1.1",
+    "ngx-build-plus": "^18.0.0",
     "postcss": "^8.4.31",
     "postcss-import": "^13.0.0",
     "postcss-scss": "^3.0.4",
@@ -35,7 +35,7 @@
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.1001.0",
+    "@angular-devkit/build-angular": "~18.2.2",
     "@angular/cli": "~17.3.5",
     "@angular/compiler-cli": "~10.1.0",
     "@types/jasmine": "~3.5.0",
