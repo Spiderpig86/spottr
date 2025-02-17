@@ -7,9 +7,13 @@ export const AuthConstants = {
   API_TOP_ARTISTS: '/top/artists',
 
   AUTH_KEY: 'access_token',
-  AUTH_TYPE: 'token_type,',
+  AUTH_TYPE: 'token_type',
 
   LOCAL_TOKEN: 'spottr_auth_token',
+
+  // PKCE
+  CODE_VERIFIER: 'code_verifier',
+  PKCE_AUTH_CODE: 'pkce_auth_code',
 
   TOP_SHORT: 'short_term',
   TOP_MEDIUM: 'medium_term',

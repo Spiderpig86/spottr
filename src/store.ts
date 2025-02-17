@@ -4,11 +4,16 @@ import { Injectable } from '@angular/core';
 import { LocalStorageService } from './app/modules/shared/local-storage.service';
 
 export interface State {
+  // Match keys in local storage
   access_token: string | undefined;
+  code_verifier: string | undefined;
+  pkce_auth_code: string | undefined;
 }
 
 const state: State = {
   access_token: null,
+  code_verifier: null,
+  pkce_auth_code: null,
 };
 
 @Injectable({ providedIn: 'root' })

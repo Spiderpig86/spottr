@@ -15,7 +15,9 @@ import { AuthService } from '../../../shared/services/auth.service';
         width="32"
         height="32"
       ></canvas>
-      <div class="splash__container w-full mx-8 z-10 sm:mx-12 md:mx-24 xl:mx-auto">
+      <div
+        class="splash__container w-full mx-8 z-10 sm:mx-12 md:mx-24 xl:mx-auto"
+      >
         <div class="md:grid md:grid-cols-2 md:gap-12">
           <div class=" md:self-center">
             <p class="wow mb-3 text-7xl tracking-tight md:text-8xl md:mb-8">
@@ -38,8 +40,8 @@ import { AuthService } from '../../../shared/services/auth.service';
           </div>
         </div>
         <p class="text-xs mt-12 md:text-sm md:w-1/2">
-          Spottr is not affiliated, associated, authorized, endorsed by,
-          or in any way officially connected with © Spotify AB.
+          Spottr is not affiliated, associated, authorized, endorsed by, or in
+          any way officially connected with © Spotify AB.
         </p>
       </div>
     </div>
@@ -55,40 +57,70 @@ export class LoginComponent implements OnInit {
     private scriptService: ScriptService
   ) {
     // Check if store has token already
-    this.route.fragment
+    if (this.route.snapshot.queryParamMap.has(`code`)) {
+      // PKCE flow
+      this.route.queryParams
       .pipe(
-        map((fragment) => new URLSearchParams(fragment)),
+        map((queryParams) => new URLSearchParams(queryParams)),
         map((params) => ({
-          access_token: params.get('access_token'),
-          id_token: params.get('id_token'),
+          code: params.get('code'),
+          state: params.get('state'),
           error: params.get('error'),
         })),
         tap((res) => {
-          auth.setToken(res.access_token);
+          auth.setPKCEAuthorizationCode(res.code);
+        }))
+        .subscribe(async (res) => {
+          // Fetch auth token with authorization code
+          if (!res.code || res.error) {
+            console.error(`Spotify Auth server sync failed.`, res.code, res.error)
+            return;
+          }
+
+          // Fetch token
+          const authToken = await auth.fetchAuthToken();
+          auth.setToken(authToken);
+          this.redirectUserToMainPage();
         })
-      )
-      .subscribe(async (res) => {
-        console.log(res, 'aaaaa');
+    } else {
+      // Legacy flow
+      this.route.fragment
+        .pipe(
+          map((fragment) => new URLSearchParams(fragment)),
+          map((params) => ({
+            access_token: params.get('access_token'),
+            id_token: params.get('id_token'),
+            error: params.get('error'),
+          })),
+          tap((res) => {
+            auth.setToken(res.access_token);
+          })
+        )
+        .subscribe(async (res) => {
+          if (!res.access_token) {
+            return;
+          }
+          // TODO: Load user profile if possible to check if logged in?
 
-        if (!res.access_token) {
-          return;
-        }
-        // TODO: Load user profile if possible to check if logged in?
-
-        auth.setToken(res.access_token);
-      });
+          auth.setToken(res.access_token);
+        });
+    }
   }
 
   ngOnInit() {
     if (this.auth.authToken) {
       console.trace(`Already logged in`, this.auth.authToken);
-      this.router.navigate(['/music']);
+      this.redirectUserToMainPage();
       return;
     }
     this.scriptService.load('splash');
   }
 
   loginUser(): void {
-    this.auth.login();
+    this.auth.loginPKCE();
+  }
+
+  redirectUserToMainPage() {
+    this.router.navigate(['/music']);
   }
 }
