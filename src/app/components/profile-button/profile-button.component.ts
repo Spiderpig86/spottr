@@ -30,7 +30,7 @@ import { User } from 'src/app/modules/music/shared/models/user.model';
       >
         <li class="">
           <external-link
-            classes="rounded-t bg-gray-800 text-white hover:bg-gray-700 py-2 px-4 block whitespace-no-wrap"
+            classes="bg-gray-800 text-white hover:bg-gray-700 py-2 px-4 block whitespace-no-wrap"
             href="https://github.com/Spiderpig86/spottr"
           >
             Github
