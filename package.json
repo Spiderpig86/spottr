@@ -30,7 +30,7 @@
     "postcss-import": "^13.0.0",
     "postcss-scss": "^3.0.4",
     "rxjs": "~6.6.0",
-    "tailwindcss": "^2.0.1",
+    "tailwindcss": "^4.3.3",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },
